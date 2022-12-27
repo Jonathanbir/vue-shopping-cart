@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <RouterView />
-  </div>
+  <NevigationVue />
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import NevigationVue from "./components/Nevigation.vue";
 </script>
 
 <style scoped></style>
