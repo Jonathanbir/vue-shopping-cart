@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
   width: 300px;
-  margin: 10px;
+  margin-bottom: 10px;
 
   .img {
     width: 100%;
