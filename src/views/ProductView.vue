@@ -65,7 +65,6 @@ import { useStore } from "vuex";
 import ProductItemVue from "../components/ProductItem.vue";
 const store = useStore();
 const productData = computed(() => store.state.productData);
-console.log("productData", productData.value);
 </script>
 
 <style lang="scss" scoped>

@@ -5,7 +5,9 @@
     <div class="price">${{ item.price }}</div>
     <div class="product-more">
       <div class="more-btn btn">查看更多</div>
-      <div class="shopping-btn btn">加到購物車</div>
+      <div class="shopping-btn btn" @click="store.commit('addCartItem', item)">
+        加到購物車
+      </div>
     </div>
   </div>
 </template>
@@ -15,7 +17,7 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const productList = computed(() => store.state.productList);
-console.log("productList", productList.value);
+const cartItems = computed(() => store.state.cartItems);
 </script>
 
 <style lang="scss" scoped>
