@@ -1,8 +1,8 @@
 <template>
-  <div class="product-item">
-    <div class="img"></div>
-    <h2>巧克力</h2>
-    <div class="price">$100</div>
+  <div class="product-item" v-for="item in productList">
+    <img :src="item.imageUrl" />
+    <h2>{{ item.name }}</h2>
+    <div class="price">${{ item.price }}</div>
     <div class="product-more">
       <div class="more-btn btn">查看更多</div>
       <div class="shopping-btn btn">加到購物車</div>
@@ -10,7 +10,13 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+const productList = computed(() => store.state.productList);
+console.log("productList", productList.value);
+</script>
 
 <style lang="scss" scoped>
 .product-item {
@@ -21,13 +27,9 @@
   width: 300px;
   margin-bottom: 10px;
 
-  .img {
+  img {
     width: 100%;
-    height: 200px;
-    background-image: url("https://www.conas-choc.com/upload/fac_product_list_pic/tw_fac_product_list_19g09_83gdf62m3i.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    height: 100%;
   }
 
   h2 {

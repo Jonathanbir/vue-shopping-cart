@@ -1,36 +1,71 @@
 <template>
   <div class="product-container">
-    <div data-v-573c6fd0="" class="sticky-top">
-      <ul data-v-573c6fd0="" class="list-group mb-3 category">
-        <li data-v-573c6fd0="" class="list-group-item">全部商品</li>
-        <li data-v-573c6fd0="" class="list-group-item">上半身</li>
-        <li data-v-573c6fd0="" class="list-group-item">下半身</li>
-        <li data-v-573c6fd0="" class="list-group-item">鞋</li>
-        <li data-v-573c6fd0="" class="list-group-item">飾品</li>
-        <li data-v-573c6fd0="" class="list-group-item">配件</li>
+    <div class="sticky-top">
+      <ul class="list-group mb-3 category">
+        <li
+          @click="store.commit('handleChangeCart', productData[0].items)"
+          class="list-group-item"
+        >
+          全部商品
+        </li>
+        <li
+          @click="store.commit('handleChangeCart', productData[0].items)"
+          class="list-group-item"
+        >
+          上半身
+        </li>
+        <li
+          @click="store.commit('handleChangeCart', productData[3].items)"
+          class="list-group-item"
+        >
+          下半身
+        </li>
+        <li
+          @click="store.commit('handleChangeCart', productData[1].items)"
+          class="list-group-item"
+        >
+          鞋
+        </li>
+        <li
+          @click="store.commit('handleChangeCart', productData[2].items)"
+          class="list-group-item"
+        >
+          外套
+        </li>
+        <li
+          @click="store.commit('handleChangeCart', productData[4].items)"
+          class="list-group-item"
+        >
+          配件
+        </li>
       </ul>
-      <!-- <form data-v-573c6fd0="" class="input-group mb-3">
+      <!-- <form  class="input-group mb-3">
         <input
-          data-v-573c6fd0=""
+          
           type="search"
           placeholder="search"
           class="form-control"
         />
-        <div data-v-573c6fd0="" class="input-group-append">
-          <button data-v-573c6fd0="" class="input-group-text bg-light">
-            <i data-v-573c6fd0="" class="fas fa-search"></i>
+        <div  class="input-group-append">
+          <button  class="input-group-text bg-light">
+            <i  class="fas fa-search"></i>
           </button>
         </div>
       </form> -->
     </div>
     <div class="product">
-      <ProductItemVue v-for="n in 10" />
+      <ProductItemVue />
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
 import ProductItemVue from "../components/ProductItem.vue";
+const store = useStore();
+const productData = computed(() => store.state.productData);
+console.log("productData", productData.value);
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +77,7 @@ import ProductItemVue from "../components/ProductItem.vue";
   margin: auto;
   .sticky-top {
     max-width: 16.66667%;
+    margin-right: 100px;
     .list-group-item {
       position: relative;
       display: block;
