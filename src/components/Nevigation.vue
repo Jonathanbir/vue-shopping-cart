@@ -2,7 +2,7 @@
   <header v-if="screen > 530">
     <div
       class="nav-wrapper"
-      :style="scroll && { background: '#000', top: '-15px' }"
+      :style="scroll && { background: '#150A43', top: '-15px' }"
     >
       <nav>
         <div class="nav-container">
@@ -22,7 +22,10 @@
           <RouterLink to="/news">最新消息</RouterLink>
           <RouterLink to="/">會員優惠 </RouterLink>
         </div>
-        <div class="cart-container">
+        <div
+          class="cart-container"
+          :style="scroll && { color: '#ccb7a5', top: '-8px' }"
+        >
           <div class="icon-item">
             <fa class="icon" icon="user" />
           </div>
@@ -105,6 +108,8 @@ onMounted(() => {
     transition: all 0.5s ease-in-out;
 
     .cart-container {
+      position: relative;
+      top: -8px;
       display: flex;
 
       .icon-item {

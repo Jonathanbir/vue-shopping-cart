@@ -1,6 +1,7 @@
 const DATA = [
   {
     title: "薄片夾心巧克力",
+    idx: "0",
     items: [
       {
         id: 1,
@@ -94,6 +95,7 @@ const DATA = [
   },
   {
     title: "生巧克力",
+    idx: "1",
     items: [
       {
         id: 7,
@@ -158,6 +160,7 @@ const DATA = [
   },
   {
     title: "乾果巧克力",
+    idx: "2",
     items: [
       {
         id: 11,
@@ -280,6 +283,7 @@ const DATA = [
   },
   {
     title: "跳跳糖松露巧克力",
+    idx: "3",
     items: [
       {
         id: 19,
@@ -328,6 +332,7 @@ const DATA = [
   },
   {
     title: "磚情巧克力 ",
+    idx: "4",
     items: [
       {
         id: 22,
@@ -437,23 +442,28 @@ const DATA = [
     ],
   },
   {
-    title: "",
+    title: "巧克力周邊",
+    idx: "5",
     items: [
       {
         id: 29,
-        name: "",
-        imageUrl: "",
-        img2: "",
-        img3: "",
-        description: "",
-        desImg1: "",
-        desImg2: "",
+        name: "【無添加糖】100%醇濃可可粉",
+        imageUrl:
+          "https://www.conas-choc.com/upload/fac_product_list_pic/tw_fac_product_list_20f08_zpp57297q6.jpg",
+        img2: "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/6373066/0/638042184282870000?v=1",
+        img3: "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/6373066/2/638042184282870000?v=1",
+        description: "品嚐可可最原萃的濃、醇、香~",
+        desImg1:
+          "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6373066/1.jpg?ts=180110",
+        desImg2:
+          "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6373066/2.jpg?ts=180110",
         price: 1099,
       },
       {
         id: 30,
-        name: "",
-        imageUrl: "",
+        name: "CoCoNina 榛果巧克力醬心蛋捲",
+        imageUrl:
+          "https://www.conas-choc.com/upload/fac_product_list_pic/tw_fac_product_list_22j05_7ib5t4q7kz.jpg",
         img2: "",
         img3: "",
         description: "",
@@ -463,8 +473,9 @@ const DATA = [
       },
       {
         id: 31,
-        name: "",
-        imageUrl: "",
+        name: "CoCoNina 醇濃巧克力醬心蛋捲",
+        imageUrl:
+          "https://www.conas-choc.com/upload/fac_product_list_pic/tw_fac_product_list_22j05_gmvj3puuqr.jpg",
         img2: "",
         img3: "",
         description: "",
@@ -472,50 +483,50 @@ const DATA = [
         desImg2: "",
         price: 299,
       },
-      {
-        id: 32,
-        name: "",
-        imageUrl: "",
-        img2: "",
-        img3: "",
-        description: "",
-        desImg1: "",
-        desImg2: "",
-        price: 529,
-      },
-      {
-        id: 33,
-        name: "",
-        imageUrl: "",
-        img2: "",
-        img3: "",
-        description: "",
-        desImg1: "",
-        desImg2: "",
-        price: 529,
-      },
-      {
-        id: 34,
-        name: "",
-        imageUrl: "",
-        img2: "",
-        img3: "",
-        description: "",
-        desImg1: "",
-        desImg2: "",
-        price: 529,
-      },
-      {
-        id: 35,
-        name: "",
-        imageUrl: "",
-        img2: "",
-        img3: "",
-        description: "",
-        desImg1: "",
-        desImg2: "",
-        price: 529,
-      },
+      // {
+      //   id: 32,
+      //   name: "",
+      //   imageUrl: "",
+      //   img2: "",
+      //   img3: "",
+      //   description: "",
+      //   desImg1: "",
+      //   desImg2: "",
+      //   price: 529,
+      // },
+      // {
+      //   id: 33,
+      //   name: "",
+      //   imageUrl: "",
+      //   img2: "",
+      //   img3: "",
+      //   description: "",
+      //   desImg1: "",
+      //   desImg2: "",
+      //   price: 529,
+      // },
+      // {
+      //   id: 34,
+      //   name: "",
+      //   imageUrl: "",
+      //   img2: "",
+      //   img3: "",
+      //   description: "",
+      //   desImg1: "",
+      //   desImg2: "",
+      //   price: 529,
+      // },
+      // {
+      //   id: 35,
+      //   name: "",
+      //   imageUrl: "",
+      //   img2: "",
+      //   img3: "",
+      //   description: "",
+      //   desImg1: "",
+      //   desImg2: "",
+      //   price: 529,
+      // },
     ],
   },
 ];

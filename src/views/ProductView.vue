@@ -1,42 +1,21 @@
 <template>
   <div class="product-container">
     <div class="sticky-top">
-      <ul class="list-group mb-3 category">
-        <!-- <li
-          @click="store.commit('handleChangeCart', productData[0].items)"
-          class="list-group-item"
-        >
-          全部商品
-        </li> -->
+      <ul class="list-group mb-3 category" v-for="(item, index) in productData">
         <li
-          @click="store.commit('handleChangeCart', productData[0].items)"
+          @click="
+            store.commit('handleChangeCart', item.items);
+            store.commit('changeCategoryIndex', index);
+          "
           class="list-group-item"
+          :style="
+            item.idx == categoryIndex && {
+              background: 'rgb(21, 10, 67)',
+              color: '#fff',
+            }
+          "
         >
-          薄片夾心巧克力
-        </li>
-        <li
-          @click="store.commit('handleChangeCart', productData[1].items)"
-          class="list-group-item"
-        >
-          生巧克力
-        </li>
-        <li
-          @click="store.commit('handleChangeCart', productData[2].items)"
-          class="list-group-item"
-        >
-          乾果巧克力
-        </li>
-        <li
-          @click="store.commit('handleChangeCart', productData[3].items)"
-          class="list-group-item"
-        >
-          跳跳糖松露巧克力
-        </li>
-        <li
-          @click="store.commit('handleChangeCart', productData[4].items)"
-          class="list-group-item"
-        >
-          磚情巧克力
+          {{ item.title }}
         </li>
       </ul>
       <!-- <form  class="input-group mb-3">
@@ -65,6 +44,7 @@ import { useStore } from "vuex";
 import ProductItemVue from "../components/ProductItem.vue";
 const store = useStore();
 const productData = computed(() => store.state.productData);
+const categoryIndex = computed(() => store.state.categoryIndex);
 </script>
 
 <style lang="scss" scoped>

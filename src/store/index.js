@@ -12,10 +12,11 @@ export const store = createStore({
       isCartOpen: false,
       productData: DATA,
       productList: DATA[0].items,
+      categoryIndex: 0,
       cartList: [],
       favoriteList: [],
       cartTotal: 0,
-      favoriteTotal: [],
+      favoriteIndex: [],
     };
   },
   mutations: {
@@ -54,8 +55,11 @@ export const store = createStore({
         0
       );
     },
-    favoriteTotal(state) {
-      state.favoriteTotal = state.favoriteList.map((item) => item.id);
+    favoriteIndex(state) {
+      state.favoriteIndex = state.favoriteList.map((item) => item.id);
+    },
+    changeCategoryIndex(state, payload) {
+      state.categoryIndex = payload;
     },
   },
 });

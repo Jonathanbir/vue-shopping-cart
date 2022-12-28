@@ -4,14 +4,21 @@
       class="favorite"
       icon="heart"
       :style="
-        favoriteTotal.find((index) => index == item.id) && { color: '#dc3545' }
+        favoriteIndex.find((index) => index == item.id) && { color: '#dc3545' }
       "
       @click="
         store.commit('addFavoriteItem', item);
-        store.commit('favoriteTotal');
+        store.commit('favoriteIndex');
       "
     />
-    <img :src="item.imageUrl" />
+    <div
+      class="img"
+      :style="
+        'background-image:url(' +
+        item.imageUrl +
+        ');background-size: 100%;background-position:center;'
+      "
+    ></div>
     <h2>{{ item.name }}</h2>
     <div class="price">${{ item.price }}</div>
     <div class="product-more">
@@ -34,7 +41,7 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const productList = computed(() => store.state.productList);
-const favoriteTotal = computed(() => store.state.favoriteTotal);
+const favoriteIndex = computed(() => store.state.favoriteIndex);
 </script>
 
 <style lang="scss" scoped>
@@ -45,15 +52,33 @@ const favoriteTotal = computed(() => store.state.favoriteTotal);
   justify-content: center;
   align-items: center;
   width: 300px;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 20%);
+  transition: all 0.5s ease-in-out;
 
-  img {
+  &:hover {
+    box-shadow: 0 8px 24px #e2e2e2;
+  }
+
+  .img {
     width: 100%;
-    height: 100%;
+    height: 200px;
   }
 
   h2 {
+    width: 280px;
+    font-size: 16px;
     margin: 0;
+    padding-top: 10px;
+  }
+
+  .price {
+    width: 100%;
+    font-size: 1.25rem;
+    color: #dc3545;
+    text-align: right;
+    padding: 10px;
+    margin-right: 10px;
   }
 
   .favorite {
@@ -73,7 +98,7 @@ const favoriteTotal = computed(() => store.state.favoriteTotal);
     width: 100%;
     display: flex;
     justify-content: space-around;
-    padding: 0.75rem 0.5rem;
+    padding: 0.75rem 0.1rem;
     background-color: rgba(0, 0, 0, 0.03);
     border-top: 1px solid rgba(0, 0, 0, 0.125);
 
