@@ -2,41 +2,41 @@
   <div class="product-container">
     <div class="sticky-top">
       <ul class="list-group mb-3 category">
-        <li
+        <!-- <li
           @click="store.commit('handleChangeCart', productData[0].items)"
           class="list-group-item"
         >
           全部商品
-        </li>
+        </li> -->
         <li
           @click="store.commit('handleChangeCart', productData[0].items)"
           class="list-group-item"
         >
-          上半身
-        </li>
-        <li
-          @click="store.commit('handleChangeCart', productData[3].items)"
-          class="list-group-item"
-        >
-          下半身
+          薄片夾心巧克力
         </li>
         <li
           @click="store.commit('handleChangeCart', productData[1].items)"
           class="list-group-item"
         >
-          鞋
+          生巧克力
         </li>
         <li
           @click="store.commit('handleChangeCart', productData[2].items)"
           class="list-group-item"
         >
-          外套
+          乾果巧克力
+        </li>
+        <li
+          @click="store.commit('handleChangeCart', productData[3].items)"
+          class="list-group-item"
+        >
+          跳跳糖松露巧克力
         </li>
         <li
           @click="store.commit('handleChangeCart', productData[4].items)"
           class="list-group-item"
         >
-          配件
+          磚情巧克力
         </li>
       </ul>
       <!-- <form  class="input-group mb-3">

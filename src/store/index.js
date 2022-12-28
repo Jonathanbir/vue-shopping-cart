@@ -1,5 +1,5 @@
 import { createStore, createLogger } from "vuex";
-import SHOP_DATA from "../shop-data";
+import DATA from "../data";
 
 export const store = createStore({
   plugins: [
@@ -10,8 +10,8 @@ export const store = createStore({
   state() {
     return {
       isCartOpen: false,
-      productData: SHOP_DATA,
-      productList: SHOP_DATA[0].items,
+      productData: DATA,
+      productList: DATA[0].items,
       cartItems: [],
     };
   },
