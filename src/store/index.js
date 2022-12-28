@@ -12,7 +12,10 @@ export const store = createStore({
       isCartOpen: false,
       productData: DATA,
       productList: DATA[0].items,
-      cartItems: [],
+      cartList: [],
+      favoriteList: [],
+      cartTotal: 0,
+      favoriteTotal: [],
     };
   },
   mutations: {
@@ -20,22 +23,39 @@ export const store = createStore({
       state.productList = value;
     },
     addCartItem(state, productToAdd) {
-      const existingCartItem = state.cartItems.find(
+      const existingCartItem = state.cartList.find(
         (cartItem) => cartItem.id == productToAdd.id
       );
       if (existingCartItem) {
-        state.cartItems = state.cartItems.map((cartItem) =>
+        state.cartList = state.cartList.map((cartItem) =>
           cartItem.id === productToAdd.id
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         );
       } else {
-        state.cartItems = [
-          ...state.cartItems,
-          { ...productToAdd, quantity: 1 },
-        ];
+        state.cartList = [...state.cartList, { ...productToAdd, quantity: 1 }];
       }
     },
+    addFavoriteItem(state, productToAdd) {
+      const existingCartItem = state.favoriteList.find(
+        (favoriteItem) => favoriteItem.id == productToAdd.id
+      );
+      if (existingCartItem) {
+        state.favoriteList = state.favoriteList.filter(
+          (favoriteItem) => favoriteItem.id !== productToAdd.id
+        );
+      } else {
+        state.favoriteList = [...state.favoriteList, { ...productToAdd }];
+      }
+    },
+    cartTotal(state) {
+      state.cartTotal = state.cartList.reduce(
+        (total, cartItem) => total + cartItem.quantity,
+        0
+      );
+    },
+    favoriteTotal(state) {
+      state.favoriteTotal = state.favoriteList.map((item) => item.id);
+    },
   },
-  actions: {},
 });

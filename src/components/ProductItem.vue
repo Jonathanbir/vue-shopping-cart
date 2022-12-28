@@ -1,11 +1,28 @@
 <template>
   <div class="product-item" v-for="item in productList">
+    <fa
+      class="favorite"
+      icon="heart"
+      :style="
+        favoriteTotal.find((index) => index == item.id) && { color: '#dc3545' }
+      "
+      @click="
+        store.commit('addFavoriteItem', item);
+        store.commit('favoriteTotal');
+      "
+    />
     <img :src="item.imageUrl" />
     <h2>{{ item.name }}</h2>
     <div class="price">${{ item.price }}</div>
     <div class="product-more">
       <div class="more-btn btn">查看更多</div>
-      <div class="shopping-btn btn" @click="store.commit('addCartItem', item)">
+      <div
+        class="shopping-btn btn"
+        @click="
+          store.commit('addCartItem', item);
+          store.commit('cartTotal');
+        "
+      >
         加到購物車
       </div>
     </div>
@@ -17,11 +34,12 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const productList = computed(() => store.state.productList);
-const cartItems = computed(() => store.state.cartItems);
+const favoriteTotal = computed(() => store.state.favoriteTotal);
 </script>
 
 <style lang="scss" scoped>
 .product-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,6 +54,19 @@ const cartItems = computed(() => store.state.cartItems);
 
   h2 {
     margin: 0;
+  }
+
+  .favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      color: #dc3545;
+    }
   }
 
   .product-more {

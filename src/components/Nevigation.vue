@@ -23,9 +23,21 @@
           <RouterLink to="/">會員優惠 </RouterLink>
         </div>
         <div class="cart-container">
-          <fa class="icon" icon="user" />
-          <fa class="icon" icon="cart-shopping" />
-          <fa class="icon" icon="heart" />
+          <div class="icon-item">
+            <fa class="icon" icon="user" />
+          </div>
+          <div class="icon-item">
+            <fa class="icon" icon="cart-shopping" />
+            <div class="total-num">
+              {{ cartTotal }}
+            </div>
+          </div>
+          <div class="icon-item">
+            <fa class="icon" icon="heart" />
+            <div class="total-num">
+              {{ favoriteList.length }}
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -44,7 +56,8 @@ import { RouterLink, RouterView } from "vue-router";
 const store = useStore();
 const scroll = ref(false);
 const screen = ref(document.documentElement.scrollWidth);
-const mobileActive = computed(() => store.state.menu.mobileActive);
+const cartTotal = computed(() => store.state.cartTotal);
+const favoriteList = computed(() => store.state.favoriteList);
 
 onMounted(() => {
   window.addEventListener(
@@ -91,34 +104,25 @@ onMounted(() => {
     margin-top: 2rem;
     transition: all 0.5s ease-in-out;
 
-    .menu {
-      position: relative;
-      padding: 5px 20px;
-      border-left: none;
+    .cart-container {
+      display: flex;
 
-      &:hover .arrow-triggle {
-        transform: rotate(180deg);
-      }
-      .arrow-triggle {
-        position: absolute;
-        top: 6px;
-        right: 4px;
-        width: 10px;
-      }
-    }
+      .icon-item {
+        position: relative;
+        margin: auto 10px;
 
-    .location {
-      position: relative;
-      padding: 5px 20px;
-
-      &:hover .arrow-triggle {
-        transform: rotate(180deg);
-      }
-      .arrow-triggle {
-        position: absolute;
-        top: 6px;
-        right: 4px;
-        width: 10px;
+        .total-num {
+          position: absolute;
+          right: -8px;
+          top: 5px;
+          width: 18px;
+          height: 18px;
+          font-size: 10px;
+          line-height: 1.1rem;
+          color: #fff;
+          background-color: red;
+          border-radius: 100%;
+        }
       }
     }
 
@@ -138,18 +142,6 @@ onMounted(() => {
       background-color: transparent;
     }
 
-    .small {
-      display: inline-block;
-      vertical-align: top;
-      margin: 0 3px;
-      padding: 5px 10px;
-      line-height: 14px;
-      font-size: 12px;
-      font-weight: 400;
-      color: #ccb7a5;
-      border-left: none;
-    }
-
     .sprite-nav-logo {
       position: relative;
       top: -10px;
@@ -161,66 +153,9 @@ onMounted(() => {
       background-position: center;
       background-repeat: no-repeat;
     }
-
-    .button-rectangle {
-      position: relative;
-      box-sizing: border-box;
-      margin-top: -3px;
-      margin-left: 20px;
-      border: 1px solid #ffe87f;
-      padding: 5px 10px;
-      margin-right: 20px;
-      position: relative;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      transition: border-color 0.1s ease-out;
-
-      .text {
-        display: inline-block;
-        margin-right: 3px;
-        pointer-events: none;
-        color: #ffe87f;
-        font-size: inherit;
-        letter-spacing: inherit;
-        position: relative;
-        z-index: 2;
-        color: #cdb8a5;
-        font-size: 12px;
-        letter-spacing: 1px;
-        -webkit-transition: color 0.1s ease-out;
-        transition: color 0.1s ease-out;
-      }
-    }
   }
 }
 
-.button-rectangle::before {
-  content: "";
-  background: #ffe87f;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  -webkit-transform: scaleY(0);
-  transform: scaleY(0);
-  -webkit-transform-origin: 50% 100%;
-  transform-origin: 50% 100%;
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-  transition: -webkit-transform 0.2s ease-out;
-  transition: transform 0.2s ease-out;
-  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
-}
-
-.button-rectangle:hover:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-}
-.button-rectangle:hover .text {
-  color: #2e2822;
-}
 nav a:first-of-type {
   border: 0;
 }
