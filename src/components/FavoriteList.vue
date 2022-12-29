@@ -14,7 +14,7 @@
         <div class="price">${{ item.price }}</div>
       </div>
     </div>
-    <div class="list-empty" v-else>購物車目前沒有商品</div>
+    <div class="list-empty" v-else>收藏清單目前沒有商品</div>
     <div
       class="list-btn-container"
       :style="favoriteList.length > 5 && { bottom: '-45px' }"
@@ -47,6 +47,7 @@ const favoriteList = computed(() => store.state.favoriteList);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 305px;
     padding: 0 10px;
 
     h2 {

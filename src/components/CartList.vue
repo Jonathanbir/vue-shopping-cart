@@ -48,6 +48,7 @@ const cartList = computed(() => store.state.cartList);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 305px;
     padding: 0 10px;
 
     h2 {
