@@ -1,36 +1,42 @@
 <template>
-  <ListModal :data="cartList">
-    <div v-for="item in cartList" v-if="cartList.length > 0">
-      <div class="list-item">
-        <div
-          class="img"
-          :style="
-            'background-image:url(' +
-            item.imageUrl +
-            ');background-size: 100%;background-position:center;background-repeat:no-repeat'
-          "
-        ></div>
-        <h2>{{ item.name }}</h2>
-        <div class="price">${{ item.price }}</div>
-        <div class="price">{{ item.quantity }}個</div>
-      </div>
+  <div class="list-message" :style="scroll && { top: '60px' }">
+    <div class="list-box" :style="listHeightStyle">
+      <slot></slot>
     </div>
-    <div class="list-empty" v-else>購物車目前沒有商品</div>
-    <div
-      class="list-btn-container"
-      :style="cartList.length > 5 && { bottom: '-45px' }"
-    >
-      <div class="list-btn">前往購物車</div>
-    </div>
-  </ListModal>
+  </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
-import ListModal from "./ListModal.vue";
-import { useStore } from "vuex";
-const store = useStore();
-const cartList = computed(() => store.state.cartList);
+import { ref, computed, onMounted } from "vue";
+const scroll = ref(false);
+
+const props = defineProps({
+  data: Object,
+});
+
+const listHeightStyle = computed(() => {
+  if (props.data.length > 5) {
+    return "height:450px";
+  } else if (props.data.length == 0) {
+    return "height:50px";
+  } else {
+    return "height:" + props.data.length * 90 + "px";
+  }
+});
+
+onMounted(() => {
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.pageYOffset > 25) {
+        scroll.value = true;
+      } else {
+        scroll.value = false;
+      }
+    },
+    true
+  );
+});
 </script>
 
 <style lang="scss" scoped>
