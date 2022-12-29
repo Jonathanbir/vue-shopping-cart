@@ -33,14 +33,18 @@
             <fa
               class="icon"
               icon="cart-shopping"
-              @click="store.commit('changeIsCartOpen', !isCartOpen)"
+              @click="store.commit('changeisListOpen', [!isListOpen[0], false])"
             />
             <div class="total-num">
               {{ cartTotal }}
             </div>
           </div>
           <div class="icon-item">
-            <fa class="icon" icon="heart" />
+            <fa
+              class="icon"
+              icon="heart"
+              @click="store.commit('changeisListOpen', [false, !isListOpen[1]])"
+            />
             <div class="total-num">
               {{ favoriteList.length }}
             </div>
@@ -64,7 +68,7 @@ const store = useStore();
 const scroll = ref(false);
 const screen = ref(document.documentElement.scrollWidth);
 const cartTotal = computed(() => store.state.cartTotal);
-const isCartOpen = computed(() => store.state.isCartOpen);
+const isListOpen = computed(() => store.state.isListOpen);
 const favoriteList = computed(() => store.state.favoriteList);
 
 onMounted(() => {

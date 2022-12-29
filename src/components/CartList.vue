@@ -35,49 +35,36 @@ const cartList = computed(() => store.state.cartList);
 
 <style lang="scss" scoped>
 .list-message {
-  position: fixed;
-  z-index: 99;
-  top: 80px;
-  right: 180px;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
-  // opacity: 0;
-  transition: all 0.5s;
-  .list-box {
-    overflow: scroll;
+  .list-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 286px;
+    height: 50px;
+    padding: 0 10px;
+  }
 
-    .list-empty {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 286px;
-      height: 50px;
-      padding: 0 10px;
+  .list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+
+    h2 {
+      width: 100px;
+      font-size: 12px;
+      margin: 5px;
     }
 
-    .list-item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 10px;
+    .img {
+      width: 80px;
+      height: 80px;
+      margin: 5px;
+    }
 
-      h2 {
-        width: 100px;
-        font-size: 12px;
-        margin: 5px;
-      }
-
-      .img {
-        width: 80px;
-        height: 80px;
-        margin: 5px;
-      }
-
-      .price {
-        font-size: 12px;
-        margin: 5px;
-      }
+    .price {
+      font-size: 12px;
+      margin: 5px;
     }
   }
   .list-btn-container {

@@ -9,7 +9,7 @@ export const store = createStore({
   ],
   state() {
     return {
-      isCartOpen: false,
+      isListOpen: [false, false],
       productData: DATA,
       productList: DATA[0].items,
       categoryIndex: 0,
@@ -61,8 +61,8 @@ export const store = createStore({
     changeCategoryIndex(state, payload) {
       state.categoryIndex = payload;
     },
-    changeIsCartOpen(state, payload) {
-      state.isCartOpen = payload;
+    changeisListOpen(state, payload) {
+      state.isListOpen = payload;
     },
   },
 });

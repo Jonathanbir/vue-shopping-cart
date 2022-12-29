@@ -1,6 +1,9 @@
 <template>
   <Transition name="fadeAndShow" mode="out-in">
-    <ListMessageVue v-show="isCartOpen" />
+    <CartList v-show="isListOpen[0]" />
+  </Transition>
+  <Transition name="fadeAndShow" mode="out-in">
+    <FavoriteList v-show="isListOpen[1]" />
   </Transition>
   <div class="product-container">
     <div class="sticky-top">
@@ -45,10 +48,11 @@
 import { computed, Transition } from "vue";
 import { useStore } from "vuex";
 import ProductItemVue from "../components/ProductItem.vue";
-import ListMessageVue from "../components/ListMessage.vue";
+import CartList from "../components/CartList.vue";
+import FavoriteList from "../components/FavoriteList.vue";
 const store = useStore();
 const productData = computed(() => store.state.productData);
-const isCartOpen = computed(() => store.state.isCartOpen);
+const isListOpen = computed(() => store.state.isListOpen);
 const categoryIndex = computed(() => store.state.categoryIndex);
 </script>
 
@@ -60,7 +64,7 @@ const categoryIndex = computed(() => store.state.categoryIndex);
 
 .fadeAndShow-enter-from {
   opacity: 0;
-  right: -300px;
+  right: 100px;
 }
 
 .fadeAndShow-enter-to {
@@ -74,7 +78,7 @@ const categoryIndex = computed(() => store.state.categoryIndex);
 }
 .fadeAndShow-leave-to {
   opacity: 0;
-  right: -300px;
+  right: 100px;
 }
 
 .fadeAndShow-leave-active {
