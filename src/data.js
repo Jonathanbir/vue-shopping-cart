@@ -347,7 +347,7 @@ const DATA = [
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195426/0.jpg?ts=182400",
         desImg2:
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195426/1.jpg?ts=182400",
-        price: 3799,
+        price: 359,
       },
       {
         id: 23,
@@ -362,7 +362,7 @@ const DATA = [
           "	https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195414/1.jpg?ts=182436",
         desImg2:
           "	https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195414/2.jpg?ts=182436",
-        price: 25,
+        price: 359,
       },
       {
         id: 24,
@@ -377,7 +377,7 @@ const DATA = [
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195405/1.jpg?ts=182502",
         desImg2:
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195405/2.jpg?ts=182502",
-        price: 1199,
+        price: 359,
       },
       {
         id: 25,
@@ -392,7 +392,7 @@ const DATA = [
           "	https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195330/0.jpg?ts=191810",
         desImg2:
           "	https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195330/1.jpg?ts=191810",
-        price: 80,
+        price: 359,
       },
       {
         id: 26,
@@ -407,7 +407,7 @@ const DATA = [
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195286/1.jpg?ts=182822",
         desImg2:
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195286/2.jpg?ts=182822",
-        price: 959,
+        price: 359,
       },
       {
         id: 27,
@@ -422,7 +422,7 @@ const DATA = [
           "	https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195276/1.jpg?ts=182638",
         desImg2:
           "	https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195276/2.jpg?ts=182638",
-        price: 959,
+        price: 359,
       },
       {
         id: 28,
@@ -437,7 +437,7 @@ const DATA = [
           "	https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195260/1.jpg?ts=182736",
         desImg2:
           "	https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6195260/2.jpg?ts=182736",
-        price: 1099,
+        price: 359,
       },
     ],
   },
@@ -457,7 +457,7 @@ const DATA = [
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6373066/1.jpg?ts=180110",
         desImg2:
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/6373066/2.jpg?ts=180110",
-        price: 1099,
+        price: 259,
       },
       {
         id: 30,
