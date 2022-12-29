@@ -65,6 +65,10 @@ export const store = createStore({
     clearCartList(state) {
       state.cartList = [];
     },
+    clearFavoriteList(state) {
+      state.favoriteList = [];
+      state.favoriteIndex = [];
+    },
     addFavoriteItem(state, productToAdd) {
       const existingCartItem = state.favoriteList.find(
         (favoriteItem) => favoriteItem.id == productToAdd.id
@@ -91,6 +95,11 @@ export const store = createStore({
     },
     favoriteIndex(state) {
       state.favoriteIndex = state.favoriteList.map((item) => item.id);
+    },
+    removeFavoriteIndex(state, payload) {
+      state.favoriteIndex = state.favoriteIndex.filter(
+        (favoriteItem) => favoriteItem !== payload.id
+      );
     },
     changeCategoryIndex(state, payload) {
       state.categoryIndex = payload;

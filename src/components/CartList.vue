@@ -20,7 +20,7 @@
       class="list-btn-container"
       :style="cartList.length > 5 && { bottom: '-45px' }"
     >
-      <router-link to="/list"
+      <router-link to="/list/cart"
         ><div
           class="primary btn"
           @click="store.commit('changeisListOpen', [false, false])"

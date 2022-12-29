@@ -19,7 +19,14 @@
       class="list-btn-container"
       :style="favoriteList.length > 5 && { bottom: '-45px' }"
     >
-      <div class="primary btn">前往收藏清單</div>
+      <router-link to="/list/favorite">
+        <div
+          class="primary btn"
+          @click="store.commit('changeisListOpen', [false, false])"
+        >
+          前往收藏清單
+        </div></router-link
+      >
     </div>
   </ListModal>
 </template>

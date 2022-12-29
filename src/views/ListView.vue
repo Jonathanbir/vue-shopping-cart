@@ -17,10 +17,20 @@
           <th role="columnheader" scope="col" aria-colindex="2">
             <div>單件價格</div>
           </th>
-          <th role="columnheader" scope="col" aria-colindex="3">
+          <th
+            v-show="route.params.listName == 'cart'"
+            role="columnheader"
+            scope="col"
+            aria-colindex="3"
+          >
             <div>數量</div>
           </th>
-          <th role="columnheader" scope="col" aria-colindex="3">
+          <th
+            v-show="route.params.listName == 'cart'"
+            role="columnheader"
+            scope="col"
+            aria-colindex="3"
+          >
             <div>小計</div>
           </th>
           <th role="columnheader" scope="col" aria-colindex="3">
@@ -28,8 +38,20 @@
           </th>
         </tr>
       </thead>
-      <tbody role="rowgroup" v-if="cartList.length > 0">
-        <tr role="row" v-for="list in cartList">
+      <tbody
+        role="rowgroup"
+        v-if="
+          route.params.listName == 'cart'
+            ? cartList.length > 0
+            : favoriteList.length > 0
+        "
+      >
+        <tr
+          role="row"
+          v-for="list in route.params.listName == 'cart'
+            ? cartList
+            : favoriteList"
+        >
           <td aria-colindex="1" role="cell" class="td-01">
             <div
               class="img"
@@ -43,8 +65,18 @@
           <td aria-colindex="1" role="cell" class="td-01">
             <h2>{{ list.name }}</h2>
           </td>
-          <td aria-colindex="2" role="cell">NT${{ list.price }}</td>
-          <td aria-colindex="3" role="cell">
+          <td
+            v-show="route.params.listName == 'cart'"
+            aria-colindex="2"
+            role="cell"
+          >
+            NT${{ list.price }}
+          </td>
+          <td
+            v-show="route.params.listName == 'cart'"
+            aria-colindex="3"
+            role="cell"
+          >
             <div class="increase icon">
               <fa
                 icon="circle-plus"
@@ -68,27 +100,27 @@
             </div>
           </td>
           <td aria-colindex="4" role="cell">NT${{ list.price }}</td>
-          <td
-            aria-colindex="5"
-            role="cell"
-            @click="
-              store.commit('clearCartItem', list);
-              store.commit('cartTotal');
-              store.commit('priceTotal');
-            "
-          >
+          <td aria-colindex="5" role="cell" @click="removeFunction(list)">
             <fa class="icon" icon="trash-can" />
           </td>
         </tr>
         <tr>
           <td aria-colindex="4" role="cell" colspan="5">
             <div
-              class="primary btn clear-btn"
-              @click="store.commit('clearCartList')"
+              class="primary btn"
+              :style="route.params.listName == 'cart' ? { float: 'left' } : {}"
+              @click="
+                route.params.listName == 'cart'
+                  ? store.commit('clearCartList')
+                  : store.commit('clearFavoriteList');
+                store.commit('cartTotal');
+              "
             >
-              清空購物車
+              {{
+                route.params.listName == "cart" ? "清空購物車" : "清空收藏清單"
+              }}
             </div>
-            <div class="price-total">
+            <div v-show="route.params.listName == 'cart'" class="price-total">
               總計:NT$ <span>{{ priceTotal }}</span>
             </div>
           </td>
@@ -96,7 +128,13 @@
       </tbody>
       <tbody role="rowgroup" v-else>
         <td aria-colindex="1" role="cell" colspan="5">
-          <h3>購物車目前沒有商品</h3>
+          <h3>
+            {{
+              route.params.listName == "cart"
+                ? "購物車目前沒有商品"
+                : "收藏清單目前沒有商品"
+            }}
+          </h3>
           <router-link to="/product"
             ><div
               class="primary btn"
@@ -114,9 +152,23 @@
 <script setup>
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+const route = useRoute();
 const store = useStore();
 const cartList = computed(() => store.state.cartList);
+const favoriteList = computed(() => store.state.favoriteList);
 const priceTotal = computed(() => store.state.priceTotal);
+
+const removeFunction = (list) => {
+  if (route.params.listName == "cart") {
+    store.commit("cartTotal");
+    store.commit("priceTotal");
+    store.commit("clearCartItem", list);
+  } else {
+    store.commit("addFavoriteItem", list);
+    store.commit("removeFavoriteIndex", list);
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -168,10 +220,6 @@ const priceTotal = computed(() => store.state.priceTotal);
       font-size: 12px;
       margin: 5px;
     }
-  }
-
-  .clear-btn {
-    float: left;
   }
 
   .price-total {
