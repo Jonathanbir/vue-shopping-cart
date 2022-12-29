@@ -4,7 +4,9 @@
       class="favorite"
       icon="heart"
       :style="
-        favoriteIndex.find((index) => index == item.id) && { color: '#dc3545' }
+        favoriteIndex.find((index) => index == item.id) && {
+          color: '#dc3545',
+        }
       "
       @click="
         store.commit('addFavoriteItem', item);
@@ -85,13 +87,14 @@ const favoriteIndex = computed(() => store.state.favoriteIndex);
     position: absolute;
     top: 10px;
     right: 10px;
-    color: #fff;
+    color: #aaa;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 100%;
+    padding: 5px;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-
-    &:hover {
-      color: #dc3545;
-    }
   }
 
   .product-more {

@@ -30,7 +30,11 @@
             <fa class="icon" icon="user" />
           </div>
           <div class="icon-item">
-            <fa class="icon" icon="cart-shopping" />
+            <fa
+              class="icon"
+              icon="cart-shopping"
+              @click="store.commit('changeIsCartOpen', !isCartOpen)"
+            />
             <div class="total-num">
               {{ cartTotal }}
             </div>
@@ -60,6 +64,7 @@ const store = useStore();
 const scroll = ref(false);
 const screen = ref(document.documentElement.scrollWidth);
 const cartTotal = computed(() => store.state.cartTotal);
+const isCartOpen = computed(() => store.state.isCartOpen);
 const favoriteList = computed(() => store.state.favoriteList);
 
 onMounted(() => {

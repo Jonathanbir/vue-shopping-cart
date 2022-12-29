@@ -61,5 +61,8 @@ export const store = createStore({
     changeCategoryIndex(state, payload) {
       state.categoryIndex = payload;
     },
+    changeIsCartOpen(state, payload) {
+      state.isCartOpen = payload;
+    },
   },
 });

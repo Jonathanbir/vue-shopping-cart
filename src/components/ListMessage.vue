@@ -1,0 +1,144 @@
+<template>
+  <div class="list-message" :style="scroll && { top: '60px' }">
+    <div class="list-box" :style="listHeightStyle">
+      <div v-for="item in cartList" v-if="cartList.length > 0">
+        <div class="list-item">
+          <div
+            class="img"
+            :style="
+              'background-image:url(' +
+              item.imageUrl +
+              ');background-size: 100%;background-position:center;background-repeat:no-repeat'
+            "
+          ></div>
+          <h2>{{ item.name }}</h2>
+          <div class="price">${{ item.price }}</div>
+          <div class="price">{{ item.quantity }}個</div>
+        </div>
+      </div>
+      <div class="list-empty" v-else>購物車目前沒有商品</div>
+    </div>
+    <div class="list-btn-container" :style="listTopStyle">
+      <div class="list-btn">前往購物車</div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+const scroll = ref(false);
+const cartList = computed(() => store.state.cartList);
+const favoriteList = computed(() => store.state.favoriteList);
+
+const listHeightStyle = computed(() => {
+  if (cartList.value.length > 5) {
+    return "height:450px";
+  } else if (cartList.value.length == 0) {
+    return "height:50px";
+  } else {
+    return "height:" + cartList.value.length * 90 + "px";
+  }
+});
+
+const listTopStyle = () => {
+  if (cartList.value.length > 5) {
+    return { top: "450px" };
+  } else {
+    return { top: cartList.value.length * 90 + "px" };
+  }
+};
+
+onMounted(() => {
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.pageYOffset > 25) {
+        scroll.value = true;
+      } else {
+        scroll.value = false;
+      }
+    },
+    true
+  );
+});
+</script>
+
+<style lang="scss" scoped>
+.list-message {
+  position: fixed;
+  z-index: 99;
+  top: 80px;
+  right: 180px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
+  // opacity: 0;
+  transition: all 0.5s;
+  .list-box {
+    overflow: scroll;
+
+    .list-empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 286px;
+      height: 50px;
+      padding: 0 10px;
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+
+      h2 {
+        width: 100px;
+        font-size: 12px;
+        margin: 5px;
+      }
+
+      .img {
+        width: 80px;
+        height: 80px;
+        margin: 5px;
+      }
+
+      .price {
+        font-size: 12px;
+        margin: 5px;
+      }
+    }
+  }
+  .list-btn-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
+
+    .list-btn {
+      width: 150px;
+      margin: auto;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+      margin-top: 7px;
+      padding: 0.375rem 0.75rem;
+      color: #fff;
+      background: rgb(21, 10, 67);
+      cursor: pointer;
+    }
+  }
+}
+</style>

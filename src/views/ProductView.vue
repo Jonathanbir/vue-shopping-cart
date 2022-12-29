@@ -1,4 +1,7 @@
 <template>
+  <Transition name="fadeAndShow" mode="out-in">
+    <ListMessageVue v-show="isCartOpen" />
+  </Transition>
   <div class="product-container">
     <div class="sticky-top">
       <ul class="list-group mb-3 category" v-for="(item, index) in productData">
@@ -39,15 +42,46 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, Transition } from "vue";
 import { useStore } from "vuex";
 import ProductItemVue from "../components/ProductItem.vue";
+import ListMessageVue from "../components/ListMessage.vue";
 const store = useStore();
 const productData = computed(() => store.state.productData);
+const isCartOpen = computed(() => store.state.isCartOpen);
 const categoryIndex = computed(() => store.state.categoryIndex);
 </script>
 
 <style lang="scss" scoped>
+.fadeAndShow-enter-active {
+  animation: scale 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.fadeAndShow-enter-from {
+  opacity: 0;
+  right: -300px;
+}
+
+.fadeAndShow-enter-to {
+  opacity: 1;
+  right: 180px;
+}
+
+.fadeAndShow-leave-from {
+  opacity: 1;
+  right: 180px;
+}
+.fadeAndShow-leave-to {
+  opacity: 0;
+  right: -300px;
+}
+
+.fadeAndShow-leave-active {
+  transition: all 0.5s ease-in;
+  animation: scale 0.5s ease-in reverse;
+}
+
 .product-container {
   position: relative;
   top: 100px;
