@@ -35,7 +35,15 @@
               icon="cart-shopping"
               @click="store.commit('changeisListOpen', [!isListOpen[0], false])"
             />
-            <div class="total-num">
+            <div
+              class="total-num"
+              :style="
+                cartTotal !== 0 && {
+                  backgroundColor: 'rgb(204, 183, 165)',
+                  color: '#000',
+                }
+              "
+            >
               {{ cartTotal }}
             </div>
           </div>
@@ -45,7 +53,15 @@
               icon="heart"
               @click="store.commit('changeisListOpen', [false, !isListOpen[1]])"
             />
-            <div class="total-num">
+            <div
+              class="total-num"
+              :style="
+                favoriteList.length !== 0 && {
+                  backgroundColor: 'rgb(204, 183, 165)',
+                  color: '#000',
+                }
+              "
+            >
               {{ favoriteList.length }}
             </div>
           </div>
@@ -134,7 +150,7 @@ onMounted(() => {
           font-size: 10px;
           line-height: 1.1rem;
           color: #fff;
-          background-color: red;
+          background-color: #bf7f5a;
           border-radius: 100%;
         }
       }

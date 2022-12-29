@@ -52,6 +52,9 @@
             ? cartList
             : favoriteList"
         >
+          <td aria-colindex="1" role="cell" class="name td-01">
+            <h2>{{ list.name }}</h2>
+          </td>
           <td aria-colindex="1" role="cell" class="td-01">
             <div
               class="img"
@@ -61,9 +64,6 @@
                 ');background-size: 100%;background-position:center;background-repeat:no-repeat'
               "
             ></div>
-          </td>
-          <td aria-colindex="1" role="cell" class="td-01">
-            <h2>{{ list.name }}</h2>
           </td>
           <td
             v-show="route.params.listName == 'cart'"
@@ -161,9 +161,9 @@ const priceTotal = computed(() => store.state.priceTotal);
 
 const removeFunction = (list) => {
   if (route.params.listName == "cart") {
+    store.commit("clearCartItem", list);
     store.commit("cartTotal");
     store.commit("priceTotal");
-    store.commit("clearCartItem", list);
   } else {
     store.commit("addFavoriteItem", list);
     store.commit("removeFavoriteIndex", list);
@@ -219,6 +219,12 @@ const removeFunction = (list) => {
     h2 {
       font-size: 12px;
       margin: 5px;
+    }
+  }
+  .name {
+    h2 {
+      font-weight: 900;
+      font-size: 16px;
     }
   }
 
