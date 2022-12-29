@@ -298,7 +298,7 @@ const DATA = [
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/4700349/0.jpg?ts=130307",
         desImg2:
           "https://diz36nn4q02zr.cloudfront.net/webapi/images/r/SalePageDesc/4700349/1.jpg?ts=130307",
-        price: 1799,
+        price: 299,
       },
       {
         id: 20,

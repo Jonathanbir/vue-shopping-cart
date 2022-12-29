@@ -8,28 +8,28 @@
       id="__BVID__1798"
     >
       <!----><!---->
-      <thead role="rowgroup" class="">
+      <thead role="rowgroup">
         <!---->
-        <tr role="row" class="">
-          <th role="columnheader" scope="col" aria-colindex="1" class="">
+        <tr role="row">
+          <th role="columnheader" scope="col" aria-colindex="1">
             <div>商品資訊</div>
           </th>
-          <th role="columnheader" scope="col" aria-colindex="2" class="">
+          <th role="columnheader" scope="col" aria-colindex="2">
             <div>單件價格</div>
           </th>
-          <th role="columnheader" scope="col" aria-colindex="3" class="">
+          <th role="columnheader" scope="col" aria-colindex="3">
             <div>數量</div>
           </th>
-          <th role="columnheader" scope="col" aria-colindex="3" class="">
+          <th role="columnheader" scope="col" aria-colindex="3">
             <div>小計</div>
           </th>
-          <th role="columnheader" scope="col" aria-colindex="3" class="">
+          <th role="columnheader" scope="col" aria-colindex="3">
             <div>刪除</div>
           </th>
         </tr>
       </thead>
-      <tbody role="rowgroup">
-        <tr role="row" class="" v-for="list in cartList">
+      <tbody role="rowgroup" v-if="cartList.length > 0">
+        <tr role="row" v-for="list in cartList">
           <td aria-colindex="1" role="cell" class="td-01">
             <div
               class="img"
@@ -43,13 +43,69 @@
           <td aria-colindex="1" role="cell" class="td-01">
             <h2>{{ list.name }}</h2>
           </td>
-          <td aria-colindex="2" role="cell" class="">NT${{ list.price }}</td>
-          <td aria-colindex="3" role="cell" class="">{{ list.quantity }}</td>
-          <td aria-colindex="4" role="cell" class="">NT${{ list.price }}</td>
-          <td aria-colindex="5" role="cell" class="">
+          <td aria-colindex="2" role="cell">NT${{ list.price }}</td>
+          <td aria-colindex="3" role="cell">
+            <div class="increase icon">
+              <fa
+                icon="circle-plus"
+                @click="
+                  store.commit('addCartItem', list);
+                  store.commit('cartTotal');
+                  store.commit('priceTotal');
+                "
+              />
+            </div>
+            {{ list.quantity }}
+            <div
+              class="decrease icon"
+              @click="
+                store.commit('removeCartItem', list);
+                store.commit('cartTotal');
+                store.commit('priceTotal');
+              "
+            >
+              <fa icon="circle-minus" />
+            </div>
+          </td>
+          <td aria-colindex="4" role="cell">NT${{ list.price }}</td>
+          <td
+            aria-colindex="5"
+            role="cell"
+            @click="
+              store.commit('clearCartItem', list);
+              store.commit('cartTotal');
+              store.commit('priceTotal');
+            "
+          >
             <fa class="icon" icon="trash-can" />
           </td>
         </tr>
+        <tr>
+          <td aria-colindex="4" role="cell" colspan="5">
+            <div
+              class="primary btn clear-btn"
+              @click="store.commit('clearCartList')"
+            >
+              清空購物車
+            </div>
+            <div class="price-total">
+              總計:NT$ <span>{{ priceTotal }}</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tbody role="rowgroup" v-else>
+        <td aria-colindex="1" role="cell" colspan="5">
+          <h3>購物車目前沒有商品</h3>
+          <router-link to="/product"
+            ><div
+              class="primary btn"
+              @click="store.commit('changeisListOpen', [false, false])"
+            >
+              前往商品頁
+            </div></router-link
+          >
+        </td>
       </tbody>
     </table>
   </div>
@@ -60,12 +116,13 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const cartList = computed(() => store.state.cartList);
+const priceTotal = computed(() => store.state.priceTotal);
 </script>
 
 <style lang="scss" scoped>
 .list-container {
   position: relative;
-  top: 200px;
+  top: 100px;
   max-width: 1320px;
   width: 1200px;
   margin: auto;
@@ -82,6 +139,11 @@ const cartList = computed(() => store.state.cartList);
 
   thead {
     background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  span {
+    font-size: 20px;
+    font-weight: 800;
   }
 
   .table td,
@@ -107,8 +169,14 @@ const cartList = computed(() => store.state.cartList);
       margin: 5px;
     }
   }
-  .icon {
-    cursor: pointer;
+
+  .clear-btn {
+    float: left;
+  }
+
+  .price-total {
+    margin-top: 8px;
+    float: right;
   }
 }
 </style>

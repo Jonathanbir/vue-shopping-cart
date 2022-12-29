@@ -3,3 +3,28 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.btn {
+  margin: auto;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.primary {
+  width: 150px;
+  color: #fff;
+  background: rgb(21, 10, 67);
+  margin-top: 7px;
+  padding: 0.375rem 0.75rem;
+}
+
+.icon {
+  cursor: pointer;
+}

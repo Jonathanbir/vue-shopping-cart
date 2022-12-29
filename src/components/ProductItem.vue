@@ -22,7 +22,7 @@
       "
     ></div>
     <h2>{{ item.name }}</h2>
-    <div class="price">${{ item.price }}</div>
+    <div class="price">$ {{ item.price }}</div>
     <div class="product-more">
       <div class="more-btn btn">查看更多</div>
       <div
@@ -30,6 +30,7 @@
         @click="
           store.commit('addCartItem', item);
           store.commit('cartTotal');
+          store.commit('priceTotal');
         "
       >
         加到購物車

@@ -19,7 +19,7 @@
       class="list-btn-container"
       :style="favoriteList.length > 5 && { bottom: '-45px' }"
     >
-      <div class="list-btn">前往收藏清單</div>
+      <div class="primary btn">前往收藏清單</div>
     </div>
   </ListModal>
 </template>
@@ -76,24 +76,6 @@ const favoriteList = computed(() => store.state.favoriteList);
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
-
-    .list-btn {
-      width: 150px;
-      margin: auto;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      text-align: center;
-      text-decoration: none;
-      vertical-align: middle;
-      border: 1px solid transparent;
-      border-radius: 0.25rem;
-      margin-top: 7px;
-      padding: 0.375rem 0.75rem;
-      color: #fff;
-      background: rgb(21, 10, 67);
-      cursor: pointer;
-    }
   }
 }
 </style>
