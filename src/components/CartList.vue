@@ -20,7 +20,9 @@
       class="list-btn-container"
       :style="cartList.length > 5 && { bottom: '-45px' }"
     >
-      <div class="list-btn">前往購物車</div>
+      <router-link to="/list"
+        ><div class="list-btn">前往購物車</div></router-link
+      >
     </div>
   </ListModal>
 </template>

@@ -18,7 +18,7 @@
               "
             ></div
           ></RouterLink>
-          <RouterLink class="commodity" to="/commodity">商品頁</RouterLink>
+          <RouterLink to="/product">商品頁</RouterLink>
           <RouterLink to="/news">最新消息</RouterLink>
           <RouterLink to="/">會員優惠 </RouterLink>
         </div>
