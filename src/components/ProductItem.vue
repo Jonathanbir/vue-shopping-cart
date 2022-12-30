@@ -42,7 +42,6 @@ import { useStore } from "vuex";
 const store = useStore();
 const productList = computed(() => store.state.productList);
 const favoriteList = computed(() => store.state.favoriteList);
-const isToastifyOpen = computed(() => store.state.isToastifyOpen);
 </script>
 
 <style lang="scss" scoped>

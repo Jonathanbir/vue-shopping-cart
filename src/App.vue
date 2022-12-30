@@ -64,35 +64,6 @@ const isAlertBoxOpen = computed(() => store.state.isAlertBoxOpen);
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.fadeAndShow-enter-active {
-  animation: scale 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.fadeAndShow-enter-from {
-  opacity: 0;
-  right: 100px;
-}
-
-.fadeAndShow-enter-to {
-  opacity: 1;
-  right: 180px;
-}
-
-.fadeAndShow-leave-from {
-  opacity: 1;
-  right: 180px;
-}
-.fadeAndShow-leave-to {
-  opacity: 0;
-  right: 100px;
-}
-
-.fadeAndShow-leave-active {
-  transition: all 0.5s ease-in;
-  animation: scale 0.5s ease-in reverse;
-}
-
 .fadeAndShowToasitify-enter-active {
   animation: scale 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;

@@ -12,12 +12,18 @@
         <fa
           class="arrow arrow-left"
           icon="circle-chevron-left"
-          @click="changeRecommend"
+          @click="
+            changeRecommend();
+            store.commit('handleAnimation');
+          "
         />
         <fa
           class="arrow arrow-right"
           icon="circle-chevron-right"
-          @click="changeRecommend"
+          @click="
+            changeRecommend();
+            store.commit('handleAnimation');
+          "
         />
         <tr role="row">
           <td
@@ -27,46 +33,50 @@
             v-for="(list, idx) in DATA[index].items"
             v-show="idx < 3"
           >
-            <div
-              class="img"
-              :style="
-                'background-image:url(' +
-                list.imageUrl +
-                ');background-size: 100%;background-position:center;background-repeat:no-repeat'
-              "
-            ></div>
-            <h2 class="name">
-              {{ list.name }}
-            </h2>
-            <p
-              v-show="route.params.listName == 'cart'"
-              aria-colindex="2"
-              role="cell"
-            >
-              NT${{ list.price }}
-            </p>
-            <div class="recommend-btn">
-              <fa
-                class="favorite"
-                icon="heart"
-                :style="
-                  favoriteList.find((index) => index.id == list.id) && {
-                    color: '#dc3545',
-                  }
-                "
-                @click="store.commit('addFavoriteItem', list)"
-              />
-              <div
-                class="shopping-btn btn"
-                @click="
-                  store.commit('addCartItem', list);
-                  store.commit('cartTotal');
-                  store.commit('priceTotal');
-                "
-              >
-                加到購物車
+            <Transition name="fadeAndShow" mode="out-in">
+              <div v-show="animation">
+                <div
+                  class="img"
+                  :style="
+                    'background-image:url(' +
+                    list.imageUrl +
+                    ');background-size: 100%;background-position:center;background-repeat:no-repeat'
+                  "
+                ></div>
+                <h2 class="name">
+                  {{ list.name }}
+                </h2>
+                <p
+                  v-show="route.params.listName == 'cart'"
+                  aria-colindex="2"
+                  role="cell"
+                >
+                  NT${{ list.price }}
+                </p>
+                <div class="recommend-btn">
+                  <fa
+                    class="favorite"
+                    icon="heart"
+                    :style="
+                      favoriteList.find((index) => index.id == list.id) && {
+                        color: '#dc3545',
+                      }
+                    "
+                    @click="store.commit('addFavoriteItem', list)"
+                  />
+                  <div
+                    class="shopping-btn btn"
+                    @click="
+                      store.commit('addCartItem', list);
+                      store.commit('cartTotal');
+                      store.commit('priceTotal');
+                    "
+                  >
+                    加到購物車
+                  </div>
+                </div>
               </div>
-            </div>
+            </Transition>
           </td>
         </tr>
       </tbody>
@@ -75,7 +85,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, Transition } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import DATA from "../data";
@@ -83,6 +93,7 @@ const favoriteList = computed(() => store.state.favoriteList);
 const route = useRoute();
 const store = useStore();
 const index = ref(0);
+const animation = computed(() => store.state.animation);
 
 const changeRecommend = () => {
   index.value = Math.floor(Math.random() * 6);

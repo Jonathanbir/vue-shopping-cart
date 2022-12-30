@@ -9,6 +9,7 @@ export const store = createStore({
   ],
   state() {
     return {
+      animation: true,
       isAlertBoxOpen: [false, false],
       isListOpen: [false, false],
       isToastifyOpen: [false, false, false, false],
@@ -125,6 +126,12 @@ export const store = createStore({
     },
     changeIsAlertBoxOpen(state, payload) {
       state.isAlertBoxOpen = payload;
+    },
+    handleAnimation(state) {
+      state.animation = false;
+      setTimeout(() => {
+        state.animation = true;
+      }, 300);
     },
   },
 });
