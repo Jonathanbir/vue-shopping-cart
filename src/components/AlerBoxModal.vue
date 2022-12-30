@@ -1,57 +1,16 @@
 <template>
   <div class="alert-box">
     <div class="modal-content">
-      <div class="modal-header text-dark py-4 border-0">
-        <fa
-          class="btn-close"
-          icon="close"
-          @click="store.commit('changeIsAlertBoxOpen', false)"
-        />
-      </div>
-      <div class="modal-body">
-        <p class="text-dark text-center">確定要移除商品嗎？</p>
-        <p class="text-sm text-info text-center">(刪除後將無法恢復)</p>
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-outline-warning"
-          data-bs-dismiss="modal"
-          @click="store.commit('changeIsAlertBoxOpen', false)"
-        >
-          取消</button
-        ><button
-          type="button"
-          class="btn btn-warning text-white"
-          @click="
-            removeFunction(removeItem);
-            store.commit('changeIsAlertBoxOpen', false);
-          "
-        >
-          確認刪除
-        </button>
-      </div>
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 const route = useRoute();
 const store = useStore();
-const removeItem = computed(() => store.state.removeItem);
-
-const removeFunction = (list) => {
-  if (route.params.listName == "cart") {
-    store.commit("clearCartItem", list);
-    store.commit("cartTotal");
-    store.commit("priceTotal");
-  } else {
-    store.commit("addFavoriteItem", list);
-  }
-};
 </script>
 
 <style lang="scss" scoped>

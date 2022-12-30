@@ -9,7 +9,7 @@ export const store = createStore({
   ],
   state() {
     return {
-      isAlertBoxOpen: false,
+      isAlertBoxOpen: [false, false],
       isListOpen: [false, false],
       isToastifyOpen: [false, false, false, false],
       productData: DATA,

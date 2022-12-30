@@ -23,10 +23,16 @@
     >
   </Transition>
   <Transition name="fadeAndShowAlertBox" mode="out-in">
-    <AlerBox v-show="isAlertBoxOpen" />
+    <RemoveItemAlertBox v-show="isAlertBoxOpen[0]" />
+  </Transition>
+  <Transition name="fadeAndShowAlertBox" mode="out-in">
+    <RemoveAllAlertBox v-show="isAlertBoxOpen[1]" />
   </Transition>
   <Transition name="fadeAndShowBackGround" mode="out-in">
-    <div class="background" v-show="isAlertBoxOpen"></div>
+    <div
+      class="background"
+      v-show="isAlertBoxOpen[0] || isAlertBoxOpen[1]"
+    ></div>
   </Transition>
 </template>
 
@@ -37,7 +43,8 @@ import NevigationVue from "./components/Nevigation.vue";
 import CartList from "./components/CartList.vue";
 import FavoriteList from "./components/FavoriteList.vue";
 import Toastify from "./components/Toastify.vue";
-import AlerBox from "./components/AlerBox.vue";
+import RemoveItemAlertBox from "./components/RemoveItemAlertBox.vue";
+import RemoveAllAlertBox from "./components/RemoveAllAlertBox.vue";
 
 const store = useStore();
 const isListOpen = computed(() => store.state.isListOpen);

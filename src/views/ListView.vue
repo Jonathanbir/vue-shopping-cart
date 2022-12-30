@@ -105,7 +105,7 @@
               class="icon"
               icon="trash-can"
               @click="
-                store.commit('changeIsAlertBoxOpen', true);
+                store.commit('changeIsAlertBoxOpen', [true, false]);
                 store.commit('addRemoveItem', list);
               "
             />
@@ -116,12 +116,7 @@
             <div
               class="primary btn"
               :style="route.params.listName == 'cart' ? { float: 'left' } : {}"
-              @click="
-                route.params.listName == 'cart'
-                  ? store.commit('clearCartList')
-                  : store.commit('clearFavoriteList');
-                store.commit('cartTotal');
-              "
+              @click="store.commit('changeIsAlertBoxOpen', [false, true])"
             >
               {{
                 route.params.listName == "cart" ? "清空購物車" : "清空收藏清單"
