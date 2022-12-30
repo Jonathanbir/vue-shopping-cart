@@ -4,14 +4,11 @@
       class="favorite"
       icon="heart"
       :style="
-        favoriteIndex.find((index) => index == item.id) && {
+        favoriteList.find((index) => index.id == item.id) && {
           color: '#dc3545',
         }
       "
-      @click="
-        store.commit('addFavoriteItem', item);
-        store.commit('favoriteIndex');
-      "
+      @click="store.commit('addFavoriteItem', item)"
     />
     <div
       class="img"
@@ -44,7 +41,8 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const productList = computed(() => store.state.productList);
-const favoriteIndex = computed(() => store.state.favoriteIndex);
+const favoriteList = computed(() => store.state.favoriteList);
+const isToastifyOpen = computed(() => store.state.isToastifyOpen);
 </script>
 
 <style lang="scss" scoped>

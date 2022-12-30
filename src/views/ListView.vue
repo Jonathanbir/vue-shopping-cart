@@ -100,8 +100,15 @@
             </div>
           </td>
           <td aria-colindex="4" role="cell">NT${{ list.price }}</td>
-          <td aria-colindex="5" role="cell" @click="removeFunction(list)">
-            <fa class="icon" icon="trash-can" />
+          <td aria-colindex="5" role="cell">
+            <fa
+              class="icon"
+              icon="trash-can"
+              @click="
+                store.commit('changeIsAlertBoxOpen', true);
+                store.commit('addRemoveItem', list);
+              "
+            />
           </td>
         </tr>
         <tr>
@@ -158,17 +165,6 @@ const store = useStore();
 const cartList = computed(() => store.state.cartList);
 const favoriteList = computed(() => store.state.favoriteList);
 const priceTotal = computed(() => store.state.priceTotal);
-
-const removeFunction = (list) => {
-  if (route.params.listName == "cart") {
-    store.commit("clearCartItem", list);
-    store.commit("cartTotal");
-    store.commit("priceTotal");
-  } else {
-    store.commit("addFavoriteItem", list);
-    store.commit("removeFavoriteIndex", list);
-  }
-};
 </script>
 
 <style lang="scss" scoped>

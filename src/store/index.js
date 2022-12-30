@@ -9,20 +9,25 @@ export const store = createStore({
   ],
   state() {
     return {
+      isAlertBoxOpen: false,
       isListOpen: [false, false],
+      isToastifyOpen: [false, false, false, false],
       productData: DATA,
       productList: DATA[0].items,
       categoryIndex: 0,
       cartList: [],
       favoriteList: [],
+      removeItem: [],
       cartTotal: 0,
       priceTotal: 0,
-      favoriteIndex: [],
     };
   },
   mutations: {
     handleChangeCart(state, value) {
       state.productList = value;
+    },
+    addRemoveItem(state, value) {
+      state.removeItem = value;
     },
     addCartItem(state, productToAdd) {
       const existingCartItem = state.cartList.find(
@@ -36,6 +41,10 @@ export const store = createStore({
         );
       } else {
         state.cartList = [...state.cartList, { ...productToAdd, quantity: 1 }];
+        state.isToastifyOpen = [true, false, false, false];
+        setTimeout(() => {
+          state.isToastifyOpen = [false, false, false, false];
+        }, 1500);
       }
     },
     removeCartItem(state, cartItemToRemove) {
@@ -45,6 +54,10 @@ export const store = createStore({
       );
       // check if quantity is equal to 1, if it is remove that item from the cart
       if (existingCartItem.quantity == 1) {
+        state.isToastifyOpen = [false, false, false, true];
+        setTimeout(() => {
+          state.isToastifyOpen = [false, false, false, false];
+        }, 1500);
         state.cartList = state.cartList.filter(
           (cartItem) => cartItem.id !== cartItemToRemove.id
         );
@@ -58,6 +71,10 @@ export const store = createStore({
       }
     },
     clearCartItem(state, cartItemToClear) {
+      state.isToastifyOpen = [false, false, false, true];
+      setTimeout(() => {
+        state.isToastifyOpen = [false, false, false, false];
+      }, 1500);
       state.cartList = state.cartList.filter(
         (cartItem) => cartItem.id !== cartItemToClear.id
       );
@@ -67,17 +84,24 @@ export const store = createStore({
     },
     clearFavoriteList(state) {
       state.favoriteList = [];
-      state.favoriteIndex = [];
     },
     addFavoriteItem(state, productToAdd) {
       const existingCartItem = state.favoriteList.find(
         (favoriteItem) => favoriteItem.id == productToAdd.id
       );
       if (existingCartItem) {
+        state.isToastifyOpen = [false, false, true, false];
+        setTimeout(() => {
+          state.isToastifyOpen = [false, false, false, false];
+        }, 1500);
         state.favoriteList = state.favoriteList.filter(
           (favoriteItem) => favoriteItem.id !== productToAdd.id
         );
       } else {
+        state.isToastifyOpen = [false, true, false, false];
+        setTimeout(() => {
+          state.isToastifyOpen = [false, false, false, false];
+        }, 1500);
         state.favoriteList = [...state.favoriteList, { ...productToAdd }];
       }
     },
@@ -93,19 +117,14 @@ export const store = createStore({
         0
       );
     },
-    favoriteIndex(state) {
-      state.favoriteIndex = state.favoriteList.map((item) => item.id);
-    },
-    removeFavoriteIndex(state, payload) {
-      state.favoriteIndex = state.favoriteIndex.filter(
-        (favoriteItem) => favoriteItem !== payload.id
-      );
-    },
     changeCategoryIndex(state, payload) {
       state.categoryIndex = payload;
     },
     changeisListOpen(state, payload) {
       state.isListOpen = payload;
+    },
+    changeIsAlertBoxOpen(state, payload) {
+      state.isAlertBoxOpen = payload;
     },
   },
 });
