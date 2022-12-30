@@ -34,6 +34,7 @@
             : store.commit('clearFavoriteList');
           store.commit('cartTotal');
           store.commit('changeIsAlertBoxOpen', false);
+          store.commit('priceTotal');
         "
       >
         確認刪除

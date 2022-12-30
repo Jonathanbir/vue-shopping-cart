@@ -28,3 +28,24 @@ ul {
 .icon {
   cursor: pointer;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: center;
+  border: 1px solid #dee2e6;
+  text-align: center;
+}

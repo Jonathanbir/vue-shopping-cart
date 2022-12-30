@@ -1,15 +1,7 @@
 <template>
   <div class="list-container">
-    <table
-      role="table"
-      aria-busy="false"
-      aria-colcount="3"
-      class="table b-table table-striped table-hover"
-      id="__BVID__1798"
-    >
-      <!----><!---->
+    <table role="table" class="table b-table table-striped table-hover">
       <thead role="rowgroup">
-        <!---->
         <tr role="row">
           <th role="columnheader" scope="col" aria-colindex="1">
             <div>商品資訊</div>
@@ -148,6 +140,15 @@
         </td>
       </tbody>
     </table>
+    <div
+      class="list-content"
+      :style="
+        route.params.listName == 'favorite' && { justifyContent: 'center' }
+      "
+    >
+      <RecommendProduct />
+      <OderInformation v-show="route.params.listName == 'cart'" />
+    </div>
   </div>
 </template>
 
@@ -155,6 +156,8 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
+import RecommendProduct from "../components/RecommendProduct.vue";
+import OderInformation from "../components/OderInformation.vue";
 const route = useRoute();
 const store = useStore();
 const cartList = computed(() => store.state.cartList);
@@ -169,32 +172,12 @@ const priceTotal = computed(() => store.state.priceTotal);
   max-width: 1320px;
   width: 1200px;
   margin: auto;
+  margin-bottom: 100px;
 
   .table {
     width: 100%;
     margin-bottom: 1rem;
     color: #212529;
-  }
-
-  table {
-    border-collapse: collapse;
-  }
-
-  thead {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  span {
-    font-size: 20px;
-    font-weight: 800;
-  }
-
-  .table td,
-  .table th {
-    padding: 0.75rem;
-    vertical-align: center;
-    border: 1px solid #dee2e6;
-    text-align: center;
   }
 
   .td-01 {
@@ -222,6 +205,16 @@ const priceTotal = computed(() => store.state.priceTotal);
   .price-total {
     margin-top: 8px;
     float: right;
+  }
+  .list-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  span {
+    font-size: 20px;
+    font-weight: 800;
   }
 }
 </style>
