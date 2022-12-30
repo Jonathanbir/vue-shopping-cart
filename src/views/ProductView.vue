@@ -50,10 +50,9 @@ const categoryIndex = computed(() => store.state.categoryIndex);
 <style lang="scss" scoped>
 .product-container {
   position: relative;
-  top: 100px;
   display: flex;
   width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   .sticky-top {
     max-width: 16.66667%;
     margin-right: 100px;
@@ -83,7 +82,8 @@ const categoryIndex = computed(() => store.state.categoryIndex);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 1000px;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: 200px;
   }
 }
 </style>

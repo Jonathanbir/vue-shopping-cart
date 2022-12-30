@@ -331,7 +331,7 @@ const DATA = [
     ],
   },
   {
-    title: "磚情巧克力 ",
+    title: "磚情巧克力",
     idx: "4",
     items: [
       {

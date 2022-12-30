@@ -168,7 +168,7 @@ const priceTotal = computed(() => store.state.priceTotal);
 <style lang="scss" scoped>
 .list-container {
   position: relative;
-  top: 100px;
+  //   top: 100px;
   max-width: 1320px;
   width: 1200px;
   margin: auto;

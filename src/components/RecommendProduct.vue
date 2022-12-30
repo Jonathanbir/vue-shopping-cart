@@ -9,13 +9,23 @@
         </tr>
       </thead>
       <tbody role="rowgroup">
+        <fa
+          class="arrow arrow-left"
+          icon="circle-chevron-left"
+          @click="changeRecommend"
+        />
+        <fa
+          class="arrow arrow-right"
+          icon="circle-chevron-right"
+          @click="changeRecommend"
+        />
         <tr role="row">
           <td
             aria-colindex="1"
             role="cell"
             class="recommend-item"
-            v-for="(list, index) in DATA[index].items"
-            v-show="index < 3"
+            v-for="(list, idx) in DATA[index].items"
+            v-show="idx < 3"
           >
             <div
               class="img"
@@ -25,9 +35,9 @@
                 ');background-size: 100%;background-position:center;background-repeat:no-repeat'
               "
             ></div>
-            <p class="name">
+            <h2 class="name">
               {{ list.name }}
-            </p>
+            </h2>
             <p
               v-show="route.params.listName == 'cart'"
               aria-colindex="2"
@@ -65,30 +75,65 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { ref, computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import DATA from "../data";
 const favoriteList = computed(() => store.state.favoriteList);
 const route = useRoute();
 const store = useStore();
-const index = Math.floor(Math.random() * 6);
+const index = ref(0);
+
+const changeRecommend = () => {
+  index.value = Math.floor(Math.random() * 6);
+};
 </script>
 
 <style lang="scss" scoped>
 .recommend-product {
+  tbody {
+    position: relative;
+
+    .arrow {
+      position: absolute;
+      z-index: 2;
+      top: 141px;
+      font-size: 30px;
+      color: #b3b6b9;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .arrow-left {
+      left: 5px;
+    }
+
+    .arrow-right {
+      right: 5px;
+    }
+  }
+
   .table td {
     width: 300px;
   }
   .recommend-item {
-    p {
-      font-size: 15px;
+    h2 {
+      font-size: 13px;
       padding: 0;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 12px;
+      padding: 5px;
       margin: 0 auto;
     }
     .name {
       width: 100%;
-      height: 40px;
     }
     .img {
       width: 200px;

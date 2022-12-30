@@ -53,6 +53,7 @@ const isToastifyOpen = computed(() => store.state.isToastifyOpen);
   justify-content: center;
   align-items: center;
   width: 300px;
+  height: 336px;
   margin-bottom: 50px;
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 20%);
   transition: all 0.5s ease-in-out;

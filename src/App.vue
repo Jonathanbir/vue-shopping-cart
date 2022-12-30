@@ -34,6 +34,7 @@
       v-show="isAlertBoxOpen[0] || isAlertBoxOpen[1]"
     ></div>
   </Transition>
+  <FooterView />
 </template>
 
 <script setup>
@@ -45,6 +46,7 @@ import FavoriteList from "./components/FavoriteList.vue";
 import Toastify from "./components/Toastify.vue";
 import RemoveItemAlertBox from "./components/RemoveItemAlertBox.vue";
 import RemoveAllAlertBox from "./components/RemoveAllAlertBox.vue";
+import FooterView from "./views/FooterView.vue";
 
 const store = useStore();
 const isListOpen = computed(() => store.state.isListOpen);

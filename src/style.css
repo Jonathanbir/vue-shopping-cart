@@ -4,6 +4,11 @@ ul {
   padding: 0;
 }
 
+body {
+  position: relative;
+  top: 100px;
+}
+
 .btn {
   margin: auto;
   font-size: 1rem;
