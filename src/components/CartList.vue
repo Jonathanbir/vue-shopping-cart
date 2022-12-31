@@ -40,7 +40,7 @@ const store = useStore();
 const cartList = computed(() => store.state.cartList);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .list-message {
   .list-empty {
     display: flex;
@@ -75,10 +75,13 @@ const cartList = computed(() => store.state.cartList);
       margin: 5px;
     }
   }
+
   .list-btn-container {
     position: absolute;
     left: 0;
     right: 0;
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 50px;
     background-color: #fff;

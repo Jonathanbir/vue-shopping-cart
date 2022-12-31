@@ -30,28 +30,28 @@ export const store = createStore({
     addRemoveItem(state, value) {
       state.removeItem = value;
     },
-    addCartItem(state, productToAdd) {
+    addCartItem(state, payload) {
       const existingCartItem = state.cartList.find(
-        (cartItem) => cartItem.id == productToAdd.id
+        (cartItem) => cartItem.id == payload.id
       );
       if (existingCartItem) {
         state.cartList = state.cartList.map((cartItem) =>
-          cartItem.id === productToAdd.id
+          cartItem.id === payload.id
             ? { ...cartItem, quantity: cartItem.quantity + 1 }
             : cartItem
         );
       } else {
-        state.cartList = [...state.cartList, { ...productToAdd, quantity: 1 }];
+        state.cartList = [...state.cartList, { ...payload, quantity: 1 }];
         state.isToastifyOpen = [true, false, false, false];
         setTimeout(() => {
           state.isToastifyOpen = [false, false, false, false];
         }, 1500);
       }
     },
-    removeCartItem(state, cartItemToRemove) {
+    removeCartItem(state, payload) {
       // find the cart item to remove
       const existingCartItem = state.cartList.find(
-        (cartItem) => cartItem.id === cartItemToRemove.id
+        (cartItem) => cartItem.id === payload.id
       );
       // check if quantity is equal to 1, if it is remove that item from the cart
       if (existingCartItem.quantity == 1) {
@@ -60,24 +60,24 @@ export const store = createStore({
           state.isToastifyOpen = [false, false, false, false];
         }, 1500);
         state.cartList = state.cartList.filter(
-          (cartItem) => cartItem.id !== cartItemToRemove.id
+          (cartItem) => cartItem.id !== payload.id
         );
       } else {
         // return back cartList with matching cart item with reduced quantity
         state.cartList = state.cartList.map((cartItem) =>
-          cartItem.id === cartItemToRemove.id
+          cartItem.id === payload.id
             ? { ...cartItem, quantity: cartItem.quantity - 1 }
             : cartItem
         );
       }
     },
-    clearCartItem(state, cartItemToClear) {
+    clearCartItem(state, payload) {
       state.isToastifyOpen = [false, false, false, true];
       setTimeout(() => {
         state.isToastifyOpen = [false, false, false, false];
       }, 1500);
       state.cartList = state.cartList.filter(
-        (cartItem) => cartItem.id !== cartItemToClear.id
+        (cartItem) => cartItem.id !== payload.id
       );
     },
     clearCartList(state) {
@@ -86,9 +86,9 @@ export const store = createStore({
     clearFavoriteList(state) {
       state.favoriteList = [];
     },
-    addFavoriteItem(state, productToAdd) {
+    addFavoriteItem(state, payload) {
       const existingCartItem = state.favoriteList.find(
-        (favoriteItem) => favoriteItem.id == productToAdd.id
+        (favoriteItem) => favoriteItem.id == payload.id
       );
       if (existingCartItem) {
         state.isToastifyOpen = [false, false, true, false];
@@ -96,14 +96,14 @@ export const store = createStore({
           state.isToastifyOpen = [false, false, false, false];
         }, 1500);
         state.favoriteList = state.favoriteList.filter(
-          (favoriteItem) => favoriteItem.id !== productToAdd.id
+          (favoriteItem) => favoriteItem.id !== payload.id
         );
       } else {
         state.isToastifyOpen = [false, true, false, false];
         setTimeout(() => {
           state.isToastifyOpen = [false, false, false, false];
         }, 1500);
-        state.favoriteList = [...state.favoriteList, { ...productToAdd }];
+        state.favoriteList = [...state.favoriteList, { ...payload }];
       }
     },
     cartTotal(state) {
@@ -132,6 +132,12 @@ export const store = createStore({
       setTimeout(() => {
         state.animation = true;
       }, 300);
+    },
+    handleIsToastifyOpen(state, payload) {
+      state.isToastifyOpen = payload;
+      setTimeout(() => {
+        state.isToastifyOpen = [false, false, false, false];
+      }, 1500);
     },
   },
 });

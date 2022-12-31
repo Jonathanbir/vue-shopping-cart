@@ -5,6 +5,7 @@
     :style="
       props.color && { color: props.color[0], background: props.color[1] }
     "
+    @click="store.commit('handleIsToastifyOpen')"
   >
     <p>
       <slot></slot>
@@ -16,6 +17,8 @@
 </template>
 
 <script setup>
+import { useStore } from "vuex";
+const store = useStore();
 const props = defineProps(["color"]);
 const borderColor = props.color ? props.color[0] : "#8db48c";
 </script>
@@ -41,6 +44,7 @@ body {
   background-color: #dff0d9;
   border-radius: 5px;
   z-index: 9999;
+  cursor: pointer;
 }
 .toastContainer:before {
   content: "";

@@ -6,12 +6,7 @@
   </div>
 </template>
 
-<script setup>
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
-const route = useRoute();
-const store = useStore();
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .alert-box {

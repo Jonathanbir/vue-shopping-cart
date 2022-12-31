@@ -35,6 +35,10 @@
           store.commit('cartTotal');
           store.commit('changeIsAlertBoxOpen', false);
           store.commit('priceTotal');
+
+          route.params.listName == 'cart'
+            ? store.commit('handleIsToastifyOpen', [false, false, false, true])
+            : store.commit('handleIsToastifyOpen', [false, false, true, false]);
         "
       >
         確認刪除
