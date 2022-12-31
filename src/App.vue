@@ -1,7 +1,6 @@
 <template>
   <NevigationVue />
   <CartList v-show="isListOpen[0]" />
-
   <FavoriteList v-show="isListOpen[1]" />
   <Transition name="fadeAndShowToasitify" mode="out-in">
     <Toastify v-show="isToastifyOpen[0]">商品已加入購物車</Toastify>
@@ -29,13 +28,20 @@
     <div
       class="background"
       v-show="isAlertBoxOpen[0] || isAlertBoxOpen[1]"
+      @click="store.commit('changeIsAlertBoxOpen', false)"
     ></div>
   </Transition>
   <FooterView />
+  <fa
+    v-show="scroll"
+    class="go-to-top"
+    icon="arrow-up"
+    @click="scrollToOffset(0)"
+  />
 </template>
 
 <script setup>
-import { computed, Transition } from "vue";
+import { ref, computed, Transition, onMounted } from "vue";
 import { useStore } from "vuex";
 import NevigationVue from "./components/Nevigation.vue";
 import CartList from "./components/CartList.vue";
@@ -44,15 +50,49 @@ import Toastify from "./components/Toastify.vue";
 import RemoveItemAlertBox from "./components/RemoveItemAlertBox.vue";
 import RemoveAllAlertBox from "./components/RemoveAllAlertBox.vue";
 import FooterView from "./views/FooterView.vue";
+import { scrollToOffset } from "./util/helper";
 
 const store = useStore();
+const scroll = ref(false);
 const isListOpen = computed(() => store.state.isListOpen);
 const isToastifyOpen = computed(() => store.state.isToastifyOpen);
 const isAlertBoxOpen = computed(() => store.state.isAlertBoxOpen);
-const isBackGroundOpen = computed(() => store.state.isBackGroundOpen);
+
+onMounted(() => {
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.pageYOffset > 25) {
+        scroll.value = true;
+      } else {
+        scroll.value = false;
+      }
+    },
+    true
+  );
+});
 </script>
 
 <style lang="scss" scoped>
+.go-to-top {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cfd2d4;
+  opacity: 0.8;
+  border-radius: 50px 50px 5px 50px;
+  padding: 15px;
+  margin-top: 24px;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 9;
+}
+
 .background {
   position: fixed;
   top: 0;

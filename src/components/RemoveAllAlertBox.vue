@@ -29,6 +29,7 @@
         type="button"
         class="btn btn-warning text-white"
         @click="
+          scrollToOffset(0);
           route.params.listName == 'cart'
             ? store.commit('clearCartList')
             : store.commit('clearFavoriteList');
@@ -51,6 +52,7 @@
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import AlerBoxModal from "./AlerBoxModal.vue";
+import { scrollToOffset } from "../util/helper";
 const route = useRoute();
 const store = useStore();
 </script>

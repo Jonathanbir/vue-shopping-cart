@@ -3,11 +3,14 @@
     <div
       class="nav-wrapper"
       :style="scroll && { background: '#150A43', top: '-15px' }"
-      @click="store.commit('changeisListOpen', [false, false])"
+      @click="
+        store.commit('changeisListOpen', [false, false]);
+        store.commit('changeIsAlertBoxOpen', false);
+      "
     >
       <nav>
         <div class="nav-container">
-          <RouterLink to="/"
+          <RouterLink @click="scrollToOffset(0)" to="/"
             ><div
               class="sprite-nav-logo"
               :style="
@@ -19,9 +22,13 @@
               "
             ></div
           ></RouterLink>
-          <RouterLink to="/product">商品頁</RouterLink>
-          <RouterLink to="/news">最新消息</RouterLink>
-          <RouterLink to="/">會員優惠 </RouterLink>
+          <RouterLink @click="scrollToOffset(0)" to="/product"
+            >商品頁</RouterLink
+          >
+          <RouterLink @click="scrollToOffset(0)" to="/news"
+            >最新消息</RouterLink
+          >
+          <RouterLink @click="scrollToOffset(0)" to="/">會員優惠 </RouterLink>
         </div>
         <div
           class="cart-container"
@@ -84,6 +91,7 @@
 import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { RouterLink, RouterView } from "vue-router";
+import { scrollToOffset } from "../util/helper";
 
 const store = useStore();
 const scroll = ref(false);
@@ -91,7 +99,6 @@ const screen = ref(document.documentElement.scrollWidth);
 const cartTotal = computed(() => store.state.cartTotal);
 const isListOpen = computed(() => store.state.isListOpen);
 const favoriteList = computed(() => store.state.favoriteList);
-const isBackGroundOpen = computed(() => store.state.isBackGroundOpen);
 
 onMounted(() => {
   window.addEventListener(

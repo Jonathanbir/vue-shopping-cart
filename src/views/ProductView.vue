@@ -6,6 +6,7 @@
           @click="
             store.commit('handleChangeCart', item.items);
             store.commit('changeCategoryIndex', index);
+            scrollToOffset(0);
           "
           class="list-group-item"
           :style="
@@ -42,6 +43,8 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 import ProductItemVue from "../components/ProductItem.vue";
+import { scrollToOffset } from "../util/helper";
+
 const store = useStore();
 const productData = computed(() => store.state.productData);
 const categoryIndex = computed(() => store.state.categoryIndex);

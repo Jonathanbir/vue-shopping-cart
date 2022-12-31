@@ -10,57 +10,14 @@
         <h2>商品專區</h2>
         <p
           class="link"
+          v-for="(item, index) in productData"
           @click="
-            store.commit('handleChangeCart', productData[0].items);
-            store.commit('changeCategoryIndex', 0);
+            store.commit('handleChangeCart', productData[index].items);
+            store.commit('changeCategoryIndex', index);
+            scrollToOffset(0);
           "
         >
-          薄片夾心巧克力
-        </p>
-        <p
-          class="link"
-          @click="
-            store.commit('handleChangeCart', productData[1].items);
-            store.commit('changeCategoryIndex', 1);
-          "
-        >
-          生巧克力
-        </p>
-        <p
-          class="link"
-          @click="
-            store.commit('handleChangeCart', productData[2].items);
-            store.commit('changeCategoryIndex', 2);
-          "
-        >
-          乾果巧克力
-        </p>
-        <p
-          class="link"
-          @click="
-            store.commit('handleChangeCart', productData[3].items);
-            store.commit('changeCategoryIndex', 3);
-          "
-        >
-          跳跳糖松露巧克力
-        </p>
-        <p
-          class="link"
-          @click="
-            store.commit('handleChangeCart', productData[4].items);
-            store.commit('changeCategoryIndex', 4);
-          "
-        >
-          磚情巧克力
-        </p>
-        <p
-          class="link"
-          @click="
-            store.commit('handleChangeCart', productData[5].items);
-            store.commit('changeCategoryIndex', 5);
-          "
-        >
-          巧克力周邊
+          {{ item.title }}
         </p>
       </div>
       <div class="footer-item">
@@ -77,9 +34,9 @@
 <script setup>
 import { computed } from "vue";
 import { useStore } from "vuex";
+import { scrollToOffset } from "../util/helper";
 const store = useStore();
 const productData = computed(() => store.state.productData);
-const categoryIndex = computed(() => store.state.categoryIndex);
 </script>
 
 <style lang="scss" scoped>
