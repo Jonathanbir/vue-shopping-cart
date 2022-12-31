@@ -181,7 +181,12 @@ const changeRecommend = () => {
         color: #fff;
         background-color: rgb(21, 10, 67);
         border-color: rgb(21, 10, 67);
+        transition: all 0.5s ease-in-out;
         cursor: pointer;
+
+        &:hover {
+          color: #ccb7a5;
+        }
       }
     }
   }
