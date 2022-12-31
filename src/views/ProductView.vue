@@ -56,6 +56,7 @@ const categoryIndex = computed(() => store.state.categoryIndex);
   display: flex;
   width: 1200px;
   margin: 0 auto;
+  margin-top: 50px;
   .sticky-top {
     max-width: 16.66667%;
     margin-right: 100px;

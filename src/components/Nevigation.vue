@@ -8,7 +8,7 @@
         store.commit('changeIsAlertBoxOpen', false);
       "
     >
-      <nav>
+      <nav class="nav">
         <div class="nav-container">
           <RouterLink @click="scrollToOffset(0)" to="/"
             ><div
@@ -134,7 +134,7 @@ onMounted(() => {
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.03);
   transition: all 0.5s ease-in-out;
   nav {
     position: relative;
@@ -143,7 +143,7 @@ onMounted(() => {
     width: 1100px;
     font-size: 12px;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 30px;
     transition: all 0.5s ease-in-out;
 
     .cart-container {
