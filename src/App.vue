@@ -1,11 +1,8 @@
 <template>
   <NevigationVue />
-  <Transition name="fadeAndShow" mode="out-in">
-    <CartList v-show="isListOpen[0]" />
-  </Transition>
-  <Transition name="fadeAndShow" mode="out-in">
-    <FavoriteList v-show="isListOpen[1]" />
-  </Transition>
+  <CartList v-show="isListOpen[0]" />
+
+  <FavoriteList v-show="isListOpen[1]" />
   <Transition name="fadeAndShowToasitify" mode="out-in">
     <Toastify v-show="isToastifyOpen[0]">商品已加入購物車</Toastify>
   </Transition>
@@ -52,13 +49,14 @@ const store = useStore();
 const isListOpen = computed(() => store.state.isListOpen);
 const isToastifyOpen = computed(() => store.state.isToastifyOpen);
 const isAlertBoxOpen = computed(() => store.state.isAlertBoxOpen);
+const isBackGroundOpen = computed(() => store.state.isBackGroundOpen);
 </script>
 
 <style lang="scss" scoped>
 .background {
   position: fixed;
   top: 0;
-  z-index: 9998;
+  z-index: 99;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
@@ -94,8 +92,8 @@ const isAlertBoxOpen = computed(() => store.state.isAlertBoxOpen);
 }
 
 .fadeAndShowAlertBox-enter-active {
-  animation: scale 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  animation: scale 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .fadeAndShowAlertBox-enter-from {
@@ -118,32 +116,7 @@ const isAlertBoxOpen = computed(() => store.state.isAlertBoxOpen);
 }
 
 .fadeAndShowAlertBox-leave-active {
-  transition: all 1s ease-in;
-  animation: scale 1s ease-in reverse;
-}
-
-.fadeAndShowBackGround-enter-active {
-  animation: scale 1s ease-in-out;
-  transition: all 1s ease-in-out;
-}
-
-.fadeAndShowBackGround-enter-from {
-  opacity: 0;
-}
-
-.fadeAndShowBackGround-enter-to {
-  opacity: 1;
-}
-
-.fadeAndShowBackGround-leave-from {
-  opacity: 1;
-}
-.fadeAndShowBackGround-leave-to {
-  opacity: 0;
-}
-
-.fadeAndShowBackGround-leave-active {
-  transition: all 1s ease-in;
-  animation: scale 1s ease-in reverse;
+  transition: all 0.5s ease-in;
+  animation: scale 0.5s ease-in reverse;
 }
 </style>

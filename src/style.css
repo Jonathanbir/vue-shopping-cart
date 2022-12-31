@@ -9,8 +9,12 @@ body {
   top: 100px;
 }
 
-.btn {
+a {
   display: inline-block;
+  text-decoration: none;
+}
+
+.btn {
   margin: auto;
   font-size: 1rem;
   font-weight: 400;
@@ -81,6 +85,31 @@ span {
 }
 
 .fadeAndShow-leave-active {
+  transition: all 0.5s ease-in;
+  animation: scale 0.5s ease-in reverse;
+}
+
+.fadeAndShowBackGround-enter-active {
+  animation: scale 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.fadeAndShowBackGround-enter-from {
+  opacity: 0;
+}
+
+.fadeAndShowBackGround-enter-to {
+  opacity: 1;
+}
+
+.fadeAndShowBackGround-leave-from {
+  opacity: 1;
+}
+.fadeAndShowBackGround-leave-to {
+  opacity: 0;
+}
+
+.fadeAndShowBackGround-leave-active {
   transition: all 0.5s ease-in;
   animation: scale 0.5s ease-in reverse;
 }

@@ -10,14 +10,16 @@
       "
       @click="store.commit('addFavoriteItem', item)"
     />
-    <div
-      class="img"
-      :style="
-        'background-image:url(' +
-        item.imageUrl +
-        ');background-size: 100%;background-position:center;'
-      "
-    ></div>
+    <div class="img-container">
+      <div
+        class="img"
+        :style="
+          'background-image:url(' +
+          item.imageUrl +
+          ');background-size:cover;background-position:center;'
+        "
+      ></div>
+    </div>
     <h2>{{ item.name }}</h2>
     <div class="price">$ {{ item.price }}</div>
     <div class="product-more">
@@ -55,15 +57,22 @@ const favoriteList = computed(() => store.state.favoriteList);
   height: 336px;
   margin-bottom: 50px;
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 20%);
+
   transition: all 0.5s ease-in-out;
 
   &:hover {
     box-shadow: 0 8px 24px #e2e2e2;
   }
 
-  .img {
+  .img-container {
     width: 100%;
-    height: 200px;
+    height: 177px;
+    overflow: hidden;
+    .img {
+      width: 100%;
+      height: 177px;
+      transition: all 0.5s ease-in-out;
+    }
   }
 
   h2 {
@@ -86,6 +95,7 @@ const favoriteList = computed(() => store.state.favoriteList);
     position: absolute;
     top: 10px;
     right: 10px;
+    z-index: 2;
     color: #aaa;
     width: 20px;
     height: 20px;
@@ -134,5 +144,9 @@ const favoriteList = computed(() => store.state.favoriteList);
       }
     }
   }
+}
+
+.product-item:hover .img {
+  transform: scale(1.1);
 }
 </style>

@@ -3,6 +3,7 @@
     <div
       class="nav-wrapper"
       :style="scroll && { background: '#150A43', top: '-15px' }"
+      @click="store.commit('changeisListOpen', [false, false])"
     >
       <nav>
         <div class="nav-container">
@@ -33,7 +34,9 @@
             <fa
               class="icon"
               icon="cart-shopping"
-              @click="store.commit('changeisListOpen', [!isListOpen[0], false])"
+              @click.stop="
+                store.commit('changeisListOpen', [!isListOpen[0], false])
+              "
             />
             <div
               class="total-num"
@@ -51,7 +54,9 @@
             <fa
               class="icon"
               icon="heart"
-              @click="store.commit('changeisListOpen', [false, !isListOpen[1]])"
+              @click.stop="
+                store.commit('changeisListOpen', [false, !isListOpen[1]])
+              "
             />
             <div
               class="total-num"
@@ -86,6 +91,7 @@ const screen = ref(document.documentElement.scrollWidth);
 const cartTotal = computed(() => store.state.cartTotal);
 const isListOpen = computed(() => store.state.isListOpen);
 const favoriteList = computed(() => store.state.favoriteList);
+const isBackGroundOpen = computed(() => store.state.isBackGroundOpen);
 
 onMounted(() => {
   window.addEventListener(
@@ -121,6 +127,7 @@ onMounted(() => {
   position: fixed;
   top: 0;
   z-index: 999;
+  background-color: #fff;
   transition: all 0.5s ease-in-out;
   nav {
     position: relative;

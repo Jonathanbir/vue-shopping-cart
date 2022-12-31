@@ -1,5 +1,34 @@
 <template>
   <div class="list-container">
+    <h2>
+      <router-link to="/list/cart">
+        <span
+          class="list-select-title"
+          :style="
+            route.params.listName == 'cart' && {
+              color: 'rgb(21, 10, 67)',
+              fontSize: '18px',
+              fontWeight: '800',
+            }
+          "
+          >購物清單</span
+        ></router-link
+      >
+      <span>/</span>
+      <router-link to="/list/favorite">
+        <span
+          class="list-select-title"
+          :style="
+            route.params.listName == 'favorite' && {
+              color: 'rgb(21, 10, 67)',
+              fontSize: '18px',
+              fontWeight: '800',
+            }
+          "
+          >收藏清單</span
+        ></router-link
+      >
+    </h2>
     <table role="table" class="table b-table table-striped table-hover">
       <thead role="rowgroup">
         <tr role="row">
@@ -168,11 +197,22 @@ const priceTotal = computed(() => store.state.priceTotal);
 <style lang="scss" scoped>
 .list-container {
   position: relative;
-  //   top: 100px;
   max-width: 1320px;
   width: 1200px;
   margin: auto;
   margin-bottom: 100px;
+
+  h2 {
+    span {
+      font-size: 15px;
+      font-weight: 400;
+      padding: 5px;
+    }
+    .list-select-title {
+      cursor: pointer;
+      color: #aaa;
+    }
+  }
 
   .table {
     width: 100%;

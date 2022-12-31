@@ -35,14 +35,16 @@
           >
             <Transition name="fadeAndShow" mode="out-in">
               <div v-show="animation">
-                <div
-                  class="img"
-                  :style="
-                    'background-image:url(' +
-                    list.imageUrl +
-                    ');background-size: 100%;background-position:center;background-repeat:no-repeat'
-                  "
-                ></div>
+                <div class="img-container">
+                  <div
+                    class="img"
+                    :style="
+                      'background-image:url(' +
+                      list.imageUrl +
+                      ');background-size:cover;background-position:center;background-repeat:no-repeat'
+                    "
+                  ></div>
+                </div>
                 <h2 class="name">
                   {{ list.name }}
                 </h2>
@@ -133,6 +135,18 @@ const changeRecommend = () => {
     width: 300px;
   }
   .recommend-item {
+    .img-container {
+      width: 200px;
+      height: 150px;
+      margin: auto;
+      overflow: hidden;
+      .img {
+        width: 200px;
+        height: 150px;
+        margin: auto;
+        transition: all 0.5s ease-in-out;
+      }
+    }
     h2 {
       font-size: 13px;
       padding: 0;
@@ -145,11 +159,6 @@ const changeRecommend = () => {
     }
     .name {
       width: 100%;
-    }
-    .img {
-      width: 200px;
-      height: 150px;
-      margin: auto;
     }
     .recommend-btn {
       width: 80%;
@@ -175,6 +184,9 @@ const changeRecommend = () => {
         cursor: pointer;
       }
     }
+  }
+  .recommend-item:hover .img {
+    transform: scale(1.1);
   }
 }
 </style>
