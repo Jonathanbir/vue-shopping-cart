@@ -44,11 +44,11 @@
 import { ref, computed, Transition, onMounted } from "vue";
 import { useStore } from "vuex";
 import NevigationVue from "./components/Nevigation.vue";
-import CartList from "./components/CartList.vue";
-import FavoriteList from "./components/FavoriteList.vue";
-import Toastify from "./components/Toastify.vue";
-import RemoveItemAlertBox from "./components/RemoveItemAlertBox.vue";
-import RemoveAllAlertBox from "./components/RemoveAllAlertBox.vue";
+import CartList from "./components/list/CartList.vue";
+import FavoriteList from "./components/list/FavoriteList.vue";
+import Toastify from "./components/message/Toastify.vue";
+import RemoveItemAlertBox from "./components/message/RemoveItemAlertBox.vue";
+import RemoveAllAlertBox from "./components/message/RemoveAllAlertBox.vue";
 import FooterView from "./views/FooterView.vue";
 import { scrollToOffset } from "./util/helper";
 

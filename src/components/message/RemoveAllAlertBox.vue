@@ -52,7 +52,7 @@
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import AlerBoxModal from "./AlerBoxModal.vue";
-import { scrollToOffset } from "../util/helper";
+import { scrollToOffset } from "../../util/helper";
 const route = useRoute();
 const store = useStore();
 </script>

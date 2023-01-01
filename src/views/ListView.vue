@@ -185,8 +185,8 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import RecommendProduct from "../components/RecommendProduct.vue";
-import OderInformation from "../components/OderInformation.vue";
+import RecommendProduct from "../components/list/RecommendProduct.vue";
+import OderInformation from "../components/list/OderInformation.vue";
 const route = useRoute();
 const store = useStore();
 const cartList = computed(() => store.state.cartList);
