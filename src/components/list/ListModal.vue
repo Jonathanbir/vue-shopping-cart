@@ -22,9 +22,7 @@ import { useStore } from "vuex";
 const store = useStore();
 const scroll = ref(false);
 
-const props = defineProps({
-  data: Object,
-});
+const props = defineProps(["data"]);
 
 const listHeightStyle = computed(() => {
   if (props.data.length > 5) {

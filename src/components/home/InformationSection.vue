@@ -34,6 +34,9 @@ const banners = [
   width: 80%;
   margin: auto;
   margin-bottom: 100px;
+  h1 {
+    margin-bottom: 50px;
+  }
   .home-information-banners {
     display: flex;
     flex-direction: row;

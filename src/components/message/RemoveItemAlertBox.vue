@@ -23,6 +23,7 @@
         type="button"
         class="btn btn-warning text-white"
         @click="
+          scrollToOffset(0);
           removeFunction(removeItem);
           store.commit('changeIsAlertBoxOpen', false);
         "
@@ -38,6 +39,7 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import AlerBoxModal from "./AlerBoxModal.vue";
+import { scrollToOffset } from "../../util/helper";
 const route = useRoute();
 const store = useStore();
 const removeItem = computed(() => store.state.removeItem);

@@ -53,6 +53,7 @@
         </swiper-slide>
       </swiper>
     </div>
+    <EllipseButton :title="'逛逛商品去'" :path="'/product'" />
   </div>
 </template>
 
@@ -61,6 +62,7 @@ import { ref, computed } from "vue";
 import { useStore } from "vuex";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Autoplay } from "swiper";
+import EllipseButton from "../atom/EllipseButton.vue";
 import "swiper/swiper-bundle.css";
 import "swiper/css/pagination";
 import DATA from "../../data";
