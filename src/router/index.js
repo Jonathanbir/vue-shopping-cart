@@ -15,6 +15,16 @@ const router = createRouter({
       component: () => import("../views/ProductView.vue"),
     },
     {
+      path: "/rank",
+      name: "rank",
+      component: () => import("../views/RankView.vue"),
+    },
+    {
+      path: "/share",
+      name: "share",
+      component: () => import("../views/ShareView.vue"),
+    },
+    {
       path: "/list/:listName",
       name: "list",
       component: () => import("../views/ListView.vue"),

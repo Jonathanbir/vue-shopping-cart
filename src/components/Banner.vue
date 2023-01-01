@@ -21,6 +21,10 @@
         ></div
       ></swiper-slide>
     </swiper>
+    <img
+      class="decoration"
+      src="https://tibamef2e.com/ced101/project/g1/Images/under.png"
+    />
   </div>
 </template>
 
@@ -86,7 +90,7 @@ const banners = [
 }
 
 .swiper-pagination {
-  bottom: 10% !important;
+  bottom: 16vh !important;
 }
 .swiper-pagination-bullet {
   width: 17px;
@@ -101,10 +105,18 @@ const banners = [
 .container-imgs {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
+
   .img {
     width: 100%;
-    height: 60vh;
+    height: 70vh;
+  }
+
+  .decoration {
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    z-index: 2;
   }
 }
 </style>
