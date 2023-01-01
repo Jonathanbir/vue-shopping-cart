@@ -12,40 +12,10 @@
         "
       ></div>
     </div>
-    <img
-      class="chco-01"
-      :style="dropStyle"
-      src="https://www.conas-choc.com/images/iconSmall01.png"
-    />
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
-const height = ref("");
-const drop = ref("");
-const dropStyle = computed(() => {
-  return (
-    "transform:translate(" +
-    0 +
-    "px," +
-    drop.value +
-    "px)" +
-    "rotate(" +
-    drop.value +
-    "deg)"
-  );
-});
-onMounted(() => {
-  window.addEventListener(
-    "scroll",
-    () => {
-      height.value = window.pageYOffset * 0.15 - 100;
-      drop.value = window.pageYOffset * 0.2;
-    },
-    true
-  );
-});
 const banners = [
   { src: "src/images/information-01.png" },
   { src: "src/images/information-02.png" },
@@ -76,11 +46,6 @@ const banners = [
       height: 290px;
       margin: auto 30px;
     }
-  }
-  .chco-01 {
-    position: absolute;
-    bottom: 50px;
-    left: -100px;
   }
 }
 </style>

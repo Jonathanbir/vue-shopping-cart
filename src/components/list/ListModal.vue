@@ -2,6 +2,7 @@
   <Transition name="fadeAndShowBackGround" mode="out-in">
     <div
       class="list-body"
+      :style="scroll && { top: '57px' }"
       @click="store.commit('changeisListOpen', [false, false])"
     >
       <Transition name="fadeAndShow" mode="out-in">
@@ -53,7 +54,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .list-body {
   position: fixed;
-  top: 30px;
+  top: 81px;
   z-index: 100;
   width: 100%;
   height: 100vh;

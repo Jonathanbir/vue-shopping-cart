@@ -91,11 +91,11 @@ import { ref, computed, Transition } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import DATA from "../../data";
-const favoriteList = computed(() => store.state.favoriteList);
 const route = useRoute();
 const store = useStore();
 const index = ref(0);
 const animation = computed(() => store.state.animation);
+const favoriteList = computed(() => store.state.favoriteList);
 
 const changeRecommend = () => {
   index.value = Math.floor(Math.random() * 6);

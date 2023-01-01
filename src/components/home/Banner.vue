@@ -29,14 +29,12 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { useStore } from "vuex";
 import { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
 import "swiper/css/pagination";
 const modules = [Navigation, Pagination, Autoplay];
-const store = useStore();
 const pagination = ref({
   clickable: true,
 });
@@ -88,24 +86,23 @@ const banners = [
     display: none;
   }
 }
-
-.swiper-pagination {
-  bottom: 16vh !important;
-}
-.swiper-pagination-bullet {
-  width: 17px;
-  height: 1px;
-  background-color: #fff;
-}
-
-.swiper-pagination-bullet-active {
-  width: 20px;
-}
-
 .container-imgs {
   position: relative;
   width: 100%;
   height: 70vh;
+
+  .swiper-pagination {
+    bottom: 16vh !important;
+  }
+  .swiper-pagination-bullet {
+    width: 17px;
+    height: 1px;
+    background-color: #fff;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 20px;
+  }
 
   .img {
     width: 100%;
