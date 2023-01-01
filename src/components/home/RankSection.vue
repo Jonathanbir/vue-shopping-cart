@@ -2,7 +2,12 @@
   <div class="rank-section">
     <h1>巧克力排名</h1>
     <div class="rank-container">
-      <div class="item" style="width: 100%; display: inline-block">
+      <div
+        class="item"
+        style="width: 100%; display: inline-block"
+        @mouseover="imageSrc[0] = DATA[3].items[1].img2"
+        @mouseout="imageSrc[0] = DATA[3].items[1].imageUrl"
+      >
         <div class="item-inner">
           <div class="vote_info">
             <div class="rank-mark">
@@ -19,11 +24,23 @@
               <span>12</span>票
             </div>
           </div>
-          <img :src="DATA[3].items[1].imageUrl" />
+          <div
+            class="img"
+            :style="
+              'background-image:url(' +
+              imageSrc[0] +
+              ');background-size:cover;background-position:center;background-repeat:no-repeat'
+            "
+          ></div>
           <div class="triangle"></div>
         </div>
       </div>
-      <div class="item" style="width: 100%; display: inline-block">
+      <div
+        class="item"
+        style="width: 100%; display: inline-block"
+        @mouseover="imageSrc[1] = DATA[2].items[2].img2"
+        @mouseout="imageSrc[1] = DATA[2].items[2].imageUrl"
+      >
         <div class="item-inner" style="width: 90%">
           <div class="vote_info">
             <div class="rank-mark" style="top: -15px; right: -50px">
@@ -40,11 +57,23 @@
               <span>22</span>票
             </div>
           </div>
-          <img :src="DATA[2].items[2].imageUrl" />
+          <div
+            class="img"
+            :style="
+              'background-image:url(' +
+              imageSrc[1] +
+              ');background-size:cover;background-position:center;background-repeat:no-repeat'
+            "
+          ></div>
           <div class="triangle"></div>
         </div>
       </div>
-      <div class="item" style="width: 100%; display: inline-block">
+      <div
+        class="item"
+        style="width: 100%; display: inline-block"
+        @mouseover="imageSrc[2] = DATA[1].items[2].img2"
+        @mouseout="imageSrc[2] = DATA[1].items[2].imageUrl"
+      >
         <div class="item-inner">
           <div class="vote_info">
             <div class="rank-mark">
@@ -58,7 +87,14 @@
               <span>10</span>票
             </div>
           </div>
-          <img :src="DATA[1].items[2].imageUrl" />
+          <div
+            class="img"
+            :style="
+              'background-image:url(' +
+              imageSrc[2] +
+              ');background-size:cover;background-position:center;background-repeat:no-repeat'
+            "
+          ></div>
           <div class="triangle"></div>
         </div>
       </div>
@@ -68,8 +104,14 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import EllipseButton from "../atom/EllipseButton.vue";
 import DATA from "../../data";
+const imageSrc = ref([
+  DATA[3].items[1].imageUrl,
+  DATA[2].items[2].imageUrl,
+  DATA[1].items[2].imageUrl,
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -87,6 +129,13 @@ import DATA from "../../data";
     justify-content: center;
     align-items: center;
     .item {
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
       .item-inner {
         position: relative;
         width: 80%;
@@ -136,6 +185,9 @@ import DATA from "../../data";
               font-size: 25px;
               color: rgb(253, 236, 4);
               font-weight: 800;
+              animation-name: number;
+              animation-duration: 3s;
+              animation-iteration-count: infinite;
             }
           }
 
@@ -189,10 +241,13 @@ import DATA from "../../data";
           left: -45px;
           bottom: -25px;
         }
-        img {
+        .img {
+          width: 300px;
+          height: 180px;
           margin: 0 auto;
           margin-right: 10px;
           max-width: 100%;
+          transition: all 0.5s ease-in-out;
         }
       }
     }
