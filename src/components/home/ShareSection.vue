@@ -199,6 +199,35 @@ import EllipseButton from "../atom/EllipseButton.vue";
     background-color: white;
     cursor: pointer;
 
+    &:hover {
+      opacity: 0.8;
+      transform: translateY(-5px);
+      transition: 0.5s ease-in-out;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: -80%;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+      );
+      transform: skewX(-25deg);
+    }
+
+    &:hover {
+      &::before {
+        -webkit-animation: shine 0.75s;
+        animation: shine 0.75s;
+      }
+    }
+
     &:first-child {
       display: block;
     }
@@ -294,6 +323,7 @@ import EllipseButton from "../atom/EllipseButton.vue";
     flex-direction: column;
     justify-content: flex-start;
     cursor: pointer;
+
     .card_small {
       width: 100%;
       height: 170px;
@@ -305,6 +335,36 @@ import EllipseButton from "../atom/EllipseButton.vue";
       margin-bottom: 10px;
       background-color: white;
       position: relative;
+
+      &:hover {
+        opacity: 0.8;
+        transform: translateY(-5px);
+        transition: 0.5s ease-in-out;
+      }
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -80%;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.3) 100%
+        );
+        transform: skewX(-25deg);
+      }
+
+      &:hover {
+        &::before {
+          -webkit-animation: shine 0.75s;
+          animation: shine 0.75s;
+        }
+      }
+
       .art_img_small {
         width: 280.51px;
         height: 202px;
