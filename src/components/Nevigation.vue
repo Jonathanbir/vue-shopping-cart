@@ -25,14 +25,13 @@
           <RouterLink @click="scrollToOffset(0)" to="/product"
             >商品區</RouterLink
           >
-          <RouterLink @click="scrollToOffset(0)" to="/news"
-            >最新消息</RouterLink
-          >
           <RouterLink @click="scrollToOffset(0)" to="/rank"
             >巧克力排名</RouterLink
           >
           <RouterLink @click="scrollToOffset(0)" to="/share">分享區</RouterLink>
-          <RouterLink @click="scrollToOffset(0)" to="/">會員優惠 </RouterLink>
+          <RouterLink @click="scrollToOffset(0)" to="/about"
+            >關於我們</RouterLink
+          >
         </div>
         <div
           class="cart-container"

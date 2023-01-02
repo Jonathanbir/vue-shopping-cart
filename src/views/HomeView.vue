@@ -35,6 +35,9 @@
         src="../images/chocolate/chocolate-02.png"
       />
     </div>
+    <div class="end-container container">
+      <AboutSection />
+    </div>
   </div>
 </template>
 
@@ -44,6 +47,7 @@ import InformationSection from "../components/home/InformationSection.vue";
 import RecommendSection from "../components/home/RecommendSection.vue";
 import RankSection from "../components/home/RankSection.vue";
 import ShareSection from "../components/home/ShareSection.vue";
+import AboutSection from "../components/home/AboutSection.vue";
 import { ref, computed, onMounted } from "vue";
 const height = ref("");
 const drop = ref("");
@@ -135,6 +139,15 @@ onMounted(() => {
 
 .fifth-container {
   .chco-04 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 300px;
+  }
+}
+
+.end-container {
+  .chco-05 {
     position: absolute;
     top: 0px;
     right: 0px;
