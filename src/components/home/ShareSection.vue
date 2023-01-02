@@ -192,7 +192,7 @@ import EllipseButton from "../atom/EllipseButton.vue";
   .card_big {
     display: none;
     width: 400px;
-    height: 624px;
+    height: 528px;
     border-radius: 20px;
     box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
     overflow: hidden;
@@ -223,8 +223,8 @@ import EllipseButton from "../atom/EllipseButton.vue";
           font-size: 1rem;
           letter-spacing: 0.3rem;
           font-family: "Roboto", sans-serif;
-          margin-top: 15px;
-          margin-bottom: 15px;
+          margin-top: 5px;
+          margin-bottom: 5px;
           font-weight: bold;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -234,7 +234,7 @@ import EllipseButton from "../atom/EllipseButton.vue";
           font-size: 0.8rem;
           letter-spacing: 0.3rem;
           font-family: "Roboto", sans-serif;
-          margin-top: 8px;
+          margin-top: 5px;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
@@ -243,7 +243,6 @@ import EllipseButton from "../atom/EllipseButton.vue";
       .user_info {
         display: flex;
         justify-content: flex-end;
-        margin-top: 15px;
         .user_status {
           display: inline-flex;
           .status_icon {
@@ -293,10 +292,11 @@ import EllipseButton from "../atom/EllipseButton.vue";
     margin-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     cursor: pointer;
     .card_small {
       width: 100%;
+      height: 170px;
       border-radius: 20px;
       box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
       overflow: hidden;
@@ -306,8 +306,8 @@ import EllipseButton from "../atom/EllipseButton.vue";
       background-color: white;
       position: relative;
       .art_img_small {
-        height: 187px;
         width: 280.51px;
+        height: 202px;
         img {
           width: 100%;
           height: 100%;
@@ -348,7 +348,6 @@ import EllipseButton from "../atom/EllipseButton.vue";
           .user_info {
             display: flex;
             justify-content: flex-end;
-            margin-top: 15px;
             .user_status {
               display: inline-flex;
               .status_icon {
@@ -381,8 +380,8 @@ import EllipseButton from "../atom/EllipseButton.vue";
             font-size: 0.8rem;
             letter-spacing: 0.3rem;
             font-family: "Roboto", sans-serif;
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-top: 5px;
+            margin-bottom: 5px;
             font-weight: bold;
             text-overflow: ellipsis;
             white-space: nowrap;
