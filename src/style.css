@@ -14,6 +14,21 @@ a {
   text-decoration: none;
 }
 
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 100px auto;
+}
+
+.section h1 {
+  margin-bottom: 50px;
+  color: #013b4f;
+}
+
 .btn {
   margin: auto;
   font-size: 1rem;

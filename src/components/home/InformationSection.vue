@@ -1,5 +1,5 @@
 <template>
-  <div class="home-information">
+  <div class="home-information section">
     <h1>營業資訊</h1>
     <div class="home-information-banners">
       <div
@@ -26,21 +26,10 @@ const banners = [
 
 <style lang="scss" scoped>
 .home-information {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 100px;
-  h1 {
-    margin-bottom: 50px;
-  }
+  margin: 30px auto 100px;
   .home-information-banners {
     display: flex;
     flex-direction: row;
-
     h1 {
       margin-bottom: 50px;
     }

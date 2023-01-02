@@ -1,5 +1,5 @@
 <template>
-  <div class="rank-section">
+  <div class="rank-section section">
     <h1>巧克力排名</h1>
     <div class="rank-container">
       <div
@@ -116,14 +116,6 @@ const imageSrc = ref([
 
 <style lang="scss" scoped>
 .rank-section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  margin: auto;
-  margin: 100px auto;
   .rank-container {
     display: flex;
     justify-content: center;
@@ -251,9 +243,6 @@ const imageSrc = ref([
         }
       }
     }
-  }
-  h1 {
-    margin-bottom: 50px;
   }
 }
 </style>

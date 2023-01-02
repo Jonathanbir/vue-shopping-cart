@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend-section">
+  <div class="recommend-section section">
     <h1>推薦商品</h1>
     <div class="recommend-container">
       <swiper
@@ -77,16 +77,6 @@ const index = ref(Math.floor(Math.random() * 6));
 
 <style lang="scss">
 .recommend-section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  margin: 100px auto;
-  h1 {
-    margin-bottom: 50px;
-  }
   .recommend-container {
     width: 100%;
 
