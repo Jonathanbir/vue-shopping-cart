@@ -12,7 +12,7 @@
         <div class="text_block">
           <div class="user">
             <img
-              src="	https://tse2.mm.bing.net/th?id=OIP._caeUh5LMCURvpJrgW2RhAHaJ4&pid=Api&P=0"
+              src="https://tse2.mm.bing.net/th?id=OIP._caeUh5LMCURvpJrgW2RhAHaJ4&pid=Api&P=0"
               alt=""
             />
           </div>

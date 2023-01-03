@@ -65,7 +65,7 @@ import { Navigation, Pagination, Autoplay } from "swiper";
 import EllipseButton from "../atom/EllipseButton.vue";
 import "swiper/swiper-bundle.css";
 import "swiper/css/pagination";
-import DATA from "../../data";
+import DATA from "../../data/data";
 const modules = [Navigation, Pagination, Autoplay];
 const pagination = ref({
   clickable: true,

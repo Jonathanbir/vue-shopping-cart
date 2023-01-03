@@ -1,5 +1,5 @@
 import { createStore, createLogger } from "vuex";
-import DATA from "../data";
+import DATA from "../data/data";
 
 export const store = createStore({
   plugins: [

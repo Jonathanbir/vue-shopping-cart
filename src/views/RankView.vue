@@ -261,7 +261,7 @@
 <script setup>
 import { ref } from "vue";
 import EllipseButton from "../components/atom/EllipseButton.vue";
-import DATA from "../data";
+import DATA from "../data/data";
 const imageSrc = ref([
   DATA[3].items[1].imageUrl,
   DATA[2].items[2].imageUrl,

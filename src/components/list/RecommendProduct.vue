@@ -90,7 +90,7 @@
 import { ref, computed, Transition } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import DATA from "../../data";
+import DATA from "../../data/data";
 const route = useRoute();
 const store = useStore();
 const index = ref(0);
