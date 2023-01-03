@@ -376,6 +376,7 @@ import ARTICLE_DATA from "../data/article";
   .article-list {
     display: flex;
     width: 1200px;
+    height: 600px;
     margin: 50px auto;
     .card_big {
       height: 400px;
