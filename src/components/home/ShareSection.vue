@@ -4,82 +4,69 @@
     <div class="share-container">
       <div class="card_big">
         <div class="art_img_big">
-          <img
-            src="https://tse2.mm.bing.net/th?id=OIP.p9dxeUSDak8cMk8ifumjpwHaFY&pid=Api&P=0"
-            alt=""
-          />
+          <img :src="ARTICLE_DATA[0].imageUrl" alt="" />
         </div>
         <div class="text_block">
           <div class="user">
-            <img
-              src="https://tse2.mm.bing.net/th?id=OIP._caeUh5LMCURvpJrgW2RhAHaJ4&pid=Api&P=0"
-              alt=""
-            />
+            <img :src="ARTICLE_DATA[0].userImg" alt="" />
           </div>
           <div class="user_info_block">
-            <p class="article_time">2021-01-12 20:39:11</p>
+            <p class="article_time">{{ ARTICLE_DATA[0].shareTime }}</p>
             <div class="article_descirption">
-              <h6>QQ好喝到咩噗茶</h6>
+              <h6>{{ ARTICLE_DATA[0].title }}</h6>
               <p>
-                手搖控這次不吸珍珠了！台北最新排隊名店「五桐號WooTEA」強打凍飲系飲品，將茶飲、鮮榨水果，通通加入咀嚼感十足的自製綠茶、杏仁、豆漿凍等，喝起來Q彈滑溜，連藍心湄、紀卜心等藝人網紅都搶喝打卡。
+                {{ ARTICLE_DATA[0].description }}
               </p>
             </div>
             <div class="user_info">
               <div class="user_status">
                 <div class="status_icon">
                   <fa class="icon" icon="eye" />
-                  <p class="number">115</p>
+                  <p class="number">{{ ARTICLE_DATA[0].shareEyes }}</p>
                 </div>
                 <div class="status_icon">
                   <fa class="icon" icon="message" />
-                  <p class="number">7</p>
+                  <p class="number">{{ ARTICLE_DATA[0].shareMessage }}</p>
                 </div>
                 <div class="status_icon">
                   <fa class="icon heart" icon="heart" />
-                  <p class="number">7</p>
+                  <p class="number">{{ ARTICLE_DATA[0].shareLike }}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <div class="card_small_block">
         <div class="card_small">
           <div class="art_img_small">
-            <img
-              src="https://tse2.mm.bing.net/th?id=OIP.5sn1pCdXALVHXhloi3oJZwHaFP&pid=Api&P=0"
-              alt=""
-            />
+            <img :src="ARTICLE_DATA[1].imageUrl" alt="" />
           </div>
           <div class="text_block">
             <div class="user">
-              <img
-                src="	https://tse1.mm.bing.net/th?id=OIP.GSEhOyFyE_1aCNdYN6WBPAHaNK&pid=Api&P=0"
-                alt=""
-              />
+              <img :src="ARTICLE_DATA[1].userImg" alt="" />
             </div>
             <div class="user_info_block">
-              <p class="article_time">2021-01-01 21:18:13</p>
+              <p class="article_time">{{ ARTICLE_DATA[1].shareTime }}</p>
               <div class="article_descirption">
-                <h6>珍奶控的心得小分享</h6>
+                <h6>{{ ARTICLE_DATA[1].title }}</h6>
                 <p>
-                  茶類表現非常優秀！果茶類喝起來清爽用料實在！會接觸這家是在學校附近，我居然忘記它現在才補上這家的金萱茶是我喝過最好喝的茶
+                  {{ ARTICLE_DATA[1].description }}
                 </p>
               </div>
               <div class="user_info">
                 <div class="user_status">
                   <div class="status_icon">
                     <fa class="icon" icon="eye" />
-                    <p class="number">82</p>
+                    <p class="number">{{ ARTICLE_DATA[1].shareEyes }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon" icon="message" />
-                    <p class="number">8</p>
+                    <p class="number">{{ ARTICLE_DATA[1].shareMessage }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon heart" icon="heart" />
-                    <p class="number">5</p>
+                    <p class="number">{{ ARTICLE_DATA[1].shareLike }}</p>
                   </div>
                 </div>
               </div>
@@ -88,37 +75,33 @@
         </div>
         <div class="card_small">
           <div class="art_img_small">
-            <img
-              src="	https://tse2.mm.bing.net/th?id=OIP.qFfc52waWCBOe39RjuB7VQHaE7&pid=Api&P=0"
-              alt=""
-            />
+            <img :src="ARTICLE_DATA[2].imageUrl" alt="" />
           </div>
           <div class="text_block">
             <div class="user">
-              <img
-                src="	https://tse1.mm.bing.net/th?id=OIP.TyOpfduNwosmeMHNb4ZQ8QHaEo&pid=Api&P=0"
-                alt=""
-              />
+              <img :src="ARTICLE_DATA[2].userImg" alt="" />
             </div>
             <div class="user_info_block">
-              <p class="article_time">2021-01-22 17:13:16</p>
+              <p class="article_time">{{ ARTICLE_DATA[2].shareTime }}</p>
               <div class="article_descirption">
-                <h6>偵茶者報到</h6>
-                <p>有沒有同好要一起來茶園揪團呢～～～～～～～</p>
+                <h6>{{ ARTICLE_DATA[2].title }}</h6>
+                <p>
+                  {{ ARTICLE_DATA[2].description }}
+                </p>
               </div>
               <div class="user_info">
                 <div class="user_status">
                   <div class="status_icon">
                     <fa class="icon" icon="eye" />
-                    <p class="number">69</p>
+                    <p class="number">{{ ARTICLE_DATA[2].shareEyes }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon" icon="message" />
-                    <p class="number">3</p>
+                    <p class="number">{{ ARTICLE_DATA[2].shareMessage }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon heart" icon="heart" />
-                    <p class="number">3</p>
+                    <p class="number">{{ ARTICLE_DATA[2].shareLike }}</p>
                   </div>
                 </div>
               </div>
@@ -127,42 +110,33 @@
         </div>
         <div class="card_small">
           <div class="art_img_small">
-            <img
-              src="	https://tse1.mm.bing.net/th?id=OIP.5OcZjcVpQOLGysGjiheQfgHaG0&pid=Api&P=0"
-              alt=""
-            />
+            <img :src="ARTICLE_DATA[3].imageUrl" alt="" />
           </div>
           <div class="text_block">
             <div class="user">
-              <img
-                src="https://tse4.mm.bing.net/th?id=OIP.0QHhjXc7kucX2JUSlylmjwHaNK&pid=Api&P=0"
-                alt=""
-              />
+              <img :src="ARTICLE_DATA[3].userImg" alt="" />
             </div>
             <div class="user_info_block">
-              <p class="article_time">2021-01-01 21:22:17</p>
+              <p class="article_time">{{ ARTICLE_DATA[3].shareTime }}</p>
               <div class="article_descirption">
-                <h6>【夏日經典飲料分享】</h6>
+                <h6>{{ ARTICLE_DATA[3].title }}</h6>
                 <p>
-                  夏天到了，飲料是否都喝膩了呢？
-                  最近麻古有新推一個超級消暑的楊枝甘露！
-                  芒果搭配葡萄柚果粒，佐以獨家自製綠茶凍的超清爽滋味！
-                  杯身超文青，還有美美的漸層！ 快去附近的麻古嘗鮮吧～
+                  {{ ARTICLE_DATA[3].description }}
                 </p>
               </div>
               <div class="user_info">
                 <div class="user_status">
                   <div class="status_icon">
                     <fa class="icon" icon="eye" />
-                    <p class="number">53</p>
+                    <p class="number">{{ ARTICLE_DATA[3].shareEyes }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon" icon="message" />
-                    <p class="number">10</p>
+                    <p class="number">{{ ARTICLE_DATA[3].shareMessage }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon heart" icon="heart" />
-                    <p class="number">2</p>
+                    <p class="number">{{ ARTICLE_DATA[3].shareLike }}</p>
                   </div>
                 </div>
               </div>
@@ -177,6 +151,7 @@
 
 <script setup>
 import EllipseButton from "../atom/EllipseButton.vue";
+import ARTICLE_DATA from "../../data/article";
 </script>
 
 <style lang="scss" scoped>
@@ -239,7 +214,10 @@ import EllipseButton from "../atom/EllipseButton.vue";
       text-align: right;
     }
     .art_img_big {
-      height: 320px;
+      height: auto;
+      img {
+        width: 100%;
+      }
     }
     .text_block {
       display: flex;
