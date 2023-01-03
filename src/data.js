@@ -8,8 +8,8 @@ const DATA = [
         name: "【iTQi食品米其林2星獎】醇濃黑巧克力薄片夾心巧克力",
         imageUrl:
           "https://www.conas-choc.com/upload/fac_product_list_pic/tw_fac_product_list_19g09_nc8sgyu5k9.jpg",
-        img2: "",
-        img3: "",
+        img2: "https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5291347/2/638076601382870000?v=1",
+        img3: "https://www.conas-choc.com/upload/fac_product_list_pic/tw_fac_product_list_19g09_nc8sgyu5k9.jpg",
         description:
           "濃郁的黑巧克力薄片，有著飽滿深厚的100％內餡，苦甜的滋味在入口後逐漸蔓延，值得午後來杯咖啡細細品嚐。",
         desImg1:
@@ -23,7 +23,7 @@ const DATA = [
         name: "【iTQi食品米其林2星獎】紅玉紅茶黑巧克力夾心薄片",
         imageUrl:
           "https://www.conas-choc.com/upload/fac_product_list_pic/tw_fac_product_list_19g09_yg7gpzm9c6.jpg",
-        img2: "",
+        img2: "	https://diz36nn4q02zr.cloudfront.net/webapi/imagesV3/Original/SalePage/5291105/2/638076601382870000?v=1",
         img3: "",
         description:
           "採用南投在地特色-日月潭台茶18號紅玉紅茶，以獨特的淡雅肉桂香與薄荷清香完美結合70%黑巧克力，獨家薄片技術搭配爆漿內餡，創造多層次的口感與香醇回甘的滋味。",

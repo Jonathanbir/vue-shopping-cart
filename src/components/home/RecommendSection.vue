@@ -78,7 +78,7 @@ const index = ref(Math.floor(Math.random() * 6));
 <style lang="scss">
 .recommend-section {
   .recommend-container {
-    width: 100%;
+    width: 80%;
 
     .swiper {
       height: 320px;

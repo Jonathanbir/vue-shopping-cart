@@ -21,7 +21,7 @@
                 src="https://tibamef2e.com/ced101/project/g1/Images/vote_medium.svg"
                 alt=""
               />
-              <span>12</span>票
+              <span>98</span>票
             </div>
           </div>
           <div
@@ -54,7 +54,7 @@
                 src="https://tibamef2e.com/ced101/project/g1/Images/vote_medium.svg"
                 alt=""
               />
-              <span>22</span>票
+              <span>109</span>票
             </div>
           </div>
           <div
@@ -84,7 +84,7 @@
             <h5>{{ DATA[1].items[2].name }}</h5>
             <div class="vote_number">
               <img src="../../images/icon/vote_medium.svg" alt="" />
-              <span>10</span>票
+              <span>95</span>票
             </div>
           </div>
           <div
