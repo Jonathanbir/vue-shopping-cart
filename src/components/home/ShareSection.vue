@@ -154,7 +154,7 @@ import EllipseButton from "../atom/EllipseButton.vue";
 import ARTICLE_DATA from "../../data/article";
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .share-container {
   display: flex;
   flex-direction: row;
@@ -164,136 +164,7 @@ import ARTICLE_DATA from "../../data/article";
   p {
     color: #013b4f;
   }
-  .card_big {
-    display: none;
-    width: 400px;
-    height: 528px;
-    border-radius: 20px;
-    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
-    overflow: hidden;
-    background-color: white;
-    cursor: pointer;
 
-    &:hover {
-      opacity: 0.8;
-      transform: translateY(-5px);
-      transition: 0.5s ease-in-out;
-    }
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: -80%;
-      display: block;
-      content: "";
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 100%
-      );
-      transform: skewX(-25deg);
-    }
-
-    &:hover {
-      &::before {
-        -webkit-animation: shine 0.75s;
-        animation: shine 0.75s;
-      }
-    }
-
-    &:first-child {
-      display: block;
-    }
-
-    .article_time {
-      font-size: 0.2rem;
-      letter-spacing: 0.2rem;
-      font-family: "Roboto", sans-serif;
-      text-align: right;
-    }
-    .art_img_big {
-      height: auto;
-      img {
-        width: 100%;
-      }
-    }
-    .text_block {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      padding: 35px 15px;
-      .article_descirption {
-        width: 100%;
-        h6 {
-          font-size: 1rem;
-          letter-spacing: 0.3rem;
-          font-family: "Roboto", sans-serif;
-          margin-top: 5px;
-          margin-bottom: 5px;
-          font-weight: bold;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-        }
-        p {
-          font-size: 0.8rem;
-          letter-spacing: 0.3rem;
-          font-family: "Roboto", sans-serif;
-          margin-top: 5px;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-        }
-      }
-      .user_info {
-        display: flex;
-        justify-content: flex-end;
-        .user_status {
-          display: inline-flex;
-          .status_icon {
-            display: inline-flex;
-            align-items: center;
-            .number {
-              font-size: 0.5rem;
-              letter-spacing: 0.2rem;
-              font-family: "Roboto", sans-serif;
-              margin-left: 5px;
-            }
-            .icon {
-              color: #aaa;
-              margin: auto 10px;
-            }
-            .heart {
-              color: red;
-            }
-          }
-        }
-      }
-      .user {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img {
-          width: 100%;
-          height: 100%;
-          -o-object-fit: cover;
-          object-fit: cover;
-          max-width: none;
-        }
-      }
-    }
-    .text_block .user_info_block {
-      display: flex;
-      flex-direction: column;
-      width: 65%;
-    }
-  }
   .card_small_block {
     width: 40%;
     margin-left: 20px;

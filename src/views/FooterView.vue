@@ -25,7 +25,7 @@
         <p><fa icon="phone" /> Tel │04-9291-9528</p>
         <p><fa icon="print" /> Fax │04-9291-9778</p>
         <p><fa icon="envelope" /> E-mail│ conas.choc@gmail.com</p>
-        <p><fa icon="map-marker" /> 545南投縣埔里鎮桃米里桃米路32號</p>
+        <p><fa icon="map-marker" /> 台北市信義區信福路6段6巷66號6樓</p>
       </div>
     </div>
   </footer>

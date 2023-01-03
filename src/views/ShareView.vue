@@ -1,7 +1,7 @@
 <template>
   <div class="share-section">
     <h1>分享區</h1>
-    <div class="share-container">
+    <div class="article-container">
       <div class="article_item" v-for="article in ARTICLE_DATA">
         <div class="article_img">
           <img :src="article.imageUrl" alt="" />
@@ -45,6 +45,71 @@
         </div>
       </div>
     </div>
+    <section class="select-section">
+      <div class="show_article_btn">
+        <div class="show_img"><fa class="icon" icon="list" /></div>
+        <div class="show_text">所有文章列表</div>
+      </div>
+      <div class="filter_big_box">
+        <div class="filter_box">
+          <label for="filter">篩選</label>
+          <select name="filter" id="filter">
+            <option value="art_time">時間新到舊</option>
+            <option value="art_like_count">按讚數</option>
+            <option value="art_msg_count">留言數</option>
+            <option value="art_look_count">瀏覽數</option>
+          </select>
+        </div>
+      </div>
+      <div class="write_article_btn">
+        <div class="write_img"><fa class="icon" icon="pen" /></div>
+        <div class="write_text">投稿</div>
+      </div>
+    </section>
+    <div class="article-list">
+      <div class="card_big" v-for="article in ARTICLE_DATA">
+        <div class="art_img_big">
+          <div
+            class="img"
+            :style="
+              'background-image:url(' +
+              article.imageUrl +
+              ');background-size:cover;background-position:center;background-repeat:no-repeat'
+            "
+          ></div>
+        </div>
+        <div class="text_block">
+          <div class="user">
+            <img :src="article.userImg" alt="" />
+          </div>
+          <div class="user_info_block">
+            <p class="article_time">{{ article.shareTime }}</p>
+            <div class="article_descirption">
+              <h6>{{ article.title }}</h6>
+              <p>
+                {{ article.description }}
+              </p>
+            </div>
+            <div class="user_info">
+              <div class="user_status">
+                <div class="status_icon">
+                  <fa class="icon" icon="eye" />
+                  <p class="number">{{ article.shareEyes }}</p>
+                </div>
+                <div class="status_icon">
+                  <fa class="icon" icon="message" />
+                  <p class="number">{{ article.shareMessage }}</p>
+                </div>
+                <div class="status_icon">
+                  <fa class="icon heart" icon="heart" />
+                  <p class="number">{{ article.shareLike }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -64,162 +129,317 @@ import ARTICLE_DATA from "../data/article";
     color: #013b4f;
     margin-top: 50px;
   }
-  .article_item {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 15px;
-    overflow: hidden;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 0.8;
-      transform: translateY(-5px);
-      transition: 0.5s ease-in-out;
-    }
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: -80%;
-      display: block;
-      content: "";
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 100%
-      );
-      transform: skewX(-25deg);
-    }
-
-    &:hover {
-      &::before {
-        -webkit-animation: shine 0.75s;
-        animation: shine 0.75s;
-      }
-    }
-    .article_img {
+  .article-container {
+    width: 1200px;
+    .article_item {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 30%;
-      min-width: 396px;
-      height: 313px;
-      font-size: 0;
-      flex-shrink: 0;
-      img {
-        width: 100%;
-        max-width: none;
-        height: 100%;
-        -o-object-fit: cover;
-        object-fit: cover;
+      text-decoration: none;
+      width: 1200px;
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+        transform: translateY(-5px);
+        transition: 0.5s ease-in-out;
       }
-    }
-  }
-  .article_right {
-    align-self: stretch;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px 25px;
-    background-color: #fff;
-    flex-shrink: 1;
-    .article_time {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      font-size: 1rem;
-      font-family: "Roboto", sans-serif;
-      margin: 5px 0;
-    }
-    .article_info {
-      display: flex;
-      justify-content: space-between;
-      margin: 5px 0;
-      .article_info_left {
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: -200%;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.3) 100%
+        );
+        transform: skewX(-25deg);
+      }
+
+      &:hover {
+        &::before {
+          -webkit-animation: shine 0.75s;
+          animation: shine 0.75s;
+        }
+      }
+      .article_img {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1.4rem;
-        letter-spacing: 0.3rem;
+        width: 30%;
+        min-width: 396px;
+        height: 313px;
+        font-size: 0;
+        flex-shrink: 0;
+        img {
+          width: 100%;
+          max-width: none;
+          height: 100%;
+          -o-object-fit: cover;
+          object-fit: cover;
+        }
+      }
+    }
+    .article_right {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 20px 25px;
+      background-color: #fff;
+      flex-shrink: 1;
+      .article_time {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1rem;
         font-family: "Roboto", sans-serif;
-        .article_memimg {
-          width: 76px;
-          height: 76px;
-          overflow: hidden;
+        margin: 5px 0;
+      }
+      .article_info {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0;
+        .article_info_left {
           display: flex;
           justify-content: center;
           align-items: center;
-          border-radius: 50%;
-          font-size: 0;
-          margin-right: 35px;
-          img {
-            max-width: none;
-            width: 100%;
-            height: 100%;
-            -o-object-fit: cover;
-            object-fit: cover;
+          font-size: 1.4rem;
+          letter-spacing: 0.3rem;
+          font-family: "Roboto", sans-serif;
+          .article_memimg {
+            width: 76px;
+            height: 76px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 0;
+            margin-right: 35px;
+            img {
+              max-width: none;
+              width: 100%;
+              height: 100%;
+              -o-object-fit: cover;
+              object-fit: cover;
+            }
           }
-        }
-        .article_memname {
-          font-size: 24px;
-          color: #013b4f;
+          .article_memname {
+            font-size: 24px;
+            color: #013b4f;
+          }
         }
       }
     }
-  }
-  .article_count {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 5px 0;
-    font-size: 1.4rem;
-    letter-spacing: 0.3rem;
-    font-family: "Roboto", sans-serif;
-
-    .article_box {
+    .article_count {
       display: flex;
-      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 5px 0;
+      font-size: 1.4rem;
+      letter-spacing: 0.3rem;
+      font-family: "Roboto", sans-serif;
+
+      .article_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .article_icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 15px;
+          margin: 10px;
+          flex-shrink: 0;
+          span {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+    .article_detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px 0;
+      .article_title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #013b4f;
+        letter-spacing: 2px;
+        line-height: 1.5;
+      }
+    }
+    .article_text {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.6);
+      letter-spacing: 2px;
+      line-height: 1.5;
+      margin: 5px 0;
+    }
+  }
+  .select-section {
+    margin: 50px 0 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+
+    .show_article_btn {
+      display: flex;
       justify-content: center;
       align-items: center;
-      .article_icon {
+      .show_img {
+        margin-right: 8px;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 15px;
-        margin: 10px;
-        flex-shrink: 0;
-        span {
-          font-size: 10px;
+      }
+      .show_text {
+        font-size: 1.2rem;
+        letter-spacing: 1rem;
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        color: #013b4f;
+        letter-spacing: 5px;
+        line-height: 1.5;
+      }
+    }
+    .filter_big_box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .filter_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        label {
+          margin-right: 5px;
+          font-size: 1.1rem;
+          letter-spacing: 0.8rem;
+          font-family: "Roboto", sans-serif;
+          color: #b3925b;
+          font-weight: bold;
+        }
+        #filter {
+          width: 150px;
+          -webkit-appearance: none;
+          background: url("https://tibamef2e.com/ced101/project/g1/Images/article/share_list/select.svg")
+            no-repeat right center transparent;
+          background-color: #fff;
+          font-size: 1rem;
+          letter-spacing: 0.3rem;
+          font-family: "Roboto", sans-serif;
+          color: #013b4f;
+          border: none;
+          outline: none;
+          border-radius: 3px;
+          padding-left: 10px;
         }
       }
     }
-  }
-  .article_detail {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 0;
-    .article_title {
-      font-size: 18px;
-      font-weight: bold;
-      color: #013b4f;
-      letter-spacing: 2px;
-      line-height: 1.5;
+    .write_article_btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background-color: #013b4f;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 105px;
+      height: 30px;
+      .icon {
+        color: #fff;
+        padding: 10px;
+      }
+      .write_text {
+        letter-spacing: 2px;
+        line-height: 1.5;
+        font-weight: bold;
+        color: #fff;
+        font-size: 15px;
+      }
     }
   }
-  .article_text {
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
-    letter-spacing: 2px;
-    line-height: 1.5;
-    margin: 5px 0;
+  .article-list {
+    display: flex;
+    width: 1200px;
+    margin: 50px auto;
+    .card_big {
+      height: 400px;
+      margin: auto 10px;
+      &:hover {
+        transform: scale(1.2) !important;
+        width: 450px;
+        height: 450px;
+        .article_descirption {
+          width: 100%;
+
+          h6 {
+            white-space: initial;
+            overflow: initial;
+          }
+          p {
+            white-space: initial;
+            overflow: initial;
+            height: auto;
+          }
+        }
+        .user_info {
+          position: absolute;
+          bottom: 10px;
+        }
+      }
+      .text_block {
+        padding: 10px;
+      }
+      &:hover {
+        opacity: 0.8;
+        transform: translateY(-5px);
+        transition: 0.5s ease-in-out;
+      }
+
+      &::before {
+        left: -200%;
+      }
+      .article_time {
+        font-size: 0.2rem;
+        letter-spacing: 0.2rem;
+        font-family: "Roboto", sans-serif;
+        text-align: right;
+      }
+      .art_img_big {
+        height: 200px;
+        .img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .text_block {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 35px 15px;
+
+        .article_descirption {
+          p {
+            height: 18px;
+          }
+        }
+      }
+    }
   }
 }
 </style>
