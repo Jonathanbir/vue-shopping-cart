@@ -94,7 +94,7 @@ const banners = [
 .container-imgs {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 640px;
 
   .hoem-title {
     position: absolute;
@@ -141,7 +141,7 @@ const banners = [
 
   .img {
     width: 100%;
-    height: 70vh;
+    height: 640px;
   }
 
   .decoration {

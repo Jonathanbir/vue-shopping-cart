@@ -40,7 +40,7 @@
     >
       <img
         :style="props.title && { marginRight: '100px' }"
-        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/91cefb0ea4c4361c1115da9b0199d0d5.jpg"
+        src="https://www.conas-choc.com/upload/catalog_history_list_pic/91cefb0ea4c4361c1115da9b0199d0d5.jpg"
         alt=""
       />
       <div class="title_block" :style="props.title && { marginLeft: '0' }">
@@ -65,7 +65,7 @@
       </div>
       <img
         :style="props.title && { marginLeft: '100px' }"
-        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
+        src="https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
         alt=""
       />
     </div>
@@ -76,7 +76,7 @@
     >
       <img
         :style="props.title && { marginRight: '100px' }"
-        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
+        src="https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
         alt=""
       />
       <div class="title_block" :style="props.title && { marginLeft: '0' }">
@@ -101,7 +101,7 @@
       </div>
       <img
         :style="props.title && { marginLeft: '100px' }"
-        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/3b35b595a30ae68fd0acca86901acbda.jpg"
+        src="https://www.conas-choc.com/upload/catalog_history_list_pic/3b35b595a30ae68fd0acca86901acbda.jpg"
         alt=""
       />
     </div>

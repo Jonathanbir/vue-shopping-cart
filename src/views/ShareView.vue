@@ -456,12 +456,12 @@ const clickNextBtn = () => {
     .next-btn {
       position: absolute;
       top: 40%;
-      right: -60px;
+      right: -50px;
     }
     .prev-btn {
       position: absolute;
       top: 40%;
-      left: -60px;
+      left: -50px;
     }
 
     .card_big {
