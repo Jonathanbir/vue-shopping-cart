@@ -2,7 +2,11 @@
   <div class="share-section">
     <h1>分享區</h1>
     <div class="article-container">
-      <div class="article_item" v-for="article in ARTICLE_DATA">
+      <div
+        class="article_item"
+        v-for="(article, index) in ARTICLE_DATA"
+        v-show="index < 3"
+      >
         <div class="article_img">
           <img :src="article.imageUrl" alt="" />
         </div>
@@ -67,7 +71,13 @@
       </div>
     </section>
     <div class="article-list">
-      <div class="card_big" v-for="article in ARTICLE_DATA">
+      <div class="next-btn btn" @click="clickNextBtn">
+        <fa icon="circle-chevron-right" />
+      </div>
+      <div class="prev-btn btn" @click="clickPrevBtn">
+        <fa icon="circle-chevron-left" />
+      </div>
+      <div class="card_big" v-for="(article, index) in shareList">
         <div class="art_img_big">
           <div
             class="img"
@@ -110,11 +120,61 @@
         </div>
       </div>
     </div>
+    <div class="page-container">
+      <button
+        class="page-btn"
+        v-for="(btn, index) in pageTotal"
+        @click="clickBtn(index)"
+        :style="
+          pageCurrent == index && {
+            color: '#fff',
+            background: 'rgb(21, 10, 67)',
+          }
+        "
+      >
+        <div>{{ index + 1 }}</div>
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 import ARTICLE_DATA from "../data/article";
+const articleList = ref([]);
+const articleInit = ref([]);
+for (let i = 0; i < ARTICLE_DATA.length; i++) {
+  articleList.value.push(ARTICLE_DATA[i]);
+}
+for (let i = 0; i < 4; i++) {
+  articleInit.value.push(ARTICLE_DATA[i]);
+}
+const shareList = ref(articleInit);
+const pageTotal = ref(0);
+const pageCurrent = ref(0);
+pageTotal.value = ARTICLE_DATA.length / 4;
+
+const clickBtn = (index) => {
+  pageCurrent.value = index;
+  shareList.value = articleList.value.splice(index * 4, 4);
+  articleList.value = [...ARTICLE_DATA];
+};
+
+const clickNextBtn = () => {
+  if (pageCurrent.value + 1 < pageTotal.value) {
+    pageCurrent.value = pageCurrent.value + 1;
+    shareList.value = articleList.value.splice(pageCurrent.value * 4, 4);
+  }
+  articleList.value = [...ARTICLE_DATA];
+};
+
+const clickPrevBtn = () => {
+  if (pageCurrent.value > 0) {
+    pageCurrent.value = pageCurrent.value - 1;
+    shareList.value = articleList.value.splice(pageCurrent.value * 4, 4);
+  }
+  articleList.value = [...ARTICLE_DATA];
+};
 </script>
 
 <style lang="scss" scoped>
@@ -124,6 +184,7 @@ import ARTICLE_DATA from "../data/article";
   justify-content: center;
   align-items: center;
   background-color: rgb(229, 227, 221);
+
   h1 {
     font-size: 35px;
     color: #013b4f;
@@ -335,7 +396,6 @@ import ARTICLE_DATA from "../data/article";
         }
         #filter {
           width: 150px;
-          -webkit-appearance: none;
           background: url("https://tibamef2e.com/ced101/project/g1/Images/article/share_list/select.svg")
             no-repeat right center transparent;
           background-color: #fff;
@@ -374,10 +434,26 @@ import ARTICLE_DATA from "../data/article";
     }
   }
   .article-list {
+    position: relative;
     display: flex;
     width: 1200px;
-    height: 600px;
+    height: 450px;
     margin: 50px auto;
+    .btn {
+      color: #000;
+      font-size: 50px;
+    }
+    .next-btn {
+      position: absolute;
+      top: 40%;
+      right: -60px;
+    }
+    .prev-btn {
+      position: absolute;
+      top: 40%;
+      left: -60px;
+    }
+
     .card_big {
       height: 400px;
       margin: auto 10px;
@@ -387,6 +463,7 @@ import ARTICLE_DATA from "../data/article";
         height: 450px;
         .article_descirption {
           width: 100%;
+          height: 150px;
 
           h6 {
             white-space: initial;
@@ -401,6 +478,18 @@ import ARTICLE_DATA from "../data/article";
         .user_info {
           position: absolute;
           bottom: 10px;
+        }
+        .text_block {
+          transform: translateY(-30px);
+        }
+        .art_img_big {
+          .img {
+            background-size: 100% !important;
+            background-position-y: -1px !important;
+          }
+        }
+        .text_block {
+          align-items: flex-start;
         }
       }
       .text_block {
@@ -440,6 +529,18 @@ import ARTICLE_DATA from "../data/article";
           }
         }
       }
+    }
+  }
+  .page-container {
+    display: flex;
+    margin-bottom: 50px;
+    .page-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+      border: 1px #013b4f solid;
+      margin: 10px;
+      cursor: pointer;
     }
   }
 }

@@ -29,9 +29,7 @@
             >巧克力排名</RouterLink
           >
           <RouterLink @click="scrollToOffset(0)" to="/share">分享區</RouterLink>
-          <RouterLink @click="scrollToOffset(0)" to="/about"
-            >關於我們</RouterLink
-          >
+          <RouterLink @click="scrollToOffset(0)" to="">關於我們</RouterLink>
         </div>
         <div
           class="cart-container"

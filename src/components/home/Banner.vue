@@ -1,5 +1,9 @@
 <template>
   <div class="container-imgs">
+    <div class="hoem-title">
+      <h1>夢想巧克力</h1>
+      <span> 給你滿滿夢幻的口味</span>
+    </div>
     <swiper
       :slidesPerView="1"
       :spaceBetween="30"
@@ -40,13 +44,13 @@ const pagination = ref({
 });
 const banners = [
   {
-    src: "https://tse1.mm.bing.net/th?id=OIP.YJbew50djPBfxaNTWVBrZgHaEo&pid=Api&P=0",
+    src: "	https://www.conas-choc.com/upload/banner_list/tw_banner_list_21d09_cknzm37gbd.jpg",
   },
   {
-    src: "https://tse3.mm.bing.net/th?id=OIP.0jmSHxyBTLHGsX4_F1D5MAHaEj&pid=Api&P=0",
+    src: "	https://pic2.zhimg.com/v2-134378c19ded3d5b93fececeb400c39d_r.jpg",
   },
   {
-    src: " 	https://tse1.mm.bing.net/th?id=OIP.WsntCsyb6McNY6uurZCyywHaF7&pid=Api&P=0",
+    src: " 	https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/4610b912c8fcc3ce261b24789f45d688d53f20a6.jpg",
   },
   { src: "	https://img.tukuppt.com/bg_grid/00/06/34/vTPnGZuqAR.jpg!/fh/350" },
 ];
@@ -90,6 +94,26 @@ const banners = [
   position: relative;
   width: 100%;
   height: 70vh;
+
+  .hoem-title {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    text-align: center;
+    margin: auto;
+    h1 {
+      font-size: 60px;
+      color: #fff;
+      margin: 10px auto;
+    }
+
+    span {
+      font-size: 25px;
+      color: #fff;
+    }
+  }
 
   .swiper-pagination {
     bottom: 16vh !important;
