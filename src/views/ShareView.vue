@@ -71,11 +71,21 @@
       </div>
     </section>
     <div class="article-list">
-      <div class="next-btn btn" @click="clickNextBtn">
-        <fa icon="circle-chevron-right" />
-      </div>
-      <div class="prev-btn btn" @click="clickPrevBtn">
+      <div
+        class="prev-btn btn"
+        :style="pageCurrent == 0 && { color: '#ccc', cursor: 'initial' }"
+        @click="clickPrevBtn"
+      >
         <fa icon="circle-chevron-left" />
+      </div>
+      <div
+        class="next-btn btn"
+        :style="
+          pageCurrent + 1 == pageTotal && { color: '#ccc', cursor: 'initial' }
+        "
+        @click="clickNextBtn"
+      >
+        <fa icon="circle-chevron-right" />
       </div>
       <div class="card_big" v-for="(article, index) in shareList">
         <div class="art_img_big">
@@ -160,17 +170,17 @@ const clickBtn = (index) => {
   articleList.value = [...ARTICLE_DATA];
 };
 
-const clickNextBtn = () => {
-  if (pageCurrent.value + 1 < pageTotal.value) {
-    pageCurrent.value = pageCurrent.value + 1;
+const clickPrevBtn = () => {
+  if (pageCurrent.value > 0) {
+    pageCurrent.value = pageCurrent.value - 1;
     shareList.value = articleList.value.splice(pageCurrent.value * 4, 4);
   }
   articleList.value = [...ARTICLE_DATA];
 };
 
-const clickPrevBtn = () => {
-  if (pageCurrent.value > 0) {
-    pageCurrent.value = pageCurrent.value - 1;
+const clickNextBtn = () => {
+  if (pageCurrent.value + 1 < pageTotal.value) {
+    pageCurrent.value = pageCurrent.value + 1;
     shareList.value = articleList.value.splice(pageCurrent.value * 4, 4);
   }
   articleList.value = [...ARTICLE_DATA];
@@ -313,7 +323,7 @@ const clickPrevBtn = () => {
 
       .article_box {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
         .article_icon {

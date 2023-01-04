@@ -2,7 +2,8 @@
   <div class="container-imgs">
     <div class="hoem-title">
       <h1>夢想巧克力</h1>
-      <span> 給你滿滿夢幻的口味</span>
+      <span>給你滿滿夢幻的口味</span>
+      <span>chocolate makes you a good dream</span>
     </div>
     <swiper
       :slidesPerView="1"
@@ -97,21 +98,31 @@ const banners = [
 
   .hoem-title {
     position: absolute;
-    top: 30%;
+    top: 10%;
     left: 0;
     right: 0;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 400px;
     text-align: center;
+    border-radius: 100% 111% 84% 127%/142% 133% 81% 75%;
     margin: auto;
+    background-color: rgba(9, 9, 9, 0.5);
     h1 {
       font-size: 60px;
       color: #fff;
+      text-shadow: 2px 2px 10px white, -2px -2px 10px white;
       margin: 10px auto;
     }
 
     span {
       font-size: 25px;
       color: #fff;
+      text-shadow: 2px 2px 10px white, -2px -2px 10px white;
     }
   }
 

@@ -1,6 +1,7 @@
 <template>
   <section class="brandStory">
-    <div class="story_block">
+    <h1 v-show="props.title">{{ props.title }}</h1>
+    <div class="story_block" :style="props.title && { margin: '10px 0 10px' }">
       <img
         src="https://www.conas-choc.com/upload/ad_footer_list/tw_ad_footer_list_19d23_9x3rw5w4be.jpg"
         alt=""
@@ -15,7 +16,115 @@
         </h6>
       </div>
     </div>
-    <div class="address_block">
+    <div
+      v-show="props.title"
+      class="story_block"
+      :style="props.title && { margin: '10px 0 10px' }"
+    >
+      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+        <h1>2004年</h1>
+        <h6>
+          2004年，12月在海拔1755公尺的清境創立清境佛羅倫斯渡假山莊，提供旅人一個休閒度假的好去處。
+        </h6>
+      </div>
+      <img
+        :style="props.title && { marginLeft: '100px' }"
+        src="https://www.conas-choc.com/upload/catalog_history_list_pic/e005ef3992d00a35715735c2f33a6508.jpg"
+        alt=""
+      />
+    </div>
+    <div
+      v-show="props.title"
+      class="story_block"
+      :style="props.title && { margin: '10px 0 10px' }"
+    >
+      <img
+        :style="props.title && { marginRight: '100px' }"
+        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/91cefb0ea4c4361c1115da9b0199d0d5.jpg"
+        alt=""
+      />
+      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+        <h1>2008年</h1>
+        <h6>
+          2008年，成立了清境君士坦丁堡。
+          經典的華麗巴洛克風格，將休憩空間提升至奢華，提供舒適乾淨的客房給旅人們選擇。
+        </h6>
+      </div>
+    </div>
+    <div
+      v-show="props.title"
+      class="story_block"
+      :style="props.title && { margin: '10px 0 10px' }"
+    >
+      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+        <h1>20011年</h1>
+        <h6>
+          2011年，創立清境妮娜巧克力創始店。
+          坐落在佛羅倫斯渡假山莊的落羽松林裡，是一個充滿歡樂與童話的夢幻小屋，把妮娜最喜愛的巧克力呈現在此。
+        </h6>
+      </div>
+      <img
+        :style="props.title && { marginLeft: '100px' }"
+        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
+        alt=""
+      />
+    </div>
+    <div
+      v-show="props.title"
+      class="story_block"
+      :style="props.title && { margin: '10px 0 10px' }"
+    >
+      <img
+        :style="props.title && { marginRight: '100px' }"
+        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
+        alt=""
+      />
+      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+        <h1>2012年</h1>
+        <h6>
+          2012年，進駐清境小瑞士花園。 2017年重新裝修清境小瑞士門市。 Nina
+          Chocolate & 1755 café是一個咖啡與巧克力完美結合的咖啡館
+        </h6>
+      </div>
+    </div>
+    <div
+      v-show="props.title"
+      class="story_block"
+      :style="props.title && { margin: '10px 0 10px' }"
+    >
+      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+        <h1>2018年</h1>
+        <h6>
+          2018年，埔里桃米妮娜巧克力夢想城堡
+          擴大品牌版圖整合清境Nina並以全新的品牌樣貌Cona's跟大家見面!打造全新的六感體驗
+        </h6>
+      </div>
+      <img
+        :style="props.title && { marginLeft: '100px' }"
+        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/3b35b595a30ae68fd0acca86901acbda.jpg"
+        alt=""
+      />
+    </div>
+    <div
+      v-show="props.title"
+      class="story_block"
+      :style="props.title && { margin: '10px 0 10px' }"
+    >
+      <img
+        :style="props.title && { marginRight: '100px' }"
+        src="https://www.conas-choc.com/upload/catalog_history_list_pic/tw_catalog_history_list_22j25_596tvmgjai.jpg"
+        alt=""
+      />
+      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+        <h1>2022年</h1>
+        <h6>
+          2022年，Cona's台中勤美綠園道門市
+          <br />
+          2022年，Cona's高雄漢神巨蛋門市
+        </h6>
+      </div>
+    </div>
+    <div class="address_block" :style="props.title && { marginTop: '100px' }">
       <div class="address">
         <h1>Contact us</h1>
         <h3>店面資訊</h3>
@@ -47,14 +156,15 @@
         ></iframe>
       </div>
     </div>
-    <div class="bottom_block">
-      <EllipseButton :title="'查看更多內容'" :path="'/product'" />
+    <div v-show="!props.title" class="bottom_block">
+      <EllipseButton :title="'查看更多內容'" :path="'/about'" />
     </div>
   </section>
 </template>
 
 <script setup>
 import EllipseButton from "../atom/EllipseButton.vue";
+const props = defineProps(["title"]);
 </script>
 
 <style lang="scss" scoped>
@@ -65,8 +175,14 @@ import EllipseButton from "../atom/EllipseButton.vue";
   align-items: center;
   flex-direction: column;
   margin-bottom: 150px;
+  padding-bottom: 50px;
   border-radius: 5px;
   box-shadow: 0 4px 15px 0 rgb(136 138 139 / 61%);
+  h1 {
+    font-size: 35px;
+    color: #013b4f;
+    margin-top: 100px;
+  }
   .story_block {
     display: inline-flex;
     align-items: center;
