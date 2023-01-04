@@ -3,8 +3,10 @@
     <div class="footer-container">
       <div class="footer-item">
         <h2>品牌故事</h2>
-        <p>關於品牌 <span>About Us</span></p>
-        <p>聯絡我們 <span>Contact Us</span></p>
+        <router-link to="/about" @click="scrollToOffset(0)">
+          <p>關於我們 <span>About Us</span></p>
+        </router-link>
+        <!-- <p>聯絡我們 <span>Contact Us</span></p> -->
       </div>
       <div class="footer-item">
         <h2>商品專區</h2>

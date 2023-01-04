@@ -7,8 +7,8 @@
       :style="
         props.title
           ? props.scroll[0]
-            ? { top: '-1000px' }
-            : { top: '200px' }
+            ? { top: '-1000px', opacity: '0' }
+            : { top: '200px', opacity: '1' }
           : {}
       "
     ></div>
