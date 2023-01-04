@@ -45,15 +45,15 @@ const pagination = ref({
 });
 const banners = [
   {
-    src: "	https://www.conas-choc.com/upload/banner_list/tw_banner_list_21d09_cknzm37gbd.jpg",
+    src: "https://www.conas-choc.com/upload/banner_list/tw_banner_list_21d09_cknzm37gbd.jpg",
   },
   {
-    src: "	https://pic2.zhimg.com/v2-134378c19ded3d5b93fececeb400c39d_r.jpg",
+    src: "https://pic2.zhimg.com/v2-134378c19ded3d5b93fececeb400c39d_r.jpg",
   },
   {
-    src: " 	https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/4610b912c8fcc3ce261b24789f45d688d53f20a6.jpg",
+    src: "https://gss0.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/4610b912c8fcc3ce261b24789f45d688d53f20a6.jpg",
   },
-  { src: "	https://img.tukuppt.com/bg_grid/00/06/34/vTPnGZuqAR.jpg!/fh/350" },
+  { src: "https://img.tukuppt.com/bg_grid/00/06/34/vTPnGZuqAR.jpg!/fh/350" },
 ];
 </script>
 

@@ -20,12 +20,12 @@
       class="list-btn-container"
       :style="cartList.length > 5 && { bottom: '-45px' }"
     >
-      <router-link to="/list/cart"
+      <router-link :to="cartList.length > 0 ? '/list/cart' : '/product'"
         ><div
           class="primary btn"
           @click="store.commit('changeisListOpen', [false, false])"
         >
-          前往購物車
+          {{ cartList.length > 0 ? "前往購物車" : "前往商品頁" }}
         </div></router-link
       >
     </div>

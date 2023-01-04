@@ -114,9 +114,9 @@ onMounted(() => {
 .attachment {
   width: 100%;
   height: 200px;
-  background-size: 100%;
+  background-size: 50%;
   background-position: center center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
 }
 
@@ -125,7 +125,7 @@ onMounted(() => {
 }
 
 .attachment-02 {
-  background-image: url("../images/attachment/attachment-02.png");
+  background-image: url("../images/attachment/attachment-06.png");
 }
 
 .fourth-container {

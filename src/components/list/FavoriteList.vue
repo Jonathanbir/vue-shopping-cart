@@ -19,12 +19,14 @@
       class="list-btn-container"
       :style="favoriteList.length > 5 && { bottom: '-45px' }"
     >
-      <router-link to="/list/favorite">
+      <router-link
+        :to="favoriteList.length > 0 ? '/list/favorite' : '/product'"
+      >
         <div
           class="primary btn"
           @click="store.commit('changeisListOpen', [false, false])"
         >
-          前往收藏清單
+          {{ favoriteList.length > 0 ? "前往收藏清單" : "前往商品頁" }}
         </div></router-link
       >
     </div>

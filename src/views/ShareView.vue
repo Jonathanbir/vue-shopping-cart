@@ -207,7 +207,7 @@ const clickNextBtn = () => {
       justify-content: center;
       align-items: center;
       text-decoration: none;
-      width: 1200px;
+      width: 80%;
       border-radius: 15px;
       overflow: hidden;
       margin: 0 auto;

@@ -14,7 +14,8 @@ import AboutSection from "../components/home/AboutSection.vue";
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("	https://tse2.mm.bing.net/th?id=OIP.tH7wpCIld4cT_ZPcBsvcBAHaEo&pid=Api&P=0");
+  background-image: url("https://tse2.mm.bing.net/th?id=OIP.tH7wpCIld4cT_ZPcBsvcBAHaEo&pid=Api&P=0");
+  background-attachment: fixed;
 
   .about-section {
     margin-top: 100px;
