@@ -2,27 +2,15 @@
   <div class="home-information section">
     <h1>營業資訊</h1>
     <div class="home-information-banners">
-      <div
-        v-for="banner in banners"
-        class="img"
-        :style="
-          'background-image:url(' +
-          banner.src +
-          ');background-size:cover;background-position:center;background-repeat:no-repeat'
-        "
-      ></div>
+      <div class="img img01"></div>
+      <div class="img img02"></div>
+      <div class="img img03"></div>
+      <div class="img img04"></div>
     </div>
   </div>
 </template>
 
-<script setup>
-const banners = [
-  { src: "src/images/information-01.png" },
-  { src: "src/images/information-02.png" },
-  { src: "src/images/information-03.png" },
-  { src: "src/images/information-04.png" },
-];
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .home-information {
@@ -37,6 +25,25 @@ const banners = [
       width: 200px;
       height: 290px;
       margin: auto 30px;
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .img01 {
+      background-image: url("../../images/information/information-01.png");
+    }
+
+    .img02 {
+      background-image: url("../../images/information/information-02.png");
+    }
+
+    .img03 {
+      background-image: url("../../images/information/information-03.png");
+    }
+
+    .img04 {
+      background-image: url("../../images/information/information-04.png");
     }
   }
 }

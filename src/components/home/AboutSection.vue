@@ -21,15 +21,15 @@
         <h3>店面資訊</h3>
         <div class="title_block">
           <div class="info_block">
-            <img src="./Images/timer.svg" alt="" />
+            <fa icon="clock" />
             <h5>營業時間:<span>09:00-21:00</span></h5>
           </div>
           <div class="info_block">
-            <img src="./Images/Icon awesome-phone.svg" alt="" />
+            <fa icon="phone" />
             <h5>電話:<span>02-27668899</span></h5>
           </div>
           <div class="info_block">
-            <img src="./Images/place.svg" alt="" />
+            <fa icon="location-dot" />
             <h5>地址:<span>台北市信義區信福路6段6巷66號6樓</span></h5>
           </div>
         </div>
