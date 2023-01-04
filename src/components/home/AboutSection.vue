@@ -1,12 +1,40 @@
 <template>
   <section class="brandStory">
     <h1 v-show="props.title">{{ props.title }}</h1>
+    <div
+      class="about_banner"
+      v-show="props.title"
+      :style="
+        props.title
+          ? props.scroll[0]
+            ? { top: '-1000px' }
+            : { top: '200px' }
+          : {}
+      "
+    ></div>
     <div class="story_block" :style="props.title && { margin: '10px 0 10px' }">
       <img
+        class=""
+        :style="
+          props.title
+            ? props.scroll[0] && props.title
+              ? { transform: 'translateX(0px)' }
+              : { transform: 'translateX(-800px)' }
+            : {}
+        "
         src="https://www.conas-choc.com/upload/ad_footer_list/tw_ad_footer_list_19d23_9x3rw5w4be.jpg"
         alt=""
       />
-      <div class="title_block">
+      <div
+        class="title_block"
+        :style="
+          props.title
+            ? props.scroll[0]
+              ? { transform: 'translateX(0px)' }
+              : { transform: 'translateX(800px)' }
+            : {}
+        "
+      >
         <h1>About Dream Chocolate</h1>
         <h3>關於夢想巧克力</h3>
         <h6>
@@ -21,14 +49,29 @@
       class="story_block"
       :style="props.title && { margin: '10px 0 10px' }"
     >
-      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+      <div
+        class="title_block"
+        :style="
+          props.title
+            ? props.scroll[1]
+              ? { transform: 'translateX(0px)', marginLeft: '0' }
+              : { transform: 'translateX(-800px)', marginLeft: '0' }
+            : {}
+        "
+      >
         <h1>2004年</h1>
         <h6>
           2004年，12月在海拔1755公尺的清境創立清境佛羅倫斯渡假山莊，提供旅人一個休閒度假的好去處。
         </h6>
       </div>
       <img
-        :style="props.title && { marginLeft: '100px' }"
+        :style="
+          props.title
+            ? props.scroll[1]
+              ? { transform: 'translateX(0px)', marginLeft: '100px' }
+              : { transform: 'translateX(800px)', marginLeft: '100px' }
+            : {}
+        "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/e005ef3992d00a35715735c2f33a6508.jpg"
         alt=""
       />
@@ -39,11 +82,26 @@
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <img
-        :style="props.title && { marginRight: '100px' }"
+        :style="
+          props.title
+            ? props.scroll[2]
+              ? { transform: 'translateX(0px)', marginLeft: '0' }
+              : { transform: 'translateX(-800px)', marginLeft: '0' }
+            : {}
+        "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/91cefb0ea4c4361c1115da9b0199d0d5.jpg"
         alt=""
       />
-      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+      <div
+        class="title_block"
+        :style="
+          props.title
+            ? props.scroll[2]
+              ? { transform: 'translateX(0px)', marginLeft: '100px' }
+              : { transform: 'translateX(800px)', marginLeft: '100px' }
+            : {}
+        "
+      >
         <h1>2008年</h1>
         <h6>
           2008年，成立了清境君士坦丁堡。
@@ -56,7 +114,16 @@
       class="story_block"
       :style="props.title && { margin: '10px 0 10px' }"
     >
-      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+      <div
+        class="title_block"
+        :style="
+          props.title
+            ? props.scroll[3]
+              ? { transform: 'translateX(0px)', marginLeft: '0' }
+              : { transform: 'translateX(-800px)', marginLeft: '0' }
+            : {}
+        "
+      >
         <h1>20011年</h1>
         <h6>
           2011年，創立清境妮娜巧克力創始店。
@@ -64,7 +131,13 @@
         </h6>
       </div>
       <img
-        :style="props.title && { marginLeft: '100px' }"
+        :style="
+          props.title
+            ? props.scroll[3]
+              ? { transform: 'translateX(0px)', marginLeft: '100px' }
+              : { transform: 'translateX(800px)', marginLeft: '100px' }
+            : {}
+        "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
         alt=""
       />
@@ -75,11 +148,26 @@
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <img
-        :style="props.title && { marginRight: '100px' }"
+        :style="
+          props.title
+            ? props.scroll[4]
+              ? { transform: 'translateX(0px)', marginRight: '0px' }
+              : { transform: 'translateX(-800px)', marginRight: '0px' }
+            : {}
+        "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
         alt=""
       />
-      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+      <div
+        class="title_block"
+        :style="
+          props.title
+            ? props.scroll[4]
+              ? { transform: 'translateX(0px)', marginLeft: '100px' }
+              : { transform: 'translateX(800px)', marginLeft: '100px' }
+            : {}
+        "
+      >
         <h1>2012年</h1>
         <h6>
           2012年，進駐清境小瑞士花園。 2017年重新裝修清境小瑞士門市。 Nina
@@ -92,7 +180,16 @@
       class="story_block"
       :style="props.title && { margin: '10px 0 10px' }"
     >
-      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+      <div
+        class="title_block"
+        :style="
+          props.title
+            ? props.scroll[5]
+              ? { transform: 'translateX(0px)', marginLeft: '0' }
+              : { transform: 'translateX(-800px)', marginLeft: '0' }
+            : {}
+        "
+      >
         <h1>2018年</h1>
         <h6>
           2018年，埔里桃米妮娜巧克力夢想城堡
@@ -100,7 +197,13 @@
         </h6>
       </div>
       <img
-        :style="props.title && { marginLeft: '100px' }"
+        :style="
+          props.title
+            ? props.scroll[5]
+              ? { transform: 'translateX(0px)', marginLeft: '100px' }
+              : { transform: 'translateX(800px)', marginLeft: '100px' }
+            : {}
+        "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/3b35b595a30ae68fd0acca86901acbda.jpg"
         alt=""
       />
@@ -111,11 +214,26 @@
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <img
-        :style="props.title && { marginRight: '100px' }"
+        :style="
+          props.title
+            ? props.scroll[6]
+              ? { transform: 'translateX(0px)', marginLeft: '0' }
+              : { transform: 'translateX(-800px)', marginLeft: '0' }
+            : {}
+        "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/tw_catalog_history_list_22j25_596tvmgjai.jpg"
         alt=""
       />
-      <div class="title_block" :style="props.title && { marginLeft: '0' }">
+      <div
+        class="title_block"
+        :style="
+          props.title
+            ? props.scroll[6]
+              ? { transform: 'translateX(0px)', marginLeft: '100px' }
+              : { transform: 'translateX(800px)', marginLeft: '100px' }
+            : {}
+        "
+      >
         <h1>2022年</h1>
         <h6>
           2022年，Cona's台中勤美綠園道門市
@@ -125,7 +243,16 @@
       </div>
     </div>
     <div class="address_block" :style="props.title && { marginTop: '100px' }">
-      <div class="address">
+      <div
+        class="address"
+        :style="
+          props.title
+            ? props.scroll[7]
+              ? { transform: 'translateX(0px)', marginLeft: '0' }
+              : { transform: 'translateX(-800px)', marginLeft: '0' }
+            : {}
+        "
+      >
         <h1>Contact us</h1>
         <h3>店面資訊</h3>
         <div class="title_block">
@@ -143,7 +270,17 @@
           </div>
         </div>
       </div>
-      <div class="google_map">
+      <div
+        class="google_map"
+        :style="
+          props.title
+            ? props.scroll[7]
+              ? { transform: 'translateX(0px)', marginLeft: '100px' }
+              : { transform: 'translateX(800px)', marginLeft: '100px' }
+            : {}
+        "
+      >
+        >
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.2477183519404!2d121.22282561495693!3d24.95768518400822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ea50c732a5%3A0x1b5e6ee66e9fec49!2z57ev6IKyVGliYU1l6ZmE6Kit5Lit5aOi6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1608602204354!5m2!1szh-TW!2stw"
           width="400"
@@ -164,11 +301,12 @@
 
 <script setup>
 import EllipseButton from "../atom/EllipseButton.vue";
-const props = defineProps(["title"]);
+const props = defineProps(["title", "scroll"]);
 </script>
 
 <style lang="scss" scoped>
 .brandStory {
+  position: relative;
   width: 80%;
   background-color: rgb(229, 227, 221);
   display: inline-flex;
@@ -178,10 +316,21 @@ const props = defineProps(["title"]);
   padding-bottom: 50px;
   border-radius: 5px;
   box-shadow: 0 4px 15px 0 rgb(136 138 139 / 61%);
+  overflow: hidden;
   h1 {
     font-size: 35px;
     color: #013b4f;
     margin-top: 100px;
+  }
+  .about_banner {
+    position: absolute;
+    width: 800px;
+    height: 500px;
+    background-image: url("https://www.conas-choc.com/upload/banner_ins_list/tw_banner_ins_list_19e30_fqzrg3auju.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 1s ease-in-out;
   }
   .story_block {
     display: inline-flex;
@@ -191,11 +340,13 @@ const props = defineProps(["title"]);
     margin: 100px 0 100px;
     img {
       max-width: 100%;
+      transition: all 1s ease-in-out;
     }
     .title_block {
       text-align: left;
       width: 40%;
       margin-left: 120px;
+      transition: all 1s ease-in-out;
       h1 {
         font-size: 2.5rem;
         letter-spacing: 1.5rem;
@@ -233,6 +384,7 @@ const props = defineProps(["title"]);
     align-items: center;
     margin-bottom: 30px;
     .address {
+      transition: all 1s ease-in-out;
       h1 {
         font-size: 2.5rem;
         letter-spacing: 1.5rem;
@@ -273,6 +425,9 @@ const props = defineProps(["title"]);
           }
         }
       }
+    }
+    .google_map {
+      transition: all 1s ease-in-out;
     }
   }
   .bottom_block {

@@ -8,6 +8,7 @@
       </div>
       <div class="footer-item">
         <h2>商品專區</h2>
+
         <p
           class="link"
           v-for="(item, index) in productData"
@@ -17,7 +18,9 @@
             scrollToOffset(0);
           "
         >
-          {{ item.title }}
+          <router-link to="/product">
+            {{ item.title }}
+          </router-link>
         </p>
       </div>
       <div class="footer-item">
@@ -65,6 +68,9 @@ footer {
       span {
         font-size: 12px;
         color: hsla(0, 0%, 100%, 0.6);
+      }
+      a {
+        color: #fff;
       }
     }
   }
