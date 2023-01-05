@@ -5,6 +5,7 @@
       <InformationSection />
       <img
         class="chco-01"
+        v-show="screen > 530"
         :style="dropStyle"
         src="https://www.conas-choc.com/images/iconSmall01.png"
       />
@@ -13,6 +14,7 @@
       <RecommendSection />
       <img
         class="chco-02"
+        v-show="screen > 530"
         :style="dropStyle"
         src="https://www.conas-choc.com/images/iconSmall03.png"
       />
@@ -22,6 +24,7 @@
       <RankSection />
       <img
         class="chco-03"
+        v-show="screen > 530"
         :style="dropStyle"
         src="https://www.conas-choc.com/images/smallAbout03.png"
       />
@@ -31,6 +34,7 @@
       <ShareSection />
       <img
         class="chco-04"
+        v-show="screen > 530"
         :style="dropStyle"
         src="../images/chocolate/chocolate-02.png"
       />
@@ -51,6 +55,7 @@ import AboutSection from "../components/home/AboutSection.vue";
 import { ref, computed, onMounted } from "vue";
 const height = ref("");
 const drop = ref("");
+const screen = ref(document.documentElement.scrollWidth);
 const dropStyle = computed(() => {
   return (
     "transform:translate(" +

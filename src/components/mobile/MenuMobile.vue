@@ -1,5 +1,10 @@
 <template>
-  <div class="menu-mobile-container" :style="mobileActive && { top: '48px' }">
+  <div
+    class="menu-mobile-container"
+    :style="
+      scroll ? mobileActive && { top: '26px' } : mobileActive && { top: '46px' }
+    "
+  >
     <div class="nav-container">
       <RouterLink @click="scrollToOffset(0)" to="/"
         ><div
@@ -22,12 +27,27 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { RouterLink } from "vue-router";
 import { scrollToOffset } from "../../util/helper";
 const store = useStore();
+const scroll = ref(false);
 const mobileActive = computed(() => store.state.mobileActive);
+
+onMounted(() => {
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.pageYOffset > 25) {
+        scroll.value = true;
+      } else {
+        scroll.value = false;
+      }
+    },
+    true
+  );
+});
 </script>
 
 <style lang="scss" scoped>

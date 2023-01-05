@@ -80,12 +80,19 @@
       </div>
       <div class="card_small_block" v-else>
         <div
-          class="card_small"
+          class="card_big"
           v-for="(article, index) in ARTICLE_DATA"
           v-show="index > 0 && index < 4"
         >
-          <div class="art_img_small">
-            <img :src="article.imageUrl" alt="" />
+          <div class="art_img_big">
+            <div
+              class="img"
+              :style="
+                'background-image:url(' +
+                article.imageUrl +
+                ');background-size:cover;background-position:center;background-repeat:no-repeat'
+              "
+            ></div>
           </div>
           <div class="text_block">
             <div class="user">
@@ -289,6 +296,88 @@ const screen = ref(document.documentElement.scrollWidth);
 }
 @media (max-width: 530px) {
   .share-container {
+    width: 100%;
+    .card_small_block {
+      width: 100%;
+      .card_big {
+        width: 300px;
+        height: 400px;
+        margin: auto;
+        margin-bottom: 20px;
+        &:hover {
+          transform: scale(1.2) !important;
+          width: 250px;
+          height: 400px;
+          .article_descirption {
+            width: 100%;
+            height: 150px;
+
+            h6 {
+              white-space: initial;
+              overflow: initial;
+            }
+            p {
+              white-space: initial;
+              overflow: initial;
+              height: auto;
+            }
+          }
+          .user_info {
+            position: absolute;
+            bottom: 10px;
+          }
+          .text_block {
+            transform: translateY(-30px);
+          }
+          .art_img_big {
+            .img {
+              background-size: 100% !important;
+              background-position-y: -1px !important;
+            }
+          }
+          .text_block {
+            align-items: flex-start;
+          }
+        }
+        .text_block {
+          padding: 10px;
+        }
+        &:hover {
+          opacity: 0.8;
+          transform: translateY(-5px);
+          transition: 0.5s ease-in-out;
+        }
+
+        &::before {
+          left: -200%;
+        }
+        .article_time {
+          font-size: 0.2rem;
+          letter-spacing: 0.2rem;
+          font-family: "Roboto", sans-serif;
+          text-align: right;
+        }
+        .art_img_big {
+          height: 200px;
+          .img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .text_block {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding: 35px 15px;
+
+          .article_descirption {
+            p {
+              height: 18px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>

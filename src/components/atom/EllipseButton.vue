@@ -24,7 +24,6 @@ const props = defineProps(["color", "title", "path"]);
   text-align: center;
   width: 180px;
   height: 40px;
-  margin-top: 50px;
   border: none;
   border-radius: 30px;
   background-size: 300% 100%;

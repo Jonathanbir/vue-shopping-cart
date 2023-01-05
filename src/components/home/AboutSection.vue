@@ -439,4 +439,22 @@ const props = defineProps(["title", "scroll"]);
     margin: 50px 0;
   }
 }
+@media (max-width: 530px) {
+  .brandStory {
+    width: 90%;
+    .story_block {
+      flex-direction: column;
+      .title_block {
+        width: 80%;
+        margin-left: 0;
+      }
+    }
+    .address_block {
+      flex-direction: column;
+    }
+    .bottom_block {
+      margin: 0;
+    }
+  }
+}
 </style>

@@ -96,17 +96,19 @@
     >
       <nav class="nav">
         <div
-          id="navToggle"
           class="navtoggle"
+          :style="scroll && { top: '8px' }"
           @click="store.commit('handleChangeMenuMobileActive', !mobileActive)"
         >
           <b
             ><i
+              :class="scroll && 'line'"
               :style="
                 mobileActive && { width: '23px', transform: 'rotate(45deg)' }
               "
             ></i
             ><i
+              :class="scroll && 'line'"
               :style="
                 mobileActive && {
                   opacity: '0',
@@ -116,6 +118,7 @@
               "
             ></i
             ><i
+              :class="scroll && 'line'"
               :style="
                 mobileActive && { width: '23px', transform: 'rotate(-45deg)' }
               "
@@ -129,8 +132,9 @@
               :style="
                 scroll && {
                   transform: 'translate(10px, 4px)',
+                  top: '16px',
                   width: '64px',
-                  height: '32px',
+                  height: '22px',
                 }
               "
             ></div
@@ -138,7 +142,7 @@
         </div>
         <div
           class="cart-container"
-          :style="scroll && { color: '#ccb7a5', top: '-8px' }"
+          :style="scroll && { color: '#ccb7a5', top: '8px' }"
         >
           <div class="icon-item">
             <fa class="icon" icon="user" />
@@ -341,6 +345,9 @@ nav a:hover {
           margin: auto;
           width: 19px;
           height: 19px;
+          .line {
+            background-color: #fff;
+          }
           i {
             position: absolute;
             left: 0;
