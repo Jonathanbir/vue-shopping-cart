@@ -19,7 +19,7 @@
           props.title
             ? props.scroll[0] && props.title
               ? { transform: 'translateX(0px)' }
-              : { transform: 'translateX(-800px)' }
+              : { transform: 'translateX(-1200px)' }
             : {}
         "
         src="https://www.conas-choc.com/upload/ad_footer_list/tw_ad_footer_list_19d23_9x3rw5w4be.jpg"
@@ -31,7 +31,7 @@
           props.title
             ? props.scroll[0]
               ? { transform: 'translateX(0px)' }
-              : { transform: 'translateX(800px)' }
+              : { transform: 'translateX(1200px)' }
             : {}
         "
       >
@@ -55,7 +55,7 @@
           props.title
             ? props.scroll[1]
               ? { transform: 'translateX(0px)', marginLeft: '0' }
-              : { transform: 'translateX(-800px)', marginLeft: '0' }
+              : { transform: 'translateX(-1200px)', marginLeft: '0' }
             : {}
         "
       >
@@ -69,7 +69,7 @@
           props.title
             ? props.scroll[1]
               ? { transform: 'translateX(0px)', marginLeft: '100px' }
-              : { transform: 'translateX(800px)', marginLeft: '100px' }
+              : { transform: 'translateX(1200px)', marginLeft: '100px' }
             : {}
         "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/e005ef3992d00a35715735c2f33a6508.jpg"
@@ -86,7 +86,7 @@
           props.title
             ? props.scroll[2]
               ? { transform: 'translateX(0px)', marginLeft: '0' }
-              : { transform: 'translateX(-800px)', marginLeft: '0' }
+              : { transform: 'translateX(-1200px)', marginLeft: '0' }
             : {}
         "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/91cefb0ea4c4361c1115da9b0199d0d5.jpg"
@@ -98,7 +98,7 @@
           props.title
             ? props.scroll[2]
               ? { transform: 'translateX(0px)', marginLeft: '100px' }
-              : { transform: 'translateX(800px)', marginLeft: '100px' }
+              : { transform: 'translateX(1200px)', marginLeft: '100px' }
             : {}
         "
       >
@@ -120,7 +120,7 @@
           props.title
             ? props.scroll[3]
               ? { transform: 'translateX(0px)', marginLeft: '0' }
-              : { transform: 'translateX(-800px)', marginLeft: '0' }
+              : { transform: 'translateX(-1200px)', marginLeft: '0' }
             : {}
         "
       >
@@ -135,7 +135,7 @@
           props.title
             ? props.scroll[3]
               ? { transform: 'translateX(0px)', marginLeft: '100px' }
-              : { transform: 'translateX(800px)', marginLeft: '100px' }
+              : { transform: 'translateX(1200px)', marginLeft: '100px' }
             : {}
         "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
@@ -152,7 +152,7 @@
           props.title
             ? props.scroll[4]
               ? { transform: 'translateX(0px)', marginRight: '0px' }
-              : { transform: 'translateX(-800px)', marginRight: '0px' }
+              : { transform: 'translateX(-1200px)', marginRight: '0px' }
             : {}
         "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
@@ -164,7 +164,7 @@
           props.title
             ? props.scroll[4]
               ? { transform: 'translateX(0px)', marginLeft: '100px' }
-              : { transform: 'translateX(800px)', marginLeft: '100px' }
+              : { transform: 'translateX(1200px)', marginLeft: '100px' }
             : {}
         "
       >
@@ -186,7 +186,7 @@
           props.title
             ? props.scroll[5]
               ? { transform: 'translateX(0px)', marginLeft: '0' }
-              : { transform: 'translateX(-800px)', marginLeft: '0' }
+              : { transform: 'translateX(-1200px)', marginLeft: '0' }
             : {}
         "
       >
@@ -201,7 +201,7 @@
           props.title
             ? props.scroll[5]
               ? { transform: 'translateX(0px)', marginLeft: '100px' }
-              : { transform: 'translateX(800px)', marginLeft: '100px' }
+              : { transform: 'translateX(1200px)', marginLeft: '100px' }
             : {}
         "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/3b35b595a30ae68fd0acca86901acbda.jpg"
@@ -218,7 +218,7 @@
           props.title
             ? props.scroll[6]
               ? { transform: 'translateX(0px)', marginLeft: '0' }
-              : { transform: 'translateX(-800px)', marginLeft: '0' }
+              : { transform: 'translateX(-1200px)', marginLeft: '0' }
             : {}
         "
         src="https://www.conas-choc.com/upload/catalog_history_list_pic/tw_catalog_history_list_22j25_596tvmgjai.jpg"
@@ -230,7 +230,7 @@
           props.title
             ? props.scroll[6]
               ? { transform: 'translateX(0px)', marginLeft: '100px' }
-              : { transform: 'translateX(800px)', marginLeft: '100px' }
+              : { transform: 'translateX(1200px)', marginLeft: '100px' }
             : {}
         "
       >
@@ -249,7 +249,7 @@
           props.title
             ? props.scroll[7]
               ? { transform: 'translateX(0px)', marginLeft: '0' }
-              : { transform: 'translateX(-800px)', marginLeft: '0' }
+              : { transform: 'translateX(-1200px)', marginLeft: '0' }
             : {}
         "
       >
@@ -276,7 +276,7 @@
           props.title
             ? props.scroll[7]
               ? { transform: 'translateX(0px)', marginLeft: '100px' }
-              : { transform: 'translateX(800px)', marginLeft: '100px' }
+              : { transform: 'translateX(1200px)', marginLeft: '100px' }
             : {}
         "
       >
@@ -324,7 +324,7 @@ const props = defineProps(["title", "scroll"]);
   }
   .about_banner {
     position: absolute;
-    width: 800px;
+    width: 80%;
     height: 500px;
     background-image: url("https://www.conas-choc.com/upload/banner_ins_list/tw_banner_ins_list_19e30_fqzrg3auju.jpg");
     background-size: cover;

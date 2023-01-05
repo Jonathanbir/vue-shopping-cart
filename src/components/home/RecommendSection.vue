@@ -81,7 +81,7 @@ const index = ref(Math.floor(Math.random() * 6));
     width: 80%;
 
     .swiper {
-      height: 320px;
+      height: 360px;
     }
 
     .swiper-wrapper {
@@ -98,18 +98,18 @@ const index = ref(Math.floor(Math.random() * 6));
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 200px;
+      width: 250px;
       margin: auto;
       box-shadow: 0 8px 24px #e2e2e2;
 
       .img-container {
-        width: 200px;
-        height: 150px;
+        width: 250;
+        height: 200px;
         margin: auto;
         overflow: hidden;
         .img {
-          width: 200px;
-          height: 150px;
+          width: 250px;
+          height: 200px;
           margin: auto;
           transition: all 0.5s ease-in-out;
         }
