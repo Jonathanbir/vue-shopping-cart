@@ -4,7 +4,7 @@
     <div class="rank-container">
       <div
         class="item"
-        style="width: 100%; display: inline-block"
+        :style="screen < 530 && { display: 'none' }"
         @mouseover="imageSrc[0] = DATA[3].items[1].img2"
         @mouseout="imageSrc[0] = DATA[3].items[1].imageUrl"
       >
@@ -41,7 +41,10 @@
         @mouseover="imageSrc[1] = DATA[2].items[2].img2"
         @mouseout="imageSrc[1] = DATA[2].items[2].imageUrl"
       >
-        <div class="item-inner" style="width: 90%">
+        <div
+          class="item-inner"
+          :style="screen > 530 ? { width: '90%', height: '400px' } : {}"
+        >
           <div class="vote_info">
             <div class="rank-mark" style="top: -15px; right: -50px">
               <div class="rank-img" style="width: 100px; height: 100px"></div>
@@ -62,6 +65,40 @@
             :style="
               'background-image:url(' +
               imageSrc[1] +
+              ');background-size:cover;background-position:center;background-repeat:no-repeat'
+            "
+          ></div>
+          <div class="triangle"></div>
+        </div>
+      </div>
+      <div
+        class="item"
+        :style="screen > 530 && { display: 'none' }"
+        style="width: 100%; display: inline-block"
+        @mouseover="imageSrc[0] = DATA[3].items[1].img2"
+        @mouseout="imageSrc[0] = DATA[3].items[1].imageUrl"
+      >
+        <div class="item-inner">
+          <div class="vote_info">
+            <div class="rank-mark">
+              <div class="rank-img"></div>
+              <p>2</p>
+            </div>
+            <h4>Top2</h4>
+            <h5>{{ DATA[3].items[1].name }}</h5>
+            <div class="vote_number">
+              <img
+                src="https://tibamef2e.com/ced101/project/g1/Images/vote_medium.svg"
+                alt=""
+              />
+              <span>98</span>票
+            </div>
+          </div>
+          <div
+            class="img"
+            :style="
+              'background-image:url(' +
+              imageSrc[0] +
               ');background-size:cover;background-position:center;background-repeat:no-repeat'
             "
           ></div>
@@ -107,6 +144,7 @@
 import { ref } from "vue";
 import EllipseButton from "../atom/EllipseButton.vue";
 import DATA from "../../data/data";
+const screen = ref(document.documentElement.scrollWidth);
 const imageSrc = ref([
   DATA[3].items[1].imageUrl,
   DATA[2].items[2].imageUrl,
@@ -123,6 +161,7 @@ const imageSrc = ref([
     .item {
       cursor: pointer;
       transition: all 0.5s ease-in-out;
+      margin-bottom: 50px;
 
       &:hover {
         transform: scale(1.1);
@@ -243,6 +282,11 @@ const imageSrc = ref([
         }
       }
     }
+  }
+}
+@media (max-width: 530px) {
+  .rank-container {
+    flex-direction: column;
   }
 }
 </style>

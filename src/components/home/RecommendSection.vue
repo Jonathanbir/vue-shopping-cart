@@ -3,9 +3,9 @@
     <h1>推薦商品</h1>
     <div class="recommend-container">
       <swiper
-        :slidesPerView="4"
-        :spaceBetween="30"
-        :slidesPerGroup="4"
+        :slidesPerView="screen > 530 ? 4 : 1"
+        :spaceBetween="screen > 530 ? 30 : 30"
+        :slidesPerGroup="screen > 530 ? 4 : 1"
         :pagination="pagination"
         :navigation="true"
         :modules="modules"
@@ -71,6 +71,7 @@ const pagination = ref({
   clickable: true,
 });
 const store = useStore();
+const screen = ref(document.documentElement.scrollWidth);
 const favoriteList = computed(() => store.state.favoriteList);
 const index = ref(Math.floor(Math.random() * 6));
 </script>
@@ -154,6 +155,12 @@ const index = ref(Math.floor(Math.random() * 6));
           }
         }
       }
+    }
+  }
+}
+@media (max-width: 530px) {
+  .recommend-container {
+    .swiper-wrapper {
     }
   }
 }

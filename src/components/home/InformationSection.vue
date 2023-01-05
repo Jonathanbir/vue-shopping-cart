@@ -18,6 +18,8 @@
   .home-information-banners {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     h1 {
       margin-bottom: 50px;
     }
@@ -44,6 +46,18 @@
 
     .img04 {
       background-image: url("../../images/information/information-04.png");
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .home-information {
+    .home-information-banners {
+      width: 100%;
+      flex-direction: column;
+      .img {
+        margin-bottom: 20px;
+      }
     }
   }
 }

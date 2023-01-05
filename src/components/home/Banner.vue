@@ -151,4 +151,24 @@ const banners = [
     z-index: 2;
   }
 }
+
+@media (max-width: 530px) {
+  .container-imgs {
+    .swiper-pagination {
+      bottom: 10vh !important;
+    }
+
+    .hoem-title {
+      top: 20%;
+      width: 350px;
+      height: 350px;
+      h1 {
+        font-size: 40px;
+      }
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+}
 </style>

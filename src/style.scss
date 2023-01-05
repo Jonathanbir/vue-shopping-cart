@@ -308,3 +308,15 @@ span {
     left: 100%;
   }
 }
+
+@media (max-width: 530px) {
+  body {
+    top: 0;
+  }
+  .swiper-button-prev {
+    display: none;
+  }
+  .swiper-button-next {
+    display: none;
+  }
+}

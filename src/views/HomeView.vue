@@ -154,4 +154,26 @@ onMounted(() => {
     width: 300px;
   }
 }
+@media (max-width: 530px) {
+  .attachment {
+    background-size: contain;
+  }
+  .second-container {
+    .chco-01 {
+      width: 50px;
+      left: 20px;
+      bottom: 400px;
+    }
+  }
+  .third-container {
+    .chco-02 {
+      width: 100px;
+      bottom: 400px;
+    }
+  }
+  .chco-03 {
+    width: 60px;
+    top: 100px;
+  }
+}
 </style>

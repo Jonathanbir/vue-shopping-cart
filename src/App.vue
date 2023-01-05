@@ -1,4 +1,5 @@
 <template>
+  <MenuMobileVue />
   <NevigationVue />
   <CartList v-show="isListOpen[0]" />
   <FavoriteList v-show="isListOpen[1]" />
@@ -50,6 +51,7 @@ import Toastify from "./components/message/Toastify.vue";
 import RemoveItemAlertBox from "./components/message/RemoveItemAlertBox.vue";
 import RemoveAllAlertBox from "./components/message/RemoveAllAlertBox.vue";
 import FooterView from "./views/FooterView.vue";
+import MenuMobileVue from "./components/mobile/MenuMobile.vue";
 import { scrollToOffset } from "./util/helper";
 
 const store = useStore();
@@ -57,6 +59,7 @@ const scroll = ref(false);
 const isListOpen = computed(() => store.state.isListOpen);
 const isToastifyOpen = computed(() => store.state.isToastifyOpen);
 const isAlertBoxOpen = computed(() => store.state.isAlertBoxOpen);
+const mobileActive = computed(() => store.state.mobileActive);
 
 onMounted(() => {
   window.addEventListener(

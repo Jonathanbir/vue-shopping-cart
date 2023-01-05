@@ -77,4 +77,25 @@ footer {
     }
   }
 }
+@media (max-width: 530px) {
+  footer {
+    width: 100%;
+    height: 200px;
+    background-color: rgb(21, 10, 67);
+    margin: auto;
+    .footer-container {
+      width: 100%;
+      padding: initial;
+      .footer-item {
+        padding: 10px;
+        h2 {
+          font-size: 10px;
+        }
+        p {
+          font-size: 6px;
+        }
+      }
+    }
+  }
+}
 </style>

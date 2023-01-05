@@ -86,7 +86,107 @@
     <RouterView />
   </header>
   <header v-else>
-    <div class="nav-wrapper"></div>
+    <div
+      class="nav-wrapper"
+      :style="scroll && { background: '#150A43', top: '-15px' }"
+      @click="
+        store.commit('changeisListOpen', [false, false]);
+        store.commit('changeIsAlertBoxOpen', false);
+      "
+    >
+      <nav class="nav">
+        <div
+          id="navToggle"
+          class="navtoggle"
+          @click="store.commit('handleChangeMenuMobileActive', !mobileActive)"
+        >
+          <b
+            ><i
+              :style="
+                mobileActive && { width: '23px', transform: 'rotate(45deg)' }
+              "
+            ></i
+            ><i
+              :style="
+                mobileActive && {
+                  opacity: '0',
+                  width: '23px',
+                  transitionDuration: '.1s',
+                }
+              "
+            ></i
+            ><i
+              :style="
+                mobileActive && { width: '23px', transform: 'rotate(-45deg)' }
+              "
+            ></i
+          ></b>
+        </div>
+        <div class="nav-container">
+          <RouterLink @click="scrollToOffset(0)" to="/"
+            ><div
+              class="sprite-nav-logo"
+              :style="
+                scroll && {
+                  transform: 'translate(10px, 4px)',
+                  width: '64px',
+                  height: '32px',
+                }
+              "
+            ></div
+          ></RouterLink>
+        </div>
+        <div
+          class="cart-container"
+          :style="scroll && { color: '#ccb7a5', top: '-8px' }"
+        >
+          <div class="icon-item">
+            <fa class="icon" icon="user" />
+          </div>
+          <div class="icon-item">
+            <fa
+              class="icon"
+              icon="cart-shopping"
+              @click.stop="
+                store.commit('changeisListOpen', [!isListOpen[0], false])
+              "
+            />
+            <div
+              class="total-num"
+              :style="
+                cartTotal !== 0 && {
+                  backgroundColor: 'rgb(204, 183, 165)',
+                  color: '#000',
+                }
+              "
+            >
+              {{ cartTotal }}
+            </div>
+          </div>
+          <div class="icon-item">
+            <fa
+              class="icon"
+              icon="heart"
+              @click.stop="
+                store.commit('changeisListOpen', [false, !isListOpen[1]])
+              "
+            />
+            <div
+              class="total-num"
+              :style="
+                favoriteList.length !== 0 && {
+                  backgroundColor: 'rgb(204, 183, 165)',
+                  color: '#000',
+                }
+              "
+            >
+              {{ favoriteList.length }}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <RouterView />
   </header>
 </template>
 
@@ -102,7 +202,7 @@ const screen = ref(document.documentElement.scrollWidth);
 const cartTotal = computed(() => store.state.cartTotal);
 const isListOpen = computed(() => store.state.isListOpen);
 const favoriteList = computed(() => store.state.favoriteList);
-
+const mobileActive = computed(() => store.state.mobileActive);
 onMounted(() => {
   window.addEventListener(
     "scroll",
@@ -137,7 +237,7 @@ onMounted(() => {
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgb(247, 247, 247);
   transition: all 0.5s ease-in-out;
   nav {
     position: relative;
@@ -224,10 +324,12 @@ nav a:hover {
     width: 100%;
     height: 50px;
     margin-top: 0;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgb(247, 247, 247);
     nav {
+      width: 100%;
       margin-top: 0;
       .navtoggle {
+        position: relative;
         width: 48px;
         height: 48px;
         b {
@@ -247,7 +349,7 @@ nav a:hover {
             height: 2px;
             overflow: hidden;
             margin-top: -1px;
-            background: #cdb8a5;
+            background: #000;
             opacity: 1;
             -webkit-transform-origin: 0% 50%;
             transform-origin: 0% 50%;
@@ -263,7 +365,12 @@ nav a:hover {
           }
         }
       }
+      .cart-container {
+        top: 0;
+      }
+
       .sprite-nav-logo {
+        position: absolute;
         top: 5px;
         left: 0;
         right: 0;

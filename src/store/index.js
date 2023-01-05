@@ -10,6 +10,7 @@ export const store = createStore({
   ],
   state() {
     return {
+      mobileActive: false,
       animation: true,
       isAlertBoxOpen: [false, false],
       isListOpen: [false, false],
@@ -27,6 +28,9 @@ export const store = createStore({
   mutations: {
     handleChangeCart(state, value) {
       state.productList = value;
+    },
+    handleChangeMenuMobileActive(state, value) {
+      state.mobileActive = value;
     },
     addRemoveItem(state, value) {
       state.removeItem = value;
