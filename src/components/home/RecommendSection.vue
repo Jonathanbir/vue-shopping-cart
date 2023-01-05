@@ -158,10 +158,4 @@ const index = ref(Math.floor(Math.random() * 6));
     }
   }
 }
-@media (max-width: 530px) {
-  .recommend-container {
-    .swiper-wrapper {
-    }
-  }
-}
 </style>

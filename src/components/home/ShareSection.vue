@@ -2,7 +2,7 @@
   <div class="share-section section">
     <h1>分享區</h1>
     <div class="share-container">
-      <div class="card_big">
+      <div class="card_big" v-show="screen > 530">
         <div class="art_img_big">
           <img :src="ARTICLE_DATA[0].imageUrl" alt="" />
         </div>
@@ -37,106 +37,81 @@
           </div>
         </div>
       </div>
-      <div class="card_small_block">
-        <div class="card_small">
+      <div class="card_small_block" v-if="screen > 530">
+        <div
+          class="card_small"
+          v-for="(article, index) in ARTICLE_DATA"
+          v-show="index > 0 && index < 4"
+        >
           <div class="art_img_small">
-            <img :src="ARTICLE_DATA[1].imageUrl" alt="" />
+            <img :src="article.imageUrl" alt="" />
           </div>
           <div class="text_block">
             <div class="user">
-              <img :src="ARTICLE_DATA[1].userImg" alt="" />
+              <img :src="article.userImg" alt="" />
             </div>
             <div class="user_info_block">
-              <p class="article_time">{{ ARTICLE_DATA[1].shareTime }}</p>
+              <p class="article_time">{{ article.shareTime }}</p>
               <div class="article_descirption">
-                <h6>{{ ARTICLE_DATA[1].title }}</h6>
+                <h6>{{ article.title }}</h6>
                 <p>
-                  {{ ARTICLE_DATA[1].description }}
+                  {{ article.description }}
                 </p>
               </div>
               <div class="user_info">
                 <div class="user_status">
                   <div class="status_icon">
                     <fa class="icon" icon="eye" />
-                    <p class="number">{{ ARTICLE_DATA[1].shareEyes }}</p>
+                    <p class="number">{{ article.shareEyes }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon" icon="message" />
-                    <p class="number">{{ ARTICLE_DATA[1].shareMessage }}</p>
+                    <p class="number">{{ article.shareMessage }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon heart" icon="heart" />
-                    <p class="number">{{ ARTICLE_DATA[1].shareLike }}</p>
+                    <p class="number">{{ article.shareLike }}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="card_small">
+      </div>
+      <div class="card_small_block" v-else>
+        <div
+          class="card_small"
+          v-for="(article, index) in ARTICLE_DATA"
+          v-show="index > 0 && index < 4"
+        >
           <div class="art_img_small">
-            <img :src="ARTICLE_DATA[2].imageUrl" alt="" />
+            <img :src="article.imageUrl" alt="" />
           </div>
           <div class="text_block">
             <div class="user">
-              <img :src="ARTICLE_DATA[2].userImg" alt="" />
+              <img :src="article.userImg" alt="" />
             </div>
             <div class="user_info_block">
-              <p class="article_time">{{ ARTICLE_DATA[2].shareTime }}</p>
+              <p class="article_time">{{ article.shareTime }}</p>
               <div class="article_descirption">
-                <h6>{{ ARTICLE_DATA[2].title }}</h6>
+                <h6>{{ article.title }}</h6>
                 <p>
-                  {{ ARTICLE_DATA[2].description }}
+                  {{ article.description }}
                 </p>
               </div>
               <div class="user_info">
                 <div class="user_status">
                   <div class="status_icon">
                     <fa class="icon" icon="eye" />
-                    <p class="number">{{ ARTICLE_DATA[2].shareEyes }}</p>
+                    <p class="number">{{ article.shareEyes }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon" icon="message" />
-                    <p class="number">{{ ARTICLE_DATA[2].shareMessage }}</p>
+                    <p class="number">{{ article.shareMessage }}</p>
                   </div>
                   <div class="status_icon">
                     <fa class="icon heart" icon="heart" />
-                    <p class="number">{{ ARTICLE_DATA[2].shareLike }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card_small">
-          <div class="art_img_small">
-            <img :src="ARTICLE_DATA[3].imageUrl" alt="" />
-          </div>
-          <div class="text_block">
-            <div class="user">
-              <img :src="ARTICLE_DATA[3].userImg" alt="" />
-            </div>
-            <div class="user_info_block">
-              <p class="article_time">{{ ARTICLE_DATA[3].shareTime }}</p>
-              <div class="article_descirption">
-                <h6>{{ ARTICLE_DATA[3].title }}</h6>
-                <p>
-                  {{ ARTICLE_DATA[3].description }}
-                </p>
-              </div>
-              <div class="user_info">
-                <div class="user_status">
-                  <div class="status_icon">
-                    <fa class="icon" icon="eye" />
-                    <p class="number">{{ ARTICLE_DATA[3].shareEyes }}</p>
-                  </div>
-                  <div class="status_icon">
-                    <fa class="icon" icon="message" />
-                    <p class="number">{{ ARTICLE_DATA[3].shareMessage }}</p>
-                  </div>
-                  <div class="status_icon">
-                    <fa class="icon heart" icon="heart" />
-                    <p class="number">{{ ARTICLE_DATA[3].shareLike }}</p>
+                    <p class="number">{{ article.shareLike }}</p>
                   </div>
                 </div>
               </div>
@@ -150,8 +125,10 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import EllipseButton from "../atom/EllipseButton.vue";
 import ARTICLE_DATA from "../../data/article";
+const screen = ref(document.documentElement.scrollWidth);
 </script>
 
 <style lang="scss">
@@ -308,6 +285,10 @@ import ARTICLE_DATA from "../../data/article";
         }
       }
     }
+  }
+}
+@media (max-width: 530px) {
+  .share-container {
   }
 }
 </style>
