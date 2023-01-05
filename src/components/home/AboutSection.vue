@@ -46,7 +46,7 @@
     </div>
     <div
       v-show="props.title"
-      class="story_block"
+      :class="screen > 530 ? 'story_block' : 'story_block flex-reverse'"
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <div
@@ -78,7 +78,7 @@
     </div>
     <div
       v-show="props.title"
-      class="story_block"
+      :class="screen > 530 ? 'story_block' : 'story_block story_mobile'"
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <img
@@ -111,7 +111,7 @@
     </div>
     <div
       v-show="props.title"
-      class="story_block"
+      :class="screen > 530 ? 'story_block' : 'story_block flex-reverse'"
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <div
@@ -144,7 +144,7 @@
     </div>
     <div
       v-show="props.title"
-      class="story_block"
+      :class="screen > 530 ? 'story_block' : 'story_block story_mobile'"
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <img
@@ -155,7 +155,7 @@
               : { transform: 'translateX(-1200px)', marginRight: '0px' }
             : {}
         "
-        src="https://www.conas-choc.com/upload/catalog_history_list_pic/eaca65b7f4f0573fd7d502e2d7a27cf9.jpg"
+        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/96eeff40858c800f97029a557021de7e.jpg"
         alt=""
       />
       <div
@@ -177,7 +177,7 @@
     </div>
     <div
       v-show="props.title"
-      class="story_block"
+      :class="screen > 530 ? 'story_block' : 'story_block flex-reverse'"
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <div
@@ -210,7 +210,7 @@
     </div>
     <div
       v-show="props.title"
-      class="story_block"
+      :class="screen > 530 ? 'story_block' : 'story_block story_mobile'"
       :style="props.title && { margin: '10px 0 10px' }"
     >
       <img
@@ -280,7 +280,6 @@
             : {}
         "
       >
-        >
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.2477183519404!2d121.22282561495693!3d24.95768518400822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823ea50c732a5%3A0x1b5e6ee66e9fec49!2z57ev6IKyVGliYU1l6ZmE6Kit5Lit5aOi6IG36KiT5Lit5b-D!5e0!3m2!1szh-TW!2stw!4v1608602204354!5m2!1szh-TW!2stw"
           width="400"
@@ -449,8 +448,24 @@ const props = defineProps(["title", "scroll"]);
         margin-left: 0;
       }
     }
+    .flex-reverse {
+      flex-direction: column-reverse;
+      img {
+        margin-left: 0 !important;
+      }
+    }
+    .story_mobile {
+      .title_block {
+        margin-left: 0 !important;
+      }
+    }
     .address_block {
       flex-direction: column;
+
+      .google_map {
+        margin-top: 30px;
+        margin-left: 0 !important;
+      }
     }
     .bottom_block {
       margin: 0;
