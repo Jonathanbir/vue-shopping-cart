@@ -1,11 +1,16 @@
 <template>
   <div class="share-section">
     <h1>分享區</h1>
+    <h2>
+      <fa icon="heart" />
+      熱門文章
+    </h2>
     <div class="article-container">
       <div
         class="article_item"
         v-for="(article, index) in ARTICLE_DATA"
         v-show="index < 3"
+        v-if="screen > 530"
       >
         <div class="article_img">
           <img :src="article.imageUrl" alt="" />
@@ -48,6 +53,7 @@
           </div>
         </div>
       </div>
+      <div class="article_item" v-else></div>
     </div>
     <section class="select-section">
       <div class="show_article_btn">
@@ -150,7 +156,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { scrollToOffset } from "../util/helper";
 import ARTICLE_DATA from "../data/article";
+const screen = ref(document.documentElement.scrollWidth);
 const articleList = ref([]);
 const articleInit = ref([]);
 for (let i = 0; i < ARTICLE_DATA.length; i++) {
@@ -165,6 +173,9 @@ const pageCurrent = ref(0);
 pageTotal.value = ARTICLE_DATA.length / 4;
 
 const clickBtn = (index) => {
+  if (screen.value < 530) {
+    scrollToOffset(0);
+  }
   pageCurrent.value = index;
   shareList.value = articleList.value.splice(index * 4, 4);
   articleList.value = [...ARTICLE_DATA];
@@ -199,6 +210,11 @@ const clickNextBtn = () => {
     font-size: 35px;
     color: #013b4f;
     margin-top: 50px;
+  }
+  h2 {
+    font-size: 25px;
+    color: #013b4f;
+    margin-bottom: 50px;
   }
   .article-container {
     width: 1200px;
@@ -379,7 +395,7 @@ const clickNextBtn = () => {
         align-items: center;
       }
       .show_text {
-        font-size: 1.2rem;
+        font-size: 25px;
         letter-spacing: 1rem;
         font-family: "Roboto", sans-serif;
         font-weight: bold;
@@ -551,6 +567,35 @@ const clickNextBtn = () => {
       border: 1px #013b4f solid;
       margin: 10px;
       cursor: pointer;
+    }
+  }
+}
+@media (max-width: 530px) {
+  .share-section {
+    h1 {
+      margin-top: 80px;
+    }
+    h2 {
+      margin-bottom: 0px;
+    }
+    .article-container {
+      width: 100%;
+    }
+    .article-list {
+      width: 100%;
+      flex-direction: column;
+      height: auto;
+      .card_big {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      .prev-btn {
+        display: none;
+      }
+      .next-btn {
+        display: none;
+      }
     }
   }
 }

@@ -3,11 +3,12 @@
     <h1>推薦商品</h1>
     <div class="recommend-container">
       <swiper
-        :slidesPerView="screen > 530 ? 4 : 1"
-        :spaceBetween="screen > 530 ? 30 : 30"
-        :slidesPerGroup="screen > 530 ? 4 : 1"
-        :pagination="pagination"
+        :slidesPerView="screen > 530 ? 4 : 2"
+        :spaceBetween="screen > 530 ? 30 : 1"
+        :slidesPerGroup="screen > 530 ? 4 : 2"
+        :pagination="screen > 530 ? pagination : false"
         :navigation="true"
+        :loop="screen > 530 ? false : true"
         :modules="modules"
         class="mySwiper"
       >
@@ -152,6 +153,23 @@ const index = ref(Math.floor(Math.random() * 6));
 
           &:hover {
             color: #ccb7a5;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 530px) {
+  .recommend-section {
+    width: 100% !important;
+    .recommend-container {
+      width: 100% !important;
+      .recommend-item {
+        width: 200px;
+        .img-container {
+          width: 100%;
+          .img {
+            width: 100%;
           }
         }
       }

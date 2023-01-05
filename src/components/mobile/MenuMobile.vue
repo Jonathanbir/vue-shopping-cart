@@ -18,10 +18,38 @@
           "
         ></div
       ></RouterLink>
-      <RouterLink @click="scrollToOffset(0)" to="/product">商品區</RouterLink>
-      <RouterLink @click="scrollToOffset(0)" to="/rank">巧克力排名</RouterLink>
-      <RouterLink @click="scrollToOffset(0)" to="/share">分享區</RouterLink>
-      <RouterLink @click="scrollToOffset(0)" to="/about">關於我們</RouterLink>
+      <RouterLink
+        @click="
+          scrollToOffset(0);
+          store.commit('handleChangeMenuMobileActive', false);
+        "
+        to="/product"
+        >商品區</RouterLink
+      >
+      <RouterLink
+        @click="
+          scrollToOffset(0);
+          store.commit('handleChangeMenuMobileActive', false);
+        "
+        to="/rank"
+        >巧克力排名</RouterLink
+      >
+      <RouterLink
+        @click="
+          scrollToOffset(0);
+          store.commit('handleChangeMenuMobileActive', false);
+        "
+        to="/share"
+        >分享區</RouterLink
+      >
+      <RouterLink
+        @click="
+          scrollToOffset(0);
+          store.commit('handleChangeMenuMobileActive', false);
+        "
+        to="/about"
+        >關於我們</RouterLink
+      >
     </div>
   </div>
 </template>
