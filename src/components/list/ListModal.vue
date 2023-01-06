@@ -1,12 +1,17 @@
 <template>
   <Transition name="fadeAndShowBackGround" mode="out-in">
     <div
-      class="list-body"
+      :class="screen > 530 ? 'list-body' : 'list-body list-mobile'"
       :style="scroll && { top: '57px' }"
       @click="store.commit('changeisListOpen', [false, false])"
     >
       <Transition name="fadeAndShow" mode="out-in">
-        <div class="list-message" :style="scroll && { top: '60px' }">
+        <div
+          :class="screen > 530 ? 'list-message' : 'list-message message-mobile'"
+          :style="
+            screen > 530 ? scroll && { top: '60px' } : scroll && { top: '34px' }
+          "
+        >
           <div class="list-box" :style="listHeightStyle">
             <slot></slot>
           </div>
@@ -21,7 +26,7 @@ import { ref, computed, onMounted, Transition } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const scroll = ref(false);
-
+const screen = ref(document.documentElement.scrollWidth);
 const props = defineProps(["data"]);
 
 const listHeightStyle = computed(() => {
@@ -69,6 +74,16 @@ onMounted(() => {
     transition: all 0.5s;
     .list-box {
       overflow: scroll;
+    }
+  }
+}
+@media (max-width: 530px) {
+  .list-mobile {
+    .message-mobile {
+      top: 34px;
+      right: 0;
+      left: 0;
+      margin: auto;
     }
   }
 }

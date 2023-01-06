@@ -1,6 +1,12 @@
 <template>
   <div class="product-container">
-    <div class="sticky-top">
+    <div
+      class="sticky-top"
+      :style="
+        scroll &&
+        screen < 530 && { position: 'fixed', top: '34px', zIndex: '9' }
+      "
+    >
       <ul class="list-group mb-3 category" v-for="(item, index) in productData">
         <li
           @click="
@@ -40,7 +46,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import ProductItemVue from "../components/ProductItem.vue";
 import { scrollToOffset } from "../util/helper";
@@ -48,6 +54,22 @@ import { scrollToOffset } from "../util/helper";
 const store = useStore();
 const productData = computed(() => store.state.productData);
 const categoryIndex = computed(() => store.state.categoryIndex);
+const scroll = ref(false);
+const screen = ref(document.documentElement.scrollWidth);
+
+onMounted(() => {
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.pageYOffset > 25) {
+        scroll.value = true;
+      } else {
+        scroll.value = false;
+      }
+    },
+    true
+  );
+});
 </script>
 
 <style lang="scss" scoped>
@@ -88,6 +110,36 @@ const categoryIndex = computed(() => store.state.categoryIndex);
     width: 1000px;
     margin: 0 auto;
     margin-bottom: 200px;
+  }
+}
+@media (max-width: 530px) {
+  .product-container {
+    width: 100%;
+    flex-direction: column;
+    .sticky-top {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: initial;
+      margin-right: initial;
+      .list-group {
+        width: 33%;
+        .list-group-item {
+          padding: 20px 0px;
+          text-align: center;
+          &:hover {
+            z-index: initial;
+          }
+        }
+      }
+    }
+    .product {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
   }
 }
 </style>
