@@ -53,7 +53,62 @@
           </div>
         </div>
       </div>
-      <div class="article_item" v-else></div>
+      <div class="article-list" v-else>
+        <swiper
+          :slidesPerView="2"
+          :spaceBetween="300"
+          :pagination="pagination"
+          :navigation="true"
+          :loop="false"
+          :modules="modules"
+          class="mySwiper"
+        >
+          <swiper-slide v-for="(article, index) in shareList">
+            <div class="card_big" style="width: 300px">
+              <div class="art_img_big">
+                <div
+                  class="img"
+                  :style="
+                    'background-image:url(' +
+                    article.imageUrl +
+                    ');background-size:cover;background-position:center;background-repeat:no-repeat'
+                  "
+                ></div>
+              </div>
+              <div class="text_block">
+                <div class="user">
+                  <img :src="article.userImg" alt="" />
+                </div>
+                <div class="user_info_block">
+                  <p class="article_time">{{ article.shareTime }}</p>
+                  <div class="article_descirption">
+                    <h6>{{ article.title }}</h6>
+                    <p>
+                      {{ article.description }}
+                    </p>
+                  </div>
+                  <div class="user_info">
+                    <div class="user_status">
+                      <div class="status_icon">
+                        <fa class="icon" icon="eye" />
+                        <p class="number">{{ article.shareEyes }}</p>
+                      </div>
+                      <div class="status_icon">
+                        <fa class="icon" icon="message" />
+                        <p class="number">{{ article.shareMessage }}</p>
+                      </div>
+                      <div class="status_icon">
+                        <fa class="icon heart" icon="heart" />
+                        <p class="number">{{ article.shareLike }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
     </div>
     <section class="select-section">
       <div class="show_article_btn">
@@ -157,6 +212,10 @@
 <script setup>
 import { ref } from "vue";
 import { scrollToOffset } from "../util/helper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation, Pagination, Autoplay } from "swiper";
+import "swiper/swiper-bundle.css";
+import "swiper/css/pagination";
 import ARTICLE_DATA from "../data/article";
 const screen = ref(document.documentElement.scrollWidth);
 const articleList = ref([]);
@@ -205,6 +264,7 @@ const clickNextBtn = () => {
   justify-content: center;
   align-items: center;
   background-color: rgb(229, 227, 221);
+  margin: 0;
 
   h1 {
     font-size: 35px;
@@ -571,6 +631,10 @@ const clickNextBtn = () => {
   }
 }
 @media (max-width: 530px) {
+  .swiper {
+    width: 300px;
+    height: 400px;
+  }
   .share-section {
     h1 {
       margin-top: 80px;
@@ -585,10 +649,14 @@ const clickNextBtn = () => {
       width: 100%;
       flex-direction: column;
       height: auto;
+      margin: 50px auto 0;
       .card_big {
         width: 80%;
         margin: auto;
         margin-bottom: 20px;
+        &:hover {
+          transform: initial !important;
+        }
       }
       .prev-btn {
         display: none;

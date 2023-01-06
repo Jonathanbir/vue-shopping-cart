@@ -162,4 +162,10 @@ onMounted(() => {
   transition: all 0.5s ease-in;
   animation: scale 0.5s ease-in reverse;
 }
+
+@media (max-width: 530px) {
+  .go-to-top {
+    right: 10px;
+  }
+}
 </style>
