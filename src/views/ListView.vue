@@ -221,20 +221,16 @@
           </td>
           <td
             role="columnheader"
-            scope="col"
-            aria-colindex="2"
+            v-show="route.params.listName == 'cart'"
             class="td-01 td-row td-title"
           >
             <div class="td-title-item">單件價格</div>
             <div class="td-title-item">數量</div>
           </td>
-          <td
-            v-show="route.params.listName == 'cart'"
-            aria-colindex="2"
-            role="cell"
-            class="td-01 td-row"
-          >
-            <div class="td-row-item">NT${{ list.price }}</div>
+          <td class="td-01 td-row" v-show="route.params.listName == 'cart'">
+            <div class="td-row-item" v-show="route.params.listName == 'cart'">
+              NT${{ list.price }}
+            </div>
             <div
               v-show="route.params.listName == 'cart'"
               aria-colindex="3"
@@ -264,8 +260,13 @@
               </div>
             </div>
           </td>
-
-          <td aria-colindex="4" role="cell">NT${{ list.price }}</td>
+          <td
+            aria-colindex="4"
+            role="cell"
+            v-show="route.params.listName == 'cart'"
+          >
+            NT${{ list.price }}
+          </td>
           <td aria-colindex="5" role="cell">
             <fa
               class="icon"
