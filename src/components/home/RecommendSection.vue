@@ -4,7 +4,7 @@
     <div class="recommend-container">
       <swiper
         :slidesPerView="screen > 530 ? 4 : 2"
-        :spaceBetween="screen > 530 ? 30 : 1"
+        :spaceBetween="screen > 530 ? 0 : 1"
         :slidesPerGroup="screen > 530 ? 4 : 2"
         :pagination="screen > 530 ? pagination : false"
         :navigation="true"
@@ -80,7 +80,7 @@ const index = ref(Math.floor(Math.random() * 6));
 <style lang="scss">
 .recommend-section {
   .recommend-container {
-    width: 80%;
+    width: 1250px;
 
     .swiper {
       height: 360px;

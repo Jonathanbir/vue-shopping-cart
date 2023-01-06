@@ -155,7 +155,7 @@
               : { transform: 'translateX(-1200px)', marginRight: '0px' }
             : {}
         "
-        src="	https://www.conas-choc.com/upload/catalog_history_list_pic/96eeff40858c800f97029a557021de7e.jpg"
+        src="https://www.conas-choc.com/upload/catalog_history_list_pic/96eeff40858c800f97029a557021de7e.jpg"
         alt=""
       />
       <div
