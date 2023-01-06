@@ -96,4 +96,9 @@
     }
   }
 }
+@media (max-width: 530px) {
+  .modal-content {
+    width: 90%;
+  }
+}
 </style>

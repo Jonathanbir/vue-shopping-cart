@@ -33,7 +33,7 @@ const listHeightStyle = computed(() => {
   if (props.data.length > 5) {
     return "height:450px";
   } else if (props.data.length == 0) {
-    return "height:50px";
+    return "height:150px";
   } else {
     return "height:" + props.data.length * 90 + "px";
   }
@@ -77,6 +77,7 @@ onMounted(() => {
     }
   }
 }
+
 @media (max-width: 530px) {
   .list-mobile {
     .message-mobile {

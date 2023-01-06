@@ -31,7 +31,7 @@
             role="cell"
             class="recommend-item"
             v-for="(list, idx) in DATA[index].items"
-            v-show="idx < 3"
+            v-show="screen > 530 ? idx < 3 : idx < 1"
           >
             <Transition name="fadeAndShow" mode="out-in">
               <div v-show="animation">
@@ -96,6 +96,7 @@ const store = useStore();
 const index = ref(0);
 const animation = computed(() => store.state.animation);
 const favoriteList = computed(() => store.state.favoriteList);
+const screen = ref(document.documentElement.scrollWidth);
 
 const changeRecommend = () => {
   index.value = Math.floor(Math.random() * 6);
@@ -131,8 +132,11 @@ const changeRecommend = () => {
     }
   }
 
-  .table td {
-    width: 300px;
+  .table {
+    margin: 30px auto;
+    td {
+      width: 300px;
+    }
   }
   .recommend-item {
     .img-container {

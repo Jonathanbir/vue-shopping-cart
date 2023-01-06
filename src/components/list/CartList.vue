@@ -47,7 +47,7 @@ const cartList = computed(() => store.state.cartList);
     justify-content: center;
     align-items: center;
     width: 286px;
-    height: 50px;
+    height: 150px;
     padding: 0 10px;
   }
 
@@ -87,6 +87,14 @@ const cartList = computed(() => store.state.cartList);
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 2px 2px 5px rgb(0 0 0 / 40%);
+  }
+}
+@media (max-width: 530px) {
+  .list-message {
+    .list-empty {
+      height: 150px;
+      margin: auto;
+    }
   }
 }
 </style>
