@@ -126,8 +126,13 @@
           </select>
         </div>
       </div>
-      <div class="write_article_btn">
-        <div class="write_img"><fa class="icon" icon="pen" /></div>
+      <div
+        class="write_article_btn"
+        @click="store.commit('changeIsAlertBoxOpen', [false, false, true])"
+      >
+        <div class="write_img">
+          <fa class="icon" icon="pen" />
+        </div>
         <div class="write_text">投稿</div>
       </div>
     </section>
@@ -210,13 +215,14 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
 import { scrollToOffset } from "../util/helper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
 import "swiper/css/pagination";
 import ARTICLE_DATA from "../data/article";
+const store = useStore();
 const screen = ref(document.documentElement.scrollWidth);
 const articleList = ref([]);
 const articleInit = ref([]);

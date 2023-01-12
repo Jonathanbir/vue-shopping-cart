@@ -4,7 +4,7 @@
       <fa
         class="btn-close"
         icon="close"
-        @click="store.commit('changeIsAlertBoxOpen', false)"
+        @click="store.commit('changeIsAlertBoxOpen', [false, false, false])"
       />
     </div>
     <div class="modal-body">
@@ -22,7 +22,7 @@
         type="button"
         class="btn btn-outline-warning"
         data-bs-dismiss="modal"
-        @click="store.commit('changeIsAlertBoxOpen', false)"
+        @click="store.commit('changeIsAlertBoxOpen', [false, false, false])"
       >
         取消</button
       ><button

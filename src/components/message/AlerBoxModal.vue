@@ -1,10 +1,15 @@
 <template>
-  <div class="modal-content">
+  <div
+    class="modal-content"
+    :style="props.auto && { width: '800px', height: '80vh' }"
+  >
     <slot></slot>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const props = defineProps(["auto"]);
+</script>
 
 <style lang="scss" scoped>
 .modal-content {

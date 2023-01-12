@@ -25,11 +25,14 @@
   <Transition name="fadeAndShowAlertBox" mode="out-in">
     <RemoveAllAlertBox v-show="isAlertBoxOpen[1]" />
   </Transition>
+  <Transition name="fadeAndShowAlertBox" mode="out-in">
+    <AddArticleBox v-show="isAlertBoxOpen[2]" />
+  </Transition>
   <Transition name="fadeAndShowBackGround" mode="out-in">
     <div
       class="background"
-      v-show="isAlertBoxOpen[0] || isAlertBoxOpen[1]"
-      @click="store.commit('changeIsAlertBoxOpen', false)"
+      v-show="isAlertBoxOpen[0] || isAlertBoxOpen[1] || isAlertBoxOpen[2]"
+      @click="store.commit('changeIsAlertBoxOpen', [false, false, false])"
     ></div>
   </Transition>
   <FooterView />
@@ -50,6 +53,7 @@ import FavoriteList from "./components/list/FavoriteList.vue";
 import Toastify from "./components/message/Toastify.vue";
 import RemoveItemAlertBox from "./components/message/RemoveItemAlertBox.vue";
 import RemoveAllAlertBox from "./components/message/RemoveAllAlertBox.vue";
+import AddArticleBox from "./components/AddArticleBox.vue";
 import FooterView from "./views/FooterView.vue";
 import MenuMobileVue from "./components/mobile/MenuMobile.vue";
 import { scrollToOffset } from "./util/helper";
@@ -59,7 +63,7 @@ const scroll = ref(false);
 const isListOpen = computed(() => store.state.isListOpen);
 const isToastifyOpen = computed(() => store.state.isToastifyOpen);
 const isAlertBoxOpen = computed(() => store.state.isAlertBoxOpen);
-const mobileActive = computed(() => store.state.mobileActive);
+const isAddArticleBoxOpen = computed(() => store.state.isAddArticleBoxOpen);
 
 onMounted(() => {
   window.addEventListener(

@@ -81,7 +81,7 @@ onMounted(() => {
 @media (max-width: 530px) {
   .list-mobile {
     .message-mobile {
-      top: 53px;
+      top: 48px;
       right: 0;
       left: 0;
       margin: auto;

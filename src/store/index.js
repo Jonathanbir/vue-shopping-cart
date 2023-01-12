@@ -12,7 +12,7 @@ export const store = createStore({
     return {
       mobileActive: false,
       animation: true,
-      isAlertBoxOpen: [false, false],
+      isAlertBoxOpen: [false, false, false],
       isListOpen: [false, false],
       isToastifyOpen: [false, false, false, false],
       productData: DATA,
@@ -20,6 +20,7 @@ export const store = createStore({
       categoryIndex: 0,
       cartList: [],
       favoriteList: [],
+      articleList: ARTICLE_DATA,
       removeItem: [],
       cartTotal: 0,
       priceTotal: 0,
@@ -52,6 +53,9 @@ export const store = createStore({
           state.isToastifyOpen = [false, false, false, false];
         }, 1500);
       }
+    },
+    addArticleItem(state, payload) {
+      state.articleList = [...state.articleList, payload];
     },
     removeCartItem(state, payload) {
       // find the cart item to remove
