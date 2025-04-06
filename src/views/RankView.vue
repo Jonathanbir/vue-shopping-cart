@@ -260,8 +260,31 @@
 
 <script setup>
 import { ref } from "vue";
+import { onMounted } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import EllipseButton from "../components/atom/EllipseButton.vue";
 import DATA from "../data/data";
+
+// 註冊 ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".item",
+      start: "top bottom",
+      end: "bottom center",
+    },
+  });
+
+  tl.fromTo(
+    ".item",
+    { opacity: 0, y: 1000 },
+    { opacity: 1, y: 0, duration: 0.5 }
+  );
+});
+
 const imageSrc = ref([
   DATA[3].items[1].imageUrl,
   DATA[2].items[2].imageUrl,

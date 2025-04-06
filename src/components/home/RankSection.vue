@@ -142,6 +142,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { onMounted } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import EllipseButton from "../atom/EllipseButton.vue";
 import DATA from "../../data/data";
 const screen = ref(document.documentElement.scrollWidth);
@@ -150,6 +153,25 @@ const imageSrc = ref([
   DATA[2].items[2].imageUrl,
   DATA[1].items[2].imageUrl,
 ]);
+
+// 註冊 ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".rank-section",
+      start: "top bottom",
+      end: "bottom center",
+    },
+  });
+
+  tl.fromTo(
+    ".rank-section",
+    { opacity: 0, x: 100 },
+    { opacity: 1, x: 0, duration: 2 }
+  );
+});
 </script>
 
 <style lang="scss" scoped>

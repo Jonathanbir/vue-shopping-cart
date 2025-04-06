@@ -63,6 +63,9 @@ import { ref, computed } from "vue";
 import { useStore } from "vuex";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Autoplay } from "swiper";
+import { onMounted } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import EllipseButton from "../atom/EllipseButton.vue";
 import "swiper/swiper-bundle.css";
 import "swiper/css/pagination";
@@ -75,6 +78,25 @@ const store = useStore();
 const screen = ref(document.documentElement.scrollWidth);
 const favoriteList = computed(() => store.state.favoriteList);
 const index = ref(Math.floor(Math.random() * 6));
+
+// 註冊 ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".recommend-section",
+      start: "top bottom",
+      end: "bottom center",
+    },
+  });
+
+  tl.fromTo(
+    ".recommend-section",
+    { opacity: 0, x: -100 },
+    { opacity: 1, x: 0, duration: 2 }
+  );
+});
 </script>
 
 <style lang="scss">

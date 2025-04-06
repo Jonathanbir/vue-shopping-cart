@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "gsap": "^3.12.7",
     "sass": "^1.57.1",
     "swiper": "^8.4.5",
     "vue": "^3.2.45",

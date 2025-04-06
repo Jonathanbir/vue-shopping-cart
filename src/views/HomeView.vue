@@ -69,6 +69,9 @@ const dropStyle = computed(() => {
   );
 });
 onMounted(() => {
+  window.addEventListener("scroll", function () {
+    console.log("當前滾動高度:", window.scrollY);
+  });
   window.addEventListener(
     "scroll",
     () => {
@@ -83,6 +86,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .home {
   position: relative;
+  overflow: hidden;
   .container {
     position: relative;
     display: flex;

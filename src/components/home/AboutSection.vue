@@ -299,8 +299,25 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import EllipseButton from "../atom/EllipseButton.vue";
 const props = defineProps(["title", "scroll"]);
+// 註冊 ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".end-container",
+      start: "top bottom",
+      end: "bottom center",
+    },
+  });
+
+  tl.fromTo(".end-container", { opacity: 0 }, { opacity: 1, duration: 3 });
+});
 </script>
 
 <style lang="scss" scoped>

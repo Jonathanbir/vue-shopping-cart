@@ -133,9 +133,31 @@
 
 <script setup>
 import { ref } from "vue";
+import { onMounted } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import EllipseButton from "../atom/EllipseButton.vue";
 import ARTICLE_DATA from "../../data/article";
 const screen = ref(document.documentElement.scrollWidth);
+
+// 註冊 ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".share-section",
+      start: "top bottom",
+      end: "bottom center",
+    },
+  });
+
+  tl.fromTo(
+    ".share-section",
+    { opacity: 0, y: 100 },
+    { opacity: 1, y: 0, duration: 2 }
+  );
+});
 </script>
 
 <style lang="scss">
